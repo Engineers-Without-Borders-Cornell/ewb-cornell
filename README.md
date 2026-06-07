@@ -1,8 +1,4 @@
-# Engineers Without Borders — Cornell University
-
-The official website of the **Engineers Without Borders (EWB) Cornell University** chapter — an active chapter of EWB-USA, a 501(c)(3) nonprofit, since 2009.
-
-The site showcases the chapter's five subteams (International, Domestic, Digital Agriculture, Software, and Business), its field projects in Bolivia, Tanzania, Austin, Pine Ridge, and Sub-Saharan Africa, and the sponsorship program that funds the work.
+# EWB Cornell Website Redesign (Unofficial)
 
 🔗 **Repository:** https://github.com/m3dh4n5h/ewb-cornell
 
@@ -108,15 +104,3 @@ There is no build step. Edit the HTML, CSS, or JS files directly and refresh the
 ## Deployment
 
 Any static host works. For **GitHub Pages**: push to `main`, then in the repository go to **Settings → Pages**, set the source to the `main` branch (root), and save. The site will be served from the provided `github.io` URL.
-
----
-
-## Contact
-
-**Engineers Without Borders at Cornell University**
-📧 ewb@cornell.edu
-📍 Cornell University, Ithaca, NY 14853
-
----
-
-© 2026 Engineers Without Borders at Cornell University.
