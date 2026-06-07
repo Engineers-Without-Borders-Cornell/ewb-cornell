@@ -940,6 +940,7 @@ p { text-wrap: pretty; }
   .newsletter-field { flex-direction: column; }
   .team-subnav { flex-direction: column; align-items: flex-start; }
   .apply-form { padding: 28px 22px; }
+  .form-row { grid-template-columns: 1fr; gap: 18px; }
   .page-hero, .project-detail-hero { padding: calc(var(--nav-h) + 36px) 0 44px; }
 }
 

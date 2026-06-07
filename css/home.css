@@ -101,6 +101,7 @@
   linear-gradient(var(--bg-alt), var(--bg-alt)); overflow: hidden; }
 .ops-corner { position: absolute; font-family: var(--mono); font-size: 10px; letter-spacing: .12em; color: var(--dim); padding: 12px 14px; z-index: 3; }
 .ops-corner.tl { top: 0; left: 0; } .ops-corner.tr { top: 0; right: 0; } .ops-corner.bl { bottom: 0; left: 0; } .ops-corner.br { bottom: 0; right: 0; }
+.ops-scroll { width: 100%; }
 .ops-svg { display: block; width: 100%; height: auto; }
 .ops-grid-line { stroke: var(--border); stroke-width: 1; }
 .ops-link { stroke: var(--accent-2); stroke-width: 1.2; stroke-dasharray: 3 4; opacity: .5; }
@@ -261,4 +262,13 @@
   .budget-legend { grid-template-columns: 1fr; }
   .subteam-row { grid-template-columns: 26px 1fr; row-gap: 4px; }
   .subteam-row .sf { grid-column: 2; }
+  /* Bigger, legible map on phones: zoom in (scroll horizontally) + larger text/markers */
+  .ops-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; scrollbar-width: thin; }
+  .ops-svg { width: auto; min-width: 620px; height: auto; }
+  .ops-node-label { font-size: 21px; }
+  .ops-node-sub { font-size: 16px; }
+  .ops-node-dot { r: 6; }
+  .ops-node-ring { r: 9; }
+  .ops-node-hit { r: 34; }
+  .ops-link { stroke-width: 2; }
 }
