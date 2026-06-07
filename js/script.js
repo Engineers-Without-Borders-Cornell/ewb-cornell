@@ -6,7 +6,7 @@
 const html = document.documentElement;
 
 function getTheme() {
-  return localStorage.getItem('ewb-theme') || 'dark';
+  return localStorage.getItem('ewb-theme') || 'light';
 }
 
 function applyTheme(theme) {
@@ -15,7 +15,7 @@ function applyTheme(theme) {
   // Update all toggle buttons
   document.querySelectorAll('.theme-toggle, .mobile-theme-btn').forEach(btn => {
     btn.setAttribute('aria-label', theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode');
-    btn.textContent = theme === 'dark' ? '☀️' : '🌙';
+    btn.innerHTML = theme === 'dark' ? '<i class="ti ti-sun"></i>' : '<i class="ti ti-moon"></i>';
   });
 }
 
@@ -27,18 +27,13 @@ function toggleTheme() {
 applyTheme(getTheme());
 
 // =============================================
-// NAVIGATION — SCROLL BEHAVIOR + PARALLAX
+// NAVIGATION - SCROLL BEHAVIOR + PARALLAX
 // =============================================
 const nav = document.getElementById('mainNav');
-const heroBg = document.getElementById('heroBg');
 
 window.addEventListener('scroll', () => {
-  const y = window.scrollY;
   if (nav) {
-    nav.classList.toggle('scrolled', y > 60);
-  }
-  if (heroBg) {
-    heroBg.style.transform = `translateY(${y * 0.32}px)`;
+    nav.classList.toggle('scrolled', window.scrollY > 24);
   }
 }, { passive: true });
 
@@ -86,6 +81,13 @@ if (hamburger) hamburger.addEventListener('click', () => {
 if (mobileBackdrop) mobileBackdrop.addEventListener('click', closeMenu);
 document.addEventListener('keydown', e => { if (e.key === 'Escape') closeMenu(); });
 if (mobileMenu) mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', closeMenu));
+
+// Mobile theme row: keyboard support (whole row already toggles on click)
+document.querySelectorAll('.mobile-theme-row').forEach(row => {
+  row.addEventListener('keydown', e => {
+    if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); toggleTheme(); }
+  });
+});
 
 // =============================================
 // SCROLL REVEAL (Intersection Observer)

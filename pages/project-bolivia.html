@@ -1,18 +1,19 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="dark">
+<html lang="en" data-theme="light">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Bolivia Water &amp; Sanitation — EWB Cornell</title>
+  <title>Bolivia Water &amp; Sanitation · EWB Cornell</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../css/style.css">
-  <script>(function(){var t=localStorage.getItem('ewb-theme')||'dark';document.documentElement.setAttribute('data-theme',t);})();</script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.6.0/dist/tabler-icons.min.css">
+  <link rel="stylesheet" href="../css/style.css?v=11">
+  <link rel="stylesheet" href="../css/pages.css?v=11">
+  <script>(function(){var t=localStorage.getItem('ewb-theme')||'light';document.documentElement.setAttribute('data-theme',t);document.documentElement.classList.add('js');})();</script>
 </head>
 <body>
 
 <nav class="nav" id="mainNav"><div class="container"><div class="nav-inner">
-  <a href="/" class="nav-logo"><div class="nav-logo-mark">E</div>EWB Cornell</a>
+  <a href="/" class="nav-logo"><img class="nav-logo-img" src="../assets/img/ewb-logo.png" alt="Engineers Without Borders, Cornell Chapter, home"></a>
   <div class="nav-right">
     <ul class="nav-links">
       <li><a href="/pages/about.html">About</a></li>
@@ -22,7 +23,7 @@
       <li><a href="/pages/sponsors.html">Sponsors</a></li>
       <li><a href="/pages/apply.html" class="nav-cta">Apply Now</a></li>
     </ul>
-    <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle theme">☀️</button>
+    <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle theme"></button>
     <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
   </div>
 </div></div></nav>
@@ -30,17 +31,17 @@
 <nav class="mobile-menu" id="mobileMenu">
   <a href="/pages/about.html">About</a><a href="/pages/teams.html">Teams</a>
   <a href="/pages/projects.html">Projects</a><a href="/pages/gallery.html">Gallery</a><a href="/pages/sponsors.html">Sponsors</a>
-  <div class="mobile-theme-row"><span>Theme</span><button class="theme-toggle" onclick="toggleTheme()">☀️</button></div>
+  <div class="mobile-theme-row" onclick="toggleTheme()" role="button" tabindex="0" aria-label="Toggle theme" style="cursor:pointer;"><span>Theme</span><span class="mobile-theme-btn theme-toggle" aria-hidden="true"></span></div>
   <a href="/pages/apply.html" class="mobile-cta">Apply Now →</a>
 </nav>
 
 <!-- HERO -->
 <section class="project-detail-hero">
   <div class="container">
-    <a href="/pages/projects.html" style="color:rgba(255,255,255,0.6);font-size:0.85rem;font-weight:500;display:inline-flex;align-items:center;gap:8px;margin-bottom:24px;">← All Projects</a>
-    <div class="project-status-badge active">🟢 Active Project</div>
+    <a href="/pages/projects.html" class="page-hero-back">← All Projects</a>
+    <div class="project-status-badge active">Active Project</div>
     <h1>Bolivia Water<br><em>&amp; Sanitation</em></h1>
-    <p>Designing and building a sanitary sewer system and reliable water distribution infrastructure for Barrio San Cristobal — providing safe, sustainable water access for ~300 residents who previously depended on rationed rainwater and private water trucks.</p>
+    <p>Designing and building a sanitary sewer system and reliable water distribution infrastructure for Barrio San Cristobal, providing safe, sustainable water access for ~300 residents who previously depended on rationed rainwater and private water trucks.</p>
     <div class="project-quick-stats">
       <div class="project-quick-stat"><strong>~300</strong><span>Residents Served</span></div>
       <div class="project-quick-stat"><strong>2019</strong><span>Project Start</span></div>
@@ -58,17 +59,15 @@
       <!-- MAIN CONTENT -->
       <div class="project-main">
 
-        <!-- Photo placeholder -->
-        <div class="project-img-placeholder" style="height:280px;">
-          <div class="gallery-placeholder-icon">🏔️</div>
-          <span>Project photos from Bolivia coming soon</span>
-          <span style="font-size:0.75rem;opacity:0.6;">Barrio San Cristobal, Bolivia</span>
-        </div>
+        <figure>
+          <img class="pd-media" src="../assets/img/sancristobal-street.jpg" alt="A street in Barrio San Cristóbal, Bolivia" loading="lazy">
+          <figcaption class="dmeta" style="margin-bottom:24px;">FIG.01 / Barrio San Cristóbal, Tarija, Bolivia</figcaption>
+        </figure>
 
         <h2>Project Overview</h2>
-        <p>Barrio San Cristobal is a rural community of approximately 300 residents in the Bolivian highlands. For years, families have struggled with access to reliable drinking water and sanitation services, particularly during the dry season when supplies run critically short. The community historically depended on an aging deep well, expensive private water trucks, and rainwater collection — all of which force families to strictly ration water during dry periods.</p>
+        <p>Barrio San Cristobal is a rural community of approximately 300 residents in the Bolivian highlands. For years, families have struggled with access to reliable drinking water and sanitation services, particularly during the dry season when supplies run critically short. The community historically depended on an aging deep well, expensive private water trucks, and rainwater collection, all of which force families to strictly ration water during dry periods.</p>
 
-        <p>EWB Cornell's International Team, in partnership with <strong>EWB-USA</strong> and <strong>FIEA Bolivia</strong>, is designing and implementing a comprehensive water and sanitation infrastructure system that will provide safe, consistent water access year-round.</p>
+        <p>EWB Cornell's International Subteam, in partnership with <strong>EWB-USA</strong> and <strong>FIEA Bolivia</strong>, is designing and implementing a comprehensive water and sanitation infrastructure system that will provide safe, consistent water access year-round.</p>
 
         <h3>The Challenge</h3>
         <ul>
@@ -87,10 +86,10 @@
         <h3>Community Partnership</h3>
         <p>In Spring 2025, our team conducted a site assessment trip where we completed over 70 household consultations, surveying water usage, sanitation conditions, and community priorities. This data directly informs our engineering design and ensures the solution is community-driven rather than imposed.</p>
 
-        <div class="project-img-placeholder" style="height:220px;">
-          <div class="gallery-placeholder-icon">🤝</div>
-          <span>Site assessment with community — Spring 2025</span>
-        </div>
+        <figure>
+          <img class="pd-media" src="../assets/img/bolivia-community.jpg" alt="Community assembly during the Spring 2025 site assessment" loading="lazy">
+          <figcaption class="dmeta">FIG.02 / Site assessment with the community, Spring 2025</figcaption>
+        </figure>
 
         <h3>Engineering Approach</h3>
         <ul>
@@ -121,7 +120,7 @@
           <div class="timeline-step">
             <div class="timeline-step-dot step-done"></div>
             <div class="timeline-step-content">
-              <div class="timeline-step-date">2019–2024</div>
+              <div class="timeline-step-date">2019-2024</div>
               <h4>Research &amp; Assessment</h4>
               <p>Community outreach, water needs assessment, and initial engineering studies.</p>
             </div>
@@ -137,7 +136,7 @@
           <div class="timeline-step">
             <div class="timeline-step-dot step-active"></div>
             <div class="timeline-step-content">
-              <div class="timeline-step-date">2025–2026</div>
+              <div class="timeline-step-date">2025-2026</div>
               <h4>Design &amp; Engineering</h4>
               <p>Full engineering design, permitting, and construction planning underway.</p>
             </div>
@@ -163,11 +162,11 @@
         <div class="project-sidebar-card">
           <h4>Technologies Used</h4>
           <div style="display:flex;flex-wrap:wrap;gap:8px;margin-top:4px;">
-            <span style="background:var(--bg);border:1px solid var(--border);padding:4px 11px;border-radius:50px;font-size:0.76rem;color:var(--text-muted);">💧 Water Systems</span>
-            <span style="background:var(--bg);border:1px solid var(--border);padding:4px 11px;border-radius:50px;font-size:0.76rem;color:var(--text-muted);">🏗️ Civil Engineering</span>
-            <span style="background:var(--bg);border:1px solid var(--border);padding:4px 11px;border-radius:50px;font-size:0.76rem;color:var(--text-muted);">🔬 Sanitation</span>
-            <span style="background:var(--bg);border:1px solid var(--border);padding:4px 11px;border-radius:50px;font-size:0.76rem;color:var(--text-muted);">📐 CAD Design</span>
-            <span style="background:var(--bg);border:1px solid var(--border);padding:4px 11px;border-radius:50px;font-size:0.76rem;color:var(--text-muted);">🌍 Community Dev</span>
+            <span style="background:var(--bg);border:1px solid var(--border);padding:4px 11px;border-radius:50px;font-size:0.76rem;color:var(--text-muted);">Water Systems</span>
+            <span style="background:var(--bg);border:1px solid var(--border);padding:4px 11px;border-radius:50px;font-size:0.76rem;color:var(--text-muted);">Civil Engineering</span>
+            <span style="background:var(--bg);border:1px solid var(--border);padding:4px 11px;border-radius:50px;font-size:0.76rem;color:var(--text-muted);">Sanitation</span>
+            <span style="background:var(--bg);border:1px solid var(--border);padding:4px 11px;border-radius:50px;font-size:0.76rem;color:var(--text-muted);">CAD Design</span>
+            <span style="background:var(--bg);border:1px solid var(--border);padding:4px 11px;border-radius:50px;font-size:0.76rem;color:var(--text-muted);">Community Dev</span>
           </div>
         </div>
       </div>
@@ -182,7 +181,7 @@
     <div class="fade-up">
       <span class="section-label">Get Involved</span>
       <h2 class="section-title">Support This Project</h2>
-      <p class="section-subtitle">Join the International Team or help fund this critical infrastructure work in Bolivia.</p>
+      <p class="section-subtitle">Join the International Subteam or help fund this critical infrastructure work in Bolivia.</p>
       <div class="cta-buttons" style="margin-top:32px;">
         <a href="/pages/apply.html" class="btn btn-primary">Join the Team →</a>
         <a href="/pages/sponsors.html" class="btn btn-ghost">Donate</a>
@@ -195,7 +194,7 @@
 
 <footer class="footer"><div class="container">
   <div class="footer-grid">
-    <div class="footer-brand"><a href="/" class="footer-logo"><div class="nav-logo-mark">E</div>EWB Cornell</a><p>Engineers Without Borders at Cornell University.</p>
+    <div class="footer-brand"><a href="/" class="footer-logo"><img class="footer-logo-img" src="../assets/img/ewb-logo.png" alt="Engineers Without Borders, Cornell Chapter"></a><p>Engineers Without Borders at Cornell University.</p>
         <div class="social-links" style="margin-top:16px;">
           <a href="https://www.instagram.com/ewbcornell/" class="social-link" target="_blank" rel="noopener" aria-label="Instagram @ewbcornell">
             <svg width="14" height="14" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
@@ -218,13 +217,14 @@
       <li><a href="/pages/apply.html">Apply</a></li>
     </ul></div>
     <div class="footer-col"><h4>Contact</h4>
-      <div class="footer-contact-item"><span>📧</span><a href="mailto:ewb@cornell.edu">ewb@cornell.edu</a></div>
-      <div class="footer-contact-item"><span>📍</span><span>Cornell University, Ithaca NY</span></div>
+      <div class="footer-contact-item"><i class="ti ti-mail footer-icon" aria-hidden="true"></i><a href="mailto:ewb@cornell.edu">ewb@cornell.edu</a></div>
+      <div class="footer-contact-item"><i class="ti ti-map-pin footer-icon" aria-hidden="true"></i><span>Cornell University, Ithaca NY</span></div>
     </div>
   </div>
   <div class="footer-bottom"><span>© 2025 EWB Cornell.</span></div>
 </div></footer>
 
 <script src="../js/script.js"></script>
+<script src="../js/pages.js?v=11"></script>
 </body>
 </html>
