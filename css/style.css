@@ -363,9 +363,8 @@ p { text-wrap: pretty; }
 }
 .mobile-menu .mobile-cta:hover { padding-left: 24px; background: var(--accent-hover); }
 .mobile-theme-row {
-  display: flex; align-items: center; justify-content: space-between;
+  display: flex; align-items: center; justify-content: flex-start;
   padding: 14px 0; border-bottom: 1px solid var(--border);
-  font-size: var(--fs-sm); font-weight: 500; color: var(--muted);
 }
 .mobile-backdrop {
   position: fixed; inset: 0; background: oklch(20% 0.02 258 / 0.4);

@@ -216,9 +216,13 @@
 .page-hero-stats.lg .page-hero-stat-label,
 .page-hero-stats.lg .page-hero-stat span { font-size: var(--fs-sm); color: var(--muted); margin-top: 8px; }
 
-/* Centered, ordered end buttons (left-arrow left, right-arrow right) */
-.team-subnav { justify-content: center !important; gap: 12px; flex-wrap: wrap; max-width: var(--maxw); margin: 48px auto 0; padding: 32px 24px 0; }
-@media (max-width: 560px) { .team-subnav { flex-direction: column; align-items: stretch; } .team-subnav .btn { width: 100%; justify-content: center; } }
+/* End buttons: no divider, centered vertically + horizontally in the section */
+.team-subnav { display: flex; flex-direction: row; justify-content: center !important; align-items: center; gap: 14px; flex-wrap: wrap; max-width: var(--maxw); margin: 0 auto; padding: 56px 24px; border-top: none !important; min-height: 34vh; }
+@media (max-width: 560px) { .team-subnav { flex-direction: column; align-items: center; min-height: 0; padding: 48px 24px; } .team-subnav .btn { width: 100%; max-width: 340px; justify-content: center; } }
+
+/* Project detail CTA buttons: centered as a group */
+.cta-band .cta-buttons { justify-content: center; }
+@media (max-width: 560px) { .cta-band .cta-buttons { flex-direction: column; align-items: center; } .cta-band .cta-buttons .btn { width: 100%; max-width: 340px; justify-content: center; } }
 /* Teams hub: responsive full-width feature card */
 .pgrid .pcard.feature { grid-column: 1 / -1; }
 .feature-body { display: grid; grid-template-columns: auto 1fr auto; gap: 22px; align-items: center; }
@@ -228,9 +232,10 @@
 .ka-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
 @media (max-width: 640px) { .ka-grid { grid-template-columns: 1fr; } }
 
-/* Whole mobile theme row is the toggle */
-.mobile-theme-row { cursor: pointer; }
-.mobile-theme-row:hover { color: var(--ink); }
+/* Whole mobile theme row is the toggle (icon only, no label) */
+.mobile-theme-row { cursor: pointer; justify-content: flex-start !important; }
+.mobile-theme-row .mobile-theme-btn { margin-left: 0; }
+.mobile-theme-row:hover .mobile-theme-btn { border-color: var(--border-strong); color: var(--ink); }
 
 /* About page: clean multi-column majors list */
 .majors-list { columns: 3; column-gap: 40px; max-width: 880px; }
