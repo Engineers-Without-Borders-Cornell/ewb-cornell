@@ -4,12 +4,12 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Apply · EWB Cornell</title>
-  <meta name="description" content="Join Engineers Without Borders at Cornell. Engineers and non-engineers from all 16 fields of study are welcome. Applications open each semester.">
+  <meta name="description" content="Fall 2026 recruitment for Engineers Without Borders at Cornell. Both the EWB and Cornell general project team applications are required: upperclassmen apply by Sept 3, 2026, first-year and transfer students by Oct 15, 2026.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.6.0/dist/tabler-icons.min.css">
-  <link rel="stylesheet" href="../css/style.css?v=14">
-  <link rel="stylesheet" href="../css/pages.css?v=14">
+  <link rel="stylesheet" href="../css/style.css?v=23">
+  <link rel="stylesheet" href="../css/pages.css?v=23">
   <script>(function(){var t=localStorage.getItem('ewb-theme')||'light';document.documentElement.setAttribute('data-theme',t);document.documentElement.classList.add('js');})();</script>
 </head>
 <body>
@@ -19,8 +19,9 @@
   <div class="nav-right">
     <ul class="nav-links">
       <li><a href="/pages/about.html">About</a></li>
-      <li><a href="/pages/teams.html">Teams</a></li>
+      <li><a href="/pages/members.html">Members</a></li>
       <li><a href="/pages/projects.html">Projects</a></li>
+      <li><a href="/pages/teams.html">Teams</a></li>
       <li><a href="/pages/gallery.html">Gallery</a></li>
       <li><a href="/pages/sponsors.html">Sponsors</a></li>
       <li><a href="/pages/apply.html" class="nav-cta active">Apply Now</a></li>
@@ -31,106 +32,200 @@
 </div></div></nav>
 <div class="mobile-backdrop" id="mobileBackdrop"></div>
 <nav class="mobile-menu" id="mobileMenu">
-  <a href="/pages/about.html">About</a><a href="/pages/teams.html">Teams</a>
-  <a href="/pages/projects.html">Projects</a><a href="/pages/gallery.html">Gallery</a><a href="/pages/sponsors.html">Sponsors</a>
+  <a href="/pages/about.html">About</a><a href="/pages/members.html">Members</a><a href="/pages/projects.html">Projects</a><a href="/pages/teams.html">Teams</a>
+  <a href="/pages/gallery.html">Gallery</a><a href="/pages/sponsors.html">Sponsors</a>
   <a href="/pages/apply.html" class="mobile-cta">Apply Now</a>
 </nav>
 
 <header class="page-hero">
   <div class="container">
     <a href="/" class="page-hero-back">&#8592; Home</a>
-    <span class="page-hero-tag">Join the Chapter</span>
-    <h1>Do engineering <em>that matters.</em></h1>
-    <p class="page-hero-sub">Engineers and non-engineers from all 16 fields of study are welcome. No minimum GPA, just a commitment to service. Applications open each semester.</p>
+    <span class="page-hero-tag">Fall 2026 &#183; Recruitment</span>
+    <h1>Applications are <em>open.</em></h1>
+    <p class="page-hero-sub">Engineers and non-engineers from all 16 fields of study are welcome, and there is no minimum GPA. To be eligible you must submit <strong>both</strong> the EWB team-specific application and the Cornell general project team application. Upperclassmen apply by Sept 3; first-year and transfer students apply by Oct 15.</p>
+    <p style="margin-top:22px;"><span class="rstatus"><span class="dot"></span>Accepting applications</span></p>
   </div>
 </header>
 
 <main>
 
-<!-- PROCESS -->
-<section class="section">
-  <div class="container">
-    <div class="xhead rv" style="margin-bottom:36px;">
-      <div>
-        <p class="xindex">01 / How It Works</p>
-        <h2>Four steps to joining.</h2>
-      </div>
-    </div>
-    <div class="steps rv">
-      <div class="step"><div class="sn">STEP 01</div><h3>Come to an info session</h3><p>Drop by an info session to meet members and hear about the current projects. No commitment.</p></div>
-      <div class="step"><div class="sn">STEP 02</div><h3>Submit the form</h3><p>Tell us your interests and which subteams appeal to you. The application is short.</p></div>
-      <div class="step"><div class="sn">STEP 03</div><h3>Casual conversation</h3><p>Selected applicants are invited for a brief, informal chat, not a stressful interview.</p></div>
-      <div class="step"><div class="sn">STEP 04</div><h3>Join a subteam</h3><p>Get matched to a team and start contributing to a real project right away.</p></div>
-    </div>
-  </div>
-</section>
-
-<!-- SUBTEAM PICKER + FORM -->
-<section class="section section-alt">
-  <div class="container">
-    <div class="xhead rv" style="margin-bottom:36px;">
-      <div>
-        <p class="xindex">02 / Interest Form</p>
-        <h2>Tell us where you want to build.</h2>
-      </div>
-      <p>This sends an interest signal. We will follow up by email with the official application when applications open.</p>
-    </div>
-
-    <form class="apply-form rv" data-feedback="✓ Thanks, we'll be in touch" aria-label="Application interest form">
-      <div class="form-row">
-        <div class="form-group"><label for="aName">Full name</label><input class="form-input" id="aName" type="text" placeholder="Your name" required></div>
-        <div class="form-group"><label for="aEmail">Cornell email</label><input class="form-input" id="aEmail" type="email" placeholder="netid@cornell.edu" required></div>
-      </div>
-      <div class="form-row">
-        <div class="form-group"><label for="aYear">Class year</label>
-          <select class="form-select" id="aYear" required><option value="" disabled selected>Select</option><option>2026</option><option>2027</option><option>2028</option><option>2029</option><option>Grad student</option></select>
-        </div>
-        <div class="form-group"><label for="aMajor">Major / field of study</label><input class="form-input" id="aMajor" type="text" placeholder="e.g. Civil Engineering" required></div>
-      </div>
-      <div class="form-group"><label for="aTeam">Subteam of interest</label>
-        <select class="form-select" id="aTeam" required>
-          <option value="" disabled selected>Select a subteam</option>
-          <option>International (Bolivia, Tanzania)</option>
-          <option>Domestic (Austin, Pine Ridge)</option>
-          <option>Digital Agriculture</option>
-          <option>Software</option>
-          <option>Business</option>
-          <option>Not sure yet</option>
-        </select>
-      </div>
-      <div class="form-group"><label for="aWhy">Why EWB? (a sentence or two)</label><textarea class="form-textarea" id="aWhy" placeholder="What draws you to community-driven engineering?"></textarea></div>
-      <button type="submit" class="btn btn-primary">Submit interest</button>
-      <p class="form-note">Prefer email? Reach us at <a href="mailto:ewb@cornell.edu" style="color:var(--accent-ink);font-weight:600;">ewb@cornell.edu</a>.</p>
-    </form>
-  </div>
-</section>
-
-<!-- FAQ -->
+<!-- APPLICATIONS -->
 <section class="section">
   <div class="container">
     <div class="xhead rv" style="margin-bottom:30px;">
       <div>
-        <p class="xindex">03 / Questions</p>
-        <h2>Common questions.</h2>
+        <p class="xindex">01 / Apply</p>
+        <h2>Two applications, both required.</h2>
+      </div>
+      <p>Submitting only one will not make you eligible. Each takes a few minutes, and you can complete them in either order.</p>
+    </div>
+
+    <div class="appgrid rv">
+      <div class="appcard req">
+        <div class="step-k">Required &#183; 1 of 2</div>
+        <h3>EWB team-specific application</h3>
+        <p>Tell us about yourself, your interests, and which subteams you want to build on. This is the application our team reads when selecting candidates for interviews.</p>
+        <a class="btn btn-primary" href="https://docs.google.com/forms/d/e/1FAIpQLSek_OsXXeL9o3J86i_mXzX2p5Fy5TBpuBJqc0IYkrWtMIZjcg/viewform?usp=dialog" target="_blank" rel="noopener">Open the EWB application</a>
+        <div class="host">GOOGLE FORMS &#183; OPENS IN A NEW TAB</div>
+      </div>
+
+      <div class="appcard req">
+        <div class="step-k">Required &#183; 2 of 2</div>
+        <h3>Cornell general project team application</h3>
+        <p>Every Cornell Project Team applicant fills this out. It collects basic identifying and demographic information for the College of Engineering and is separate from our own form.</p>
+        <a class="btn btn-primary" href="https://app.smartsheet.com/b/form/019ed1ab68477bf8a753f7b1849fd1ab" target="_blank" rel="noopener">Open the general application</a>
+        <div class="host">SMARTSHEET &#183; OPENS IN A NEW TAB</div>
       </div>
     </div>
-    <div class="acc rv">
-      <div class="acc-item"><button class="acc-q" aria-expanded="false">Do I need to be an engineering major?<span class="ico" aria-hidden="true"></span></button><div class="acc-a"><div class="acc-a-inner">No. Our 52 members come from 16 fields of study, including business, ILR, policy, urban studies, and the sciences. Project work needs designers, communicators, fundraisers, and writers as much as engineers.</div></div></div>
-      <div class="acc-item"><button class="acc-q" aria-expanded="false">What is the time commitment?<span class="ico" aria-hidden="true"></span></button><div class="acc-a"><div class="acc-a-inner">Expect roughly 3 to 6 hours per week for team meetings, project work, and events. Some teams ramp up around build trips and deadlines.</div></div></div>
-      <div class="acc-item"><button class="acc-q" aria-expanded="false">Is there a GPA requirement?<span class="ico" aria-hidden="true"></span></button><div class="acc-a"><div class="acc-a-inner">There is no minimum GPA. We care about your interest in humanitarian work and your willingness to learn and contribute.</div></div></div>
-      <div class="acc-item"><button class="acc-q" aria-expanded="false">When do applications open?<span class="ico" aria-hidden="true"></span></button><div class="acc-a"><div class="acc-a-inner">We recruit each semester. Submit the interest form above and we will email you the official application and info-session details.</div></div></div>
-      <div class="acc-item"><button class="acc-q" aria-expanded="false">When will I hear back?<span class="ico" aria-hidden="true"></span></button><div class="acc-a"><div class="acc-a-inner">Typically within one to two weeks of applying. Selected applicants are invited for a brief, informal conversation.</div></div></div>
+
+    <div class="deadline-bar rv">
+      <div>
+        <div class="lbl">Upperclassmen &#183; due</div>
+        <div class="val">Sept 3, 2026 &#183; 11:59 PM</div>
+      </div>
+      <div>
+        <div class="lbl">First-year + transfer &#183; due</div>
+        <div class="val">Oct 15, 2026 &#183; 11:59 PM</div>
+      </div>
+      <p class="note">Late submissions are not reviewed. If either form is missing at your deadline, the application is incomplete.</p>
     </div>
   </div>
 </section>
 
+<!-- TIMELINE -->
+<section class="section section-alt">
+  <div class="container">
+    <div class="xhead rv" style="margin-bottom:30px;">
+      <div>
+        <p class="xindex">02 / Timeline</p>
+        <h2>Deadlines depend on your class year.</h2>
+      </div>
+      <p>Upperclassmen apply in September. First-year and transfer students follow the College of Engineering&#8217;s later schedule, which runs through November.</p>
+    </div>
+
+    <!-- TRACK: UPPERCLASSMEN -->
+    <div class="rtl-track rv">
+      <div class="rtl-head">
+        <h3>Upperclassmen</h3>
+        <span class="rtl-tag">Applications due Sept 3</span>
+      </div>
+      <p class="rtl-note">For sophomores and above. Both the EWB team-specific application and the Cornell general project team application must be in by the deadline.</p>
+      <div class="rtl">
+        <div class="rtl-row">
+          <div class="when">Aug 20-30</div>
+          <div class="what">Coffee chats<small>Meet current members one on one and ask anything about the projects, the workload, or the application itself.</small></div>
+          <div class="flag">Optional</div>
+        </div>
+        <div class="rtl-row">
+          <div class="when">Tue, Sep 1</div>
+          <div class="what">Project Teams Fest<small>Duffield Atrium, 4 to 6 p.m. Find our table, see the Bolivia, Austin, Digital Agriculture, and Software work in person, and talk to the subteam leads.</small></div>
+          <div class="flag">Optional</div>
+        </div>
+        <div class="rtl-row key">
+          <div class="when">Thu, Sep 3</div>
+          <div class="what">Applications due<small>Both the EWB application and the Cornell general project team application close at 11:59 p.m.</small></div>
+          <div class="flag">Deadline</div>
+        </div>
+        <div class="rtl-row key">
+          <div class="when">Sep 5-13</div>
+          <div class="what">Interview rounds<small>Selected applicants are invited to a short, informal conversation with members of the subteam they applied to.</small></div>
+          <div class="flag">By invitation</div>
+        </div>
+        <div class="rtl-row key">
+          <div class="when">Wed, Sep 16</div>
+          <div class="what">Offer date<small>Decisions go out by email. Accepted members join a subteam and start on a live project right away.</small></div>
+          <div class="flag">Decisions</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- TRACK: FIRST-YEAR + TRANSFER -->
+    <div class="rtl-track rv">
+      <div class="rtl-head">
+        <h3>First-Year + Transfer Students</h3>
+        <span class="rtl-tag">Applications due Oct 15</span>
+      </div>
+      <p class="rtl-note">Set by the College of Engineering and shared across every Cornell project team. These dates apply to all incoming first-year and transfer students.</p>
+      <div class="rtl">
+        <div class="rtl-row">
+          <div class="when">Mon, Aug 17</div>
+          <div class="what">Recruiting begins<small>The general application and team applications open when recruiting begins. Teams will not review applications before the due date, and students do not get an advantage by submitting early.</small></div>
+          <div class="flag">Opens</div>
+        </div>
+        <div class="rtl-row">
+          <div class="when">Tue, Sep 1</div>
+          <div class="what">Project Teams Fest<small>Duffield Atrium, 4 to 6 p.m. Note the revised date.</small></div>
+          <div class="flag">Optional</div>
+        </div>
+        <div class="rtl-row key">
+          <div class="when">Thu, Oct 15</div>
+          <div class="what">First-year + transfer applications due<small>Due at 11:59 p.m. Refer to the individual websites for active project teams for application information. Project teams may begin reviewing first-year and transfer applications after this date, and the general application closes to new first-year and transfer students.</small></div>
+          <div class="flag">Deadline</div>
+        </div>
+        <div class="rtl-row key">
+          <div class="when">Mon, Nov 2</div>
+          <div class="what">Uniform first offer date<small>The earliest that project teams can invite new first-year and transfer students to join. Applicants must be allowed at least 48 hours to respond.</small></div>
+          <div class="flag">Decisions</div>
+        </div>
+        <div class="rtl-row key">
+          <div class="when">Wed, Nov 4</div>
+          <div class="what">Project team onboarding<small>Onboarding may begin after this date. First-year and transfer students will not enroll for credit in fall 2026. They may take part in team activities including mentoring, shadowing, onboarding, and training, for no more than 10 hours per week total. All new project teams students must enroll in ENGRG 1400: Project Teams Onboarding (1 cr, S/U) during the first 7-week session of the spring semester. Consult your team leads for guidance.</small></div>
+          <div class="flag">Onboarding</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COFFEE CHATS -->
+<section class="section">
+  <div class="container">
+    <div class="about-split">
+      <div class="rv">
+        <p class="xindex">03 / Coffee Chats</p>
+        <h2 style="font-size:clamp(1.7rem,3.4vw,2.5rem);font-weight:600;letter-spacing:-0.025em;line-height:1.12;color:var(--ink);">Talk to a member before you apply.</h2>
+      </div>
+      <div class="rv rv-d1" style="color:var(--muted);line-height:1.75;">
+        <p style="margin-bottom:14px;">Coffee chats are informal and are not part of the evaluation. Ask about the Bolivia build, the drone stack, the apps, or what a normal week looks like.</p>
+        <p style="margin-bottom:22px;">The shared spreadsheet lists every member available this semester, along with their subteam and availability.</p>
+        <a class="btn btn-primary" href="https://docs.google.com/spreadsheets/d/1Gy__F6UHNIbxfworLBriv6KE8MQvkXX-1fSphUxZACk/edit?usp=sharing" target="_blank" rel="noopener">See who is available</a>
+        <p class="form-note" style="margin-top:12px;">Or browse the <a href="/pages/members.html" style="color:var(--accent-ink);font-weight:600;">member directory</a> to see who works on what.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="section section-alt">
+  <div class="container">
+    <div class="xhead rv" style="margin-bottom:30px;">
+      <div>
+        <p class="xindex">04 / Questions</p>
+        <h2>Common questions.</h2>
+      </div>
+    </div>
+    <div class="acc rv">
+      <div class="acc-item"><button class="acc-q" aria-expanded="false">Do I really have to submit both applications?<span class="ico" aria-hidden="true"></span></button><div class="acc-a"><div class="acc-a-inner">Yes. The EWB team-specific application is what our subteam leads read. The Cornell general project team application is required of every project team applicant across the College of Engineering. If either one is missing on September 3, the application is incomplete and will not be reviewed.</div></div></div>
+      <div class="acc-item"><button class="acc-q" aria-expanded="false">Do I need to be an engineering major?<span class="ico" aria-hidden="true"></span></button><div class="acc-a"><div class="acc-a-inner">No. Our 52 members come from 16 fields of study, including business, ILR, policy, urban studies, and the sciences. Project work needs designers, communicators, fundraisers, and writers as much as engineers.</div></div></div>
+      <div class="acc-item"><button class="acc-q" aria-expanded="false">What is a coffee chat, and does it affect my application?<span class="ico" aria-hidden="true"></span></button><div class="acc-a"><div class="acc-a-inner">It is a casual conversation with a current member, and it is not scored or reported. Coffee chats exist so you can ask honest questions before committing. Book one through the spreadsheet linked above between August 20 and August 30.</div></div></div>
+      <div class="acc-item"><button class="acc-q" aria-expanded="false">What is the time commitment?<span class="ico" aria-hidden="true"></span></button><div class="acc-a"><div class="acc-a-inner">Expect roughly 3 to 6 hours per week for team meetings, project work, and events. Some teams ramp up around build trips and deadlines.</div></div></div>
+      <div class="acc-item"><button class="acc-q" aria-expanded="false">Is there a GPA requirement?<span class="ico" aria-hidden="true"></span></button><div class="acc-a"><div class="acc-a-inner">There is no minimum GPA. We care about your interest in humanitarian work and your willingness to learn and contribute.</div></div></div>
+      <div class="acc-item"><button class="acc-q" aria-expanded="false">I am a first-year or transfer student. Is my timeline different?<span class="ico" aria-hidden="true"></span></button><div class="acc-a"><div class="acc-a-inner">Yes. The College of Engineering sets a separate, later schedule for all project teams: applications are due October 15 at 11:59 p.m., the uniform first offer date is November 2, and onboarding may begin November 4. First-year and transfer students do not enroll for credit in fall 2026 and are limited to 10 hours per week of team activity; all new project teams students enroll in ENGRG 1400 during the first 7-week session of the spring semester.</div></div></div>
+      <div class="acc-item"><button class="acc-q" aria-expanded="false">What happens after I apply?<span class="ico" aria-hidden="true"></span></button><div class="acc-a"><div class="acc-a-inner">Upperclassmen are invited to interview between September 5 and September 13, with decisions on September 16. For first-year and transfer students, teams begin reviewing after October 15 and the earliest any team may extend an invitation is November 2; you are given at least 48 hours to respond. Interviews are short and informal either way.</div></div></div>
+      <div class="acc-item"><button class="acc-q" aria-expanded="false">Which subteam should I pick?<span class="ico" aria-hidden="true"></span></button><div class="acc-a"><div class="acc-a-inner">Read the five <a href="/pages/teams.html" style="color:var(--accent-ink);font-weight:600;">subteam pages</a> first: International, Domestic, Digital Agriculture, Software, and Business. If you are torn, say so in the application and talk it through at a coffee chat.</div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- LEARN MORE -->
 <section class="cta-band">
   <div class="container">
-    <h2>Have a question first?</h2>
-    <p>Reach the team directly. We are happy to tell you more about any project or subteam.</p>
+    <h2>Want to learn more first?</h2>
+    <p>See how Cornell project teams work, and what Engineers Without Borders does worldwide.</p>
     <div class="cta-buttons" style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;">
-      <a href="mailto:ewb@cornell.edu" class="btn btn-primary">Email the chapter</a>
-      <a href="/pages/teams.html" class="btn btn-outline">Explore the teams</a>
+      <a href="https://www.engineering.cornell.edu/student-project-teams/join-a-project-team/" class="btn btn-primary" target="_blank" rel="noopener">Cornell Project Teams</a>
+      <a href="https://ewb-usa.org/" class="btn btn-outline" target="_blank" rel="noopener">EWB-USA</a>
+      <a href="mailto:ewb@cornell.edu" class="btn btn-ghost">Email the chapter</a>
     </div>
   </div>
 </section>
@@ -147,8 +242,9 @@
         <h4>Navigate</h4>
         <ul>
           <li><a href="/pages/about.html">About</a></li>
-          <li><a href="/pages/teams.html">Teams</a></li>
+          <li><a href="/pages/members.html">Members</a></li>
           <li><a href="/pages/projects.html">Projects</a></li>
+          <li><a href="/pages/teams.html">Teams</a></li>
           <li><a href="/pages/sponsors.html">Sponsors</a></li>
           <li><a href="/pages/gallery.html">Gallery</a></li>
         </ul>
@@ -173,7 +269,7 @@
   </div>
 </footer>
 
-<script src="../js/script.js?v=14"></script>
-<script src="../js/pages.js?v=14"></script>
+<script src="../js/script.js?v=23"></script>
+<script src="../js/pages.js?v=23"></script>
 </body>
 </html>

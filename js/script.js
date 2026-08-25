@@ -57,13 +57,40 @@ const hamburger = document.getElementById('hamburger');
 const mobileMenu = document.getElementById('mobileMenu');
 const mobileBackdrop = document.getElementById('mobileBackdrop');
 
+// =============================================
+// SCROLL LOCK
+// The custom ::-webkit-scrollbar in style.css forces a space-taking
+// scrollbar, so `body { overflow: hidden }` alone widens the viewport by the
+// scrollbar width and visibly shifts the page. Reserve that width instead.
+// (scrollbar-gutter does not help here: it is ignored under overflow:hidden.)
+// =============================================
+let scrollLocks = 0;
+
+function lockScroll() {
+  if (scrollLocks++ > 0) return;
+  const sbw = window.innerWidth - document.documentElement.clientWidth;
+  document.documentElement.style.setProperty('--sbw', sbw + 'px');
+  document.documentElement.classList.add('scroll-locked');
+  document.body.style.overflow = 'hidden';
+}
+
+function unlockScroll() {
+  if (scrollLocks === 0) return;
+  if (--scrollLocks > 0) return;
+  document.documentElement.classList.remove('scroll-locked');
+  document.documentElement.style.removeProperty('--sbw');
+  document.body.style.overflow = '';
+}
+
+
+
 function openMenu() {
   if (!hamburger || !mobileMenu) return;
   hamburger.classList.add('open');
   mobileMenu.classList.add('open');
   if (mobileBackdrop) mobileBackdrop.classList.add('open');
   hamburger.setAttribute('aria-expanded', 'true');
-  document.body.style.overflow = 'hidden';
+  lockScroll();
 }
 
 function closeMenu() {
@@ -72,7 +99,7 @@ function closeMenu() {
   mobileMenu.classList.remove('open');
   if (mobileBackdrop) mobileBackdrop.classList.remove('open');
   hamburger.setAttribute('aria-expanded', 'false');
-  document.body.style.overflow = '';
+  unlockScroll();
 }
 
 if (hamburger) hamburger.addEventListener('click', () => {
@@ -381,13 +408,14 @@ window.openMemberModal = function(data) {
   }
 
   overlay.classList.add('open');
-  document.body.style.overflow = 'hidden';
+  lockScroll();
 };
 
 window.closeMemberModal = function() {
   const overlay = document.getElementById('memberModal');
-  if (overlay) overlay.classList.remove('open');
-  document.body.style.overflow = '';
+  if (!overlay || !overlay.classList.contains('open')) return;
+  overlay.classList.remove('open');
+  unlockScroll();
 };
 
 document.addEventListener('keydown', e => {

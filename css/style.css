@@ -969,3 +969,34 @@ p { text-wrap: pretty; }
   display: flex; width: max-content; max-width: 100%;
   align-items: center; gap: 6px; margin-bottom: 20px;
 }
+
+
+/* =============================================================
+   SCROLL LOCK COMPENSATION
+   lockScroll() in script.js sets --sbw to the scrollbar width and adds
+   .scroll-locked to <html> before hiding body overflow. Everything that is
+   laid out against the viewport must reserve that width, or the page jumps
+   sideways when a modal or the mobile menu opens.
+============================================================= */
+html.scroll-locked body,
+html.scroll-locked .nav,
+html.scroll-locked .modal-overlay,
+html.scroll-locked .lightbox { padding-right: var(--sbw, 0px); }
+
+html.scroll-locked .mobile-menu.open { right: var(--sbw, 0px); }
+html.scroll-locked .rail { right: calc(24px + var(--sbw, 0px)); }
+
+/* =============================================================
+   NAV FIT (7 links since Members was added, Aug 2026)
+   Keep every label on one line, and tighten the link padding in the narrow
+   band just above the hamburger breakpoint so the bar stays single-row
+   instead of wrapping "Apply Now".
+============================================================= */
+.nav-links a, .nav-cta { white-space: nowrap; }
+
+@media (min-width: 769px) and (max-width: 950px) {
+  .nav-links { gap: 0; margin-right: 2px; }
+  .nav-links a { padding-left: 7px; padding-right: 7px; }
+  .nav-links a::after { left: 7px; right: 7px; }
+  .nav-logo-img { height: 38px; }
+}
