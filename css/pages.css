@@ -180,7 +180,10 @@
 ============================================================= */
 .gfilter { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 36px; }
 .gitem { break-inside: avoid; margin-bottom: 16px; border-radius: var(--radius-lg); overflow: hidden; position: relative; cursor: pointer; background: var(--surface); border: 1px solid var(--border); display: block; }
-.gitem img { width: 100%; display: block; transition: transform .45s var(--ease-out); }
+/* height:auto is required: the width/height attributes on these images exist so
+   the masonry can reserve the right box before load. Without it the height
+   attribute applies literally and every photo stretches. */
+.gitem img { width: 100%; height: auto; display: block; transition: transform .45s var(--ease-out); }
 @media (hover:hover){ .gitem:hover img { transform: scale(1.05); } }
 .gitem figcaption { position: absolute; inset: auto 0 0 0; padding: 28px 16px 14px; background: linear-gradient(to top, rgba(8,15,28,.82), transparent); color: #fff; font-size: .84rem; font-weight: 600; opacity: 0; transition: opacity .25s; }
 .gitem .gc-loc { display: block; font-family: var(--mono); font-size: 10px; letter-spacing: .08em; font-weight: 500; color: #ADD0FE; margin-bottom: 3px; }
@@ -231,8 +234,6 @@
 @media (max-width: 720px) { .feature-body { grid-template-columns: 1fr; gap: 10px; } .feature-body .dmeta { justify-self: start; } }
 
 /* Business "Key Achievements" grid: clean on phones */
-.ka-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
-@media (max-width: 640px) { .ka-grid { grid-template-columns: 1fr; } }
 
 /* Whole mobile theme row is the toggle (icon only, no label) */
 
@@ -383,3 +384,19 @@
 }
 .app-shots figcaption { margin-top: 8px; }
 @media (max-width: 520px) { .app-shots { gap: 12px; } .app-shots figure { flex: 1 1 100%; } }
+
+/* =============================================================
+   SPLIT PAGE HERO - copy left, photograph right (members page)
+============================================================= */
+.hero-split { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 0.85fr); gap: 48px; align-items: center; }
+.hero-split-text { min-width: 0; }
+.hero-photo {
+  margin: 0; border-radius: var(--radius-lg); overflow: hidden;
+  border: 1px solid var(--border); box-shadow: var(--shadow-lg); background: var(--surface);
+}
+/* height:auto so the width/height attributes only supply the aspect ratio. */
+.hero-photo img { width: 100%; height: auto; display: block; }
+@media (max-width: 900px) {
+  .hero-split { grid-template-columns: 1fr; gap: 28px; }
+  .hero-photo { order: 2; }
+}
