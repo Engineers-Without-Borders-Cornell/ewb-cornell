@@ -166,12 +166,12 @@
       byNode(key).forEach(el => el.classList.add('is-active'));
     }
     const PROJECT_URL = {
-      bolivia: '/pages/project-bolivia.html',
-      austin: '/pages/project-austin.html',
-      pineridge: '/pages/project-pine-ridge.html',
-      tanzania: '/pages/project-tanzania.html',
+      bolivia: '/projects/bolivia/',
+      austin: '/projects/austin/',
+      pineridge: '/projects/pine-ridge/',
+      tanzania: '/projects/tanzania/',
       digitalag: 'https://ewb-dig-ag.org',
-      ithaca: '/pages/about.html'
+      ithaca: '/about/'
     };
     nodes.forEach(n => {
       const hit = n.querySelector('.ops-node-hit') || n;

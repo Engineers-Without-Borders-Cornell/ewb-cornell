@@ -268,7 +268,13 @@ p { text-wrap: pretty; }
   display: flex;
   align-items: center;
   border-bottom: 1px solid transparent;
-  transition: background 0.3s ease, border-color 0.3s ease, backdrop-filter 0.3s ease !important;
+  /* backdrop-filter is deliberately NOT transitioned. Animating a 14px blur
+     re-composites a full-width blurred layer every frame for 300ms, and it
+     fires the instant .scrolled toggles — i.e. the moment you start scrolling,
+     which is where the stutter at the top of the page came from. The blur now
+     snaps on while the background fades over the same 300ms, which hides the
+     switch. */
+  transition: background 0.3s ease, border-color 0.3s ease !important;
 }
 .nav.scrolled {
   background: color-mix(in oklab, var(--bg) 88%, transparent);
@@ -327,9 +333,16 @@ p { text-wrap: pretty; }
   display: none; flex-direction: column; align-items: center; justify-content: center;
   gap: 5px; width: 44px; height: 44px; padding: 0; margin-right: -10px;
   z-index: 1; flex-shrink: 0; background: none; border: 0; cursor: pointer;
+  /* Kill the translucent grey box iOS/Android paint over the button on tap. */
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
 }
+/* background-color is in the transition on purpose: on pages where the
+   unscrolled bar draws white bars over a dark hero, the open state flips them
+   to ink. Without it the colour snaps at frame 0 while the bars are still
+   rotating, which reads as a glitch. */
 .hamburger span { display: block; width: 22px; height: 2px; background: var(--ink); border-radius: 2px;
-  transition: transform 0.3s var(--ease-out), opacity 0.3s ease !important; }
+  transition: transform 0.3s var(--ease-out), opacity 0.3s ease, background-color 0.3s ease !important; }
 .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
 .hamburger.open span:nth-child(2) { opacity: 0; }
 .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
@@ -338,33 +351,50 @@ p { text-wrap: pretty; }
 .nav .hamburger.open span { background: var(--ink) !important; }
 
 /* Mobile menu */
+/* The drawer slides on transform, not on `right`. Animating `right` relayouts
+   and repaints a full-height panel every frame, which is what made the open
+   stutter on phones; transform is composited and stays on the GPU. */
 .mobile-menu {
-  position: fixed; top: 0; right: -100%;
+  position: fixed; top: 0; right: 0;
   width: min(340px, 100%); height: 100dvh;
   background: var(--surface); z-index: var(--z-menu);
   padding: 92px 32px 40px;
   display: flex; flex-direction: column; gap: 2px;
   border-left: 1px solid var(--border);
   box-shadow: var(--shadow-lg);
-  transition: right 0.35s var(--ease-out) !important;
+  /* 100% parks the panel's left edge exactly on the viewport edge, which lets
+     the 36px shadow blur bleed back into view as a grey seam. Clear it. */
+  transform: translate3d(calc(100% + 48px), 0, 0);
+  transition: transform 0.35s var(--ease-out) !important;
+  will-change: transform;
   overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior: contain;
 }
-.mobile-menu.open { right: 0; }
+.mobile-menu.open { transform: translate3d(0, 0, 0); }
 .mobile-menu a {
   padding: 14px 0; font-size: var(--fs-md); font-weight: 600; color: var(--ink);
   border-bottom: 1px solid var(--border);
-  transition: padding-left 0.18s ease, color 0.18s ease !important;
+  -webkit-tap-highlight-color: transparent;
 }
-.mobile-menu a:hover { padding-left: 6px; color: var(--accent-ink); }
+/* Hover-only: on a touchscreen :hover sticks after the tap, so the link stayed
+   nudged and re-coloured while the drawer closed. */
+@media (hover: hover) {
+  .mobile-menu a { transition: padding-left 0.18s ease, color 0.18s ease !important; }
+  .mobile-menu a:hover { padding-left: 6px; color: var(--accent-ink); }
+  .mobile-menu .mobile-cta:hover { padding-left: 24px; background: var(--accent-hover); }
+}
 .mobile-menu .mobile-cta {
   margin-top: 22px; background: var(--accent-solid); color: #fff !important;
   padding: 14px 24px; border-radius: var(--radius); text-align: center; border-bottom: none;
 }
-.mobile-menu .mobile-cta:hover { padding-left: 24px; background: var(--accent-hover); }
+/* No backdrop-filter: blurring a fullscreen layer while fading it is the most
+   expensive thing on the page on mobile GPUs, and 2px was barely visible. The
+   flat scrim is carried slightly darker to keep the same separation. */
 .mobile-backdrop {
-  position: fixed; inset: 0; background: oklch(20% 0.02 258 / 0.4);
+  position: fixed; inset: 0; background: oklch(20% 0.02 258 / 0.5);
   z-index: var(--z-backdrop); opacity: 0; pointer-events: none;
-  transition: opacity 0.3s ease !important; backdrop-filter: blur(2px);
+  transition: opacity 0.3s ease !important;
 }
 .mobile-backdrop.open { opacity: 1; pointer-events: all; }
 
@@ -992,7 +1022,10 @@ html.scroll-locked .nav,
 html.scroll-locked .modal-overlay,
 html.scroll-locked .lightbox { padding-right: var(--sbw, 0px); }
 
-html.scroll-locked .mobile-menu.open { right: var(--sbw, 0px); }
+/* Applies to the drawer in both states: `right` is now a static offset (the
+   slide is a transform), so setting it only on .open would relayout the panel
+   mid-animation. */
+html.scroll-locked .mobile-menu { right: var(--sbw, 0px); }
 html.scroll-locked .rail { right: calc(24px + var(--sbw, 0px)); }
 
 /* =============================================================

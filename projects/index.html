@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Projects · EWB Cornell</title>
+  <link rel="canonical" href="https://ewbcornell.org/projects/">
+  <meta name="description" content="EWB Cornell's projects: sanitation in Bolivia, water and housing in the US, crop-disease detection in Sub-Saharan Africa, and sustainability software in the Finger Lakes.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.6.0/dist/tabler-icons.min.css">
+  <link rel="stylesheet" href="../css/style.css?v=43">
+  <link rel="stylesheet" href="../css/pages.css?v=43">
+  <link rel="stylesheet" media="print" href="../css/print.css?v=43">
+  <script>document.documentElement.classList.add('js');</script>
+</head>
+<body>
+
+<nav class="nav" id="mainNav"><div class="container"><div class="nav-inner">
+  <a href="/" class="nav-logo"><img class="nav-logo-img" src="../assets/img/ewb-logo.png" alt="Engineers Without Borders, Cornell Chapter, home"></a>
+  <div class="nav-right">
+    <ul class="nav-links">
+      <li><a href="/about/">About</a></li>
+      <li><a href="/members/">Members</a></li>
+      <li><a href="/teams/">Teams</a></li>
+      <li><a href="/projects/" class="active">Projects</a></li>
+      <li><a href="/gallery/">Gallery</a></li>
+      <li><a href="/sponsors/">Sponsors</a></li>
+      <li><a href="/apply/" class="nav-cta">Apply Now</a></li>
+    </ul>
+    <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
+  </div>
+</div></div></nav>
+<div class="mobile-backdrop" id="mobileBackdrop"></div>
+<nav class="mobile-menu" id="mobileMenu">
+  <a href="/about/">About</a><a href="/members/">Members</a><a href="/teams/">Teams</a><a href="/projects/">Projects</a>
+  <a href="/gallery/">Gallery</a><a href="/sponsors/">Sponsors</a>
+  <a href="/apply/" class="mobile-cta">Apply Now</a>
+</nav>
+
+<header class="page-hero">
+  <div class="container">
+    <a href="/" class="page-hero-back">&#8592; Home</a>
+    <span class="page-hero-tag">Project Archive</span>
+    <h1>Current and <em>completed projects.</em></h1>
+    <p class="page-hero-sub">Six projects across four subteams, in Bolivia, Texas, South Dakota, and Sub-Saharan Africa. Filter by team or status.</p>
+    <div class="page-hero-stats">
+      <div class="page-hero-stat"><strong>6</strong><span>active &amp; completed</span></div>
+      <div class="page-hero-stat"><strong>2</strong><span>countries</span></div>
+      <div class="page-hero-stat"><strong>16</strong><span>years of work</span></div>
+    </div>
+  </div>
+</header>
+
+<main>
+<section class="section">
+  <div class="container">
+
+    <div class="filterbar rv" data-filterbar=".pcard" role="group" aria-label="Filter projects">
+      <button class="fchip active" data-filter="all">All</button>
+      <button class="fchip" data-filter="international">International</button>
+      <button class="fchip" data-filter="domestic">Domestic</button>
+      <button class="fchip" data-filter="digitalag">Digital Ag/IoT</button>
+      <button class="fchip" data-filter="software">Software</button>
+      <button class="fchip" data-filter="active">Active</button>
+      <button class="fchip" data-filter="completed">Completed</button>
+    </div>
+
+    <div class="pgrid">
+      <a href="/projects/bolivia/" class="pcard rv" data-cat="international active">
+        <div class="pcard-media"><img src="../assets/img/sancristobal-street.jpg" alt="Barrio San Cristóbal, Bolivia" loading="lazy"><span class="pcard-badge">Active</span></div>
+        <div class="pcard-body">
+          <div class="pcard-k">International / Tarija, Bolivia</div>
+          <h3>Barrio San Cristóbal Sanitation</h3>
+          <p>A public restroom and septic system built in Summer 2026 for a 250-person community, and a water piping redesign starting Summer 2027.</p>
+        </div>
+      </a>
+
+
+      <a href="/projects/austin/" class="pcard rv rv-d2" data-cat="domestic active">
+        <div class="pcard-media"><img src="../assets/img/austin-garden-sign.webp" alt="Entrance sign at Festival Beach Community Garden, Austin" loading="lazy"><span class="pcard-badge">Active</span></div>
+        <div class="pcard-body">
+          <div class="pcard-k">Domestic / Austin, Texas</div>
+          <h3>Festival Beach Community Garden</h3>
+          <p>Stormwater diversion, rainwater harvesting, reclaimed-water reuse, and solar pumping for climate-resilient, year-round irrigation.</p>
+        </div>
+      </a>
+
+      <a href="/projects/pine-ridge/" class="pcard rv" data-cat="domestic completed">
+        <div class="pcard-media"><img src="../assets/img/pine-ridge-site.webp" alt="Team surveying the Sustainable Housing Unit site at Pine Ridge" loading="lazy"><span class="pcard-badge">Completed</span></div>
+        <div class="pcard-body">
+          <div class="pcard-k">Domestic / Pine Ridge, South Dakota</div>
+          <h3>Sustainable Housing Unit</h3>
+          <p>A four-person home built with affordable, durable methods and full architectural, structural, and MEP plans, with First Families Now.</p>
+        </div>
+      </a>
+
+      <a href="https://ewb-dig-ag.org" class="pcard rv rv-d1" data-cat="digitalag completed" target="_blank" rel="noopener">
+        <div class="pcard-media"><img src="../assets/img/digag-drone-rover.jpg" alt="Drone and ground rover surveying a maize field" loading="lazy"><span class="pcard-badge">Completed</span></div>
+        <div class="pcard-body">
+          <div class="pcard-k">Digital Agriculture/Internet of Things</div>
+          <h3>Maize Disease Detection</h3>
+          <p>An open-source NDVI drone and autonomous ground rover paired with deep learning models and desktop software to assist farmers in identifying Northern Leaf Blight disease in corn crops.</p>
+          <p class="dmeta">ewb-dig-ag.org &#8599;</p>
+        </div>
+      </a>
+
+      <a href="/projects/wardrobe/" class="pcard rv rv-d2" data-cat="software completed">
+        <div class="pcard-media"><img src="../assets/img/software-code.webp" alt="Code on a monitor, representing the Cornell Wardrobe app build" loading="lazy"><span class="pcard-badge">Closed</span></div>
+        <div class="pcard-body">
+          <div class="pcard-k">Software / Ithaca, New York</div>
+          <h3>EWB x Cornell Wardrobe App</h3>
+          <p>A mobile application that allows students to rent professional attire directly from their phones.</p>
+        </div>
+      </a>
+
+      <a href="/projects/climate-fund/" class="pcard rv rv-d3" data-cat="software completed">
+        <div class="pcard-media"><img src="../assets/img/climate-fund-march.webp" alt="Climate march, representing the Tompkins Climate Fund partnership" loading="lazy"><span class="pcard-badge">Closed</span></div>
+        <div class="pcard-body">
+          <div class="pcard-k">Software / Tompkins County, New York</div>
+          <h3>Climate Fund App</h3>
+          <p>An app in collaboration with the Tompkins Climate Fund, allowing you to carbon offset, a process by which you donate money in order to account for your carbon footprint.</p>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="cta-band">
+  <div class="container">
+    <h2>Applications are open.</h2>
+    <p>Sponsors fund the materials and students do the engineering.</p>
+    <div class="cta-buttons" style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;">
+      <a href="/sponsors/" class="btn btn-primary">Fund a project</a>
+      <a href="/apply/" class="btn btn-outline">Join the chapter</a>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="footer" role="contentinfo">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="/" class="footer-logo"><img class="footer-logo-img" src="../assets/img/ewb-logo.png" alt="Engineers Without Borders, Cornell Chapter"></a>
+        <p>Engineers Without Borders at Cornell University. An active chapter of EWB-USA, a 501(c)(3) nonprofit, since 2009.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Navigate</h4>
+        <ul>
+          <li><a href="/about/">About</a></li>
+          <li><a href="/members/">Members</a></li>
+          <li><a href="/teams/">Teams</a></li>
+          <li><a href="/gallery/">Gallery</a></li>
+          <li><a href="/sponsors/">Sponsors</a></li>
+          <li><a href="/apply/">Apply</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Projects</h4>
+        <ul>
+          <li><a href="/projects/bolivia/">Bolivia</a></li>
+          <li><a href="/projects/austin/">Austin</a></li>
+          <li><a href="/projects/pine-ridge/">Pine Ridge</a></li>
+          <li><a href="/teams/digital-agriculture/">Digital Agriculture/IoT</a></li>
+<li><a href="/projects/wardrobe/">Cornell Wardrobe App</a></li>
+<li><a href="/projects/climate-fund/">Climate Fund App</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <div class="footer-contact-item"><i class="ti ti-mail footer-icon"></i><a href="mailto:ewb@cornell.edu">ewb@cornell.edu</a></div>
+        <div class="footer-contact-item"><i class="ti ti-map-pin footer-icon"></i><span>Cornell University<br>Ithaca, NY 14853</span></div>
+      </div>
+    </div>
+    <div class="footer-bottom"><span>&#169; 2026 Engineers Without Borders at Cornell University</span>
+      <span class="footer-eeo">Engineers Without Borders at Cornell University is a registered student organization of Cornell University. <a href="https://hr.cornell.edu/about/workplace-rights/equal-education-and-employment" target="_blank" rel="noopener">Equal Education and Employment</a></span>
+    </div>
+  </div>
+</footer>
+
+<script src="../js/script.js?v=43"></script>
+<script src="../js/pages.js?v=43"></script>
+</body>
+</html>
