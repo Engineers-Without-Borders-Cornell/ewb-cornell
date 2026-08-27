@@ -8,9 +8,10 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.6.0/dist/tabler-icons.min.css">
-  <link rel="stylesheet" href="../css/style.css?v=23">
-  <link rel="stylesheet" href="../css/pages.css?v=23">
-  <script>(function(){var t=localStorage.getItem('ewb-theme')||'light';document.documentElement.setAttribute('data-theme',t);document.documentElement.classList.add('js');})();</script>
+  <link rel="stylesheet" href="../css/style.css?v=43">
+  <link rel="stylesheet" href="../css/pages.css?v=43">
+  <link rel="stylesheet" media="print" href="../css/print.css?v=43">
+  <script>document.documentElement.classList.add('js');</script>
 </head>
 <body>
 
@@ -20,19 +21,18 @@
     <ul class="nav-links">
       <li><a href="/pages/about.html">About</a></li>
       <li><a href="/pages/members.html">Members</a></li>
-      <li><a href="/pages/projects.html" class="active">Projects</a></li>
       <li><a href="/pages/teams.html">Teams</a></li>
+      <li><a href="/pages/projects.html" class="active">Projects</a></li>
       <li><a href="/pages/gallery.html">Gallery</a></li>
       <li><a href="/pages/sponsors.html">Sponsors</a></li>
       <li><a href="/pages/apply.html" class="nav-cta">Apply Now</a></li>
     </ul>
-    <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle theme">&#9728;&#65039;</button>
     <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
   </div>
 </div></div></nav>
 <div class="mobile-backdrop" id="mobileBackdrop"></div>
 <nav class="mobile-menu" id="mobileMenu">
-  <a href="/pages/about.html">About</a><a href="/pages/members.html">Members</a><a href="/pages/projects.html">Projects</a><a href="/pages/teams.html">Teams</a>
+  <a href="/pages/about.html">About</a><a href="/pages/members.html">Members</a><a href="/pages/teams.html">Teams</a><a href="/pages/projects.html">Projects</a>
   <a href="/pages/gallery.html">Gallery</a><a href="/pages/sponsors.html">Sponsors</a>
   <a href="/pages/apply.html" class="mobile-cta">Apply Now</a>
 </nav>
@@ -42,10 +42,10 @@
     <a href="/" class="page-hero-back">&#8592; Home</a>
     <span class="page-hero-tag">Project Archive</span>
     <h1>Current and <em>completed projects.</em></h1>
-    <p class="page-hero-sub">Six projects across four subteams, in Bolivia, Tanzania, Texas, South Dakota, and Sub-Saharan Africa. Filter by team or status.</p>
+    <p class="page-hero-sub">Six projects across four subteams, in Bolivia, Texas, South Dakota, and Sub-Saharan Africa. Filter by team or status.</p>
     <div class="page-hero-stats">
       <div class="page-hero-stat"><strong>6</strong><span>active &amp; completed</span></div>
-      <div class="page-hero-stat"><strong>3</strong><span>countries</span></div>
+      <div class="page-hero-stat"><strong>2</strong><span>countries</span></div>
       <div class="page-hero-stat"><strong>16</strong><span>years of work</span></div>
     </div>
   </div>
@@ -59,7 +59,7 @@
       <button class="fchip active" data-filter="all">All</button>
       <button class="fchip" data-filter="international">International</button>
       <button class="fchip" data-filter="domestic">Domestic</button>
-      <button class="fchip" data-filter="digitalag">Digital Ag</button>
+      <button class="fchip" data-filter="digitalag">Digital Ag/IoT</button>
       <button class="fchip" data-filter="software">Software</button>
       <button class="fchip" data-filter="active">Active</button>
       <button class="fchip" data-filter="completed">Completed</button>
@@ -71,21 +71,13 @@
         <div class="pcard-body">
           <div class="pcard-k">International / Tarija, Bolivia</div>
           <h3>Barrio San Cristóbal Sanitation</h3>
-          <p>A decentralized septic system, household piping, and a government maintenance partnership for 300+ residents. The first of its kind in the region.</p>
+          <p>A public restroom and septic system built in Summer 2026 for a 250-person community, and a water piping redesign starting Summer 2027.</p>
         </div>
       </a>
 
-      <a href="/pages/project-tanzania.html" class="pcard rv rv-d1" data-cat="international completed">
-        <div class="pcard-media noimg">SUNUKA / SOLAR IRRIGATION<span class="pcard-badge">Completed</span></div>
-        <div class="pcard-body">
-          <div class="pcard-k">International / Sunuka, Tanzania</div>
-          <h3>Solar Irrigation</h3>
-          <p>A completed solar-powered irrigation system that brought year-round farming to a community facing food and economic insecurity.</p>
-        </div>
-      </a>
 
       <a href="/pages/project-austin.html" class="pcard rv rv-d2" data-cat="domestic active">
-        <div class="pcard-media noimg">AUSTIN / FESTIVAL BEACH<span class="pcard-badge">Active</span></div>
+        <div class="pcard-media"><img src="../assets/img/austin-garden-sign.webp" alt="Entrance sign at Festival Beach Community Garden, Austin" loading="lazy"><span class="pcard-badge">Active</span></div>
         <div class="pcard-body">
           <div class="pcard-k">Domestic / Austin, Texas</div>
           <h3>Festival Beach Community Garden</h3>
@@ -94,7 +86,7 @@
       </a>
 
       <a href="/pages/project-pine-ridge.html" class="pcard rv" data-cat="domestic completed">
-        <div class="pcard-media noimg">PINE RIDGE / SHU<span class="pcard-badge">Completed</span></div>
+        <div class="pcard-media"><img src="../assets/img/pine-ridge-site.webp" alt="Team surveying the Sustainable Housing Unit site at Pine Ridge" loading="lazy"><span class="pcard-badge">Completed</span></div>
         <div class="pcard-body">
           <div class="pcard-k">Domestic / Pine Ridge, South Dakota</div>
           <h3>Sustainable Housing Unit</h3>
@@ -102,21 +94,31 @@
         </div>
       </a>
 
-      <a href="/pages/project-digital-ag.html" class="pcard rv rv-d1" data-cat="digitalag active">
-        <div class="pcard-media noimg">NLB / DRONE + ROVER<span class="pcard-badge">Active</span></div>
+      <a href="https://ewb-dig-ag.org" class="pcard rv rv-d1" data-cat="digitalag completed" target="_blank" rel="noopener">
+        <div class="pcard-media"><img src="../assets/img/digag-drone-rover.jpg" alt="Drone and ground rover surveying a maize field" loading="lazy"><span class="pcard-badge">Completed</span></div>
         <div class="pcard-body">
-          <div class="pcard-k">Digital Agriculture / Sub-Saharan Africa</div>
+          <div class="pcard-k">Digital Agriculture/Internet of Things</div>
           <h3>Maize Disease Detection</h3>
-          <p>An open-source NDVI drone and autonomous ground rover with deep learning that detect Northern Leaf Blight at the individual-plant level.</p>
+          <p>An open-source NDVI drone and autonomous ground rover paired with deep learning models and desktop software to assist farmers in identifying Northern Leaf Blight disease in corn crops.</p>
+          <p class="dmeta">ewb-dig-ag.org &#8599;</p>
         </div>
       </a>
 
-      <a href="/pages/teams-software.html" class="pcard rv rv-d2" data-cat="software active">
-        <div class="pcard-media noimg">SOFTWARE / SUSTAINABILITY<span class="pcard-badge">Active</span></div>
+      <a href="/pages/project-wardrobe.html" class="pcard rv rv-d2" data-cat="software completed">
+        <div class="pcard-media"><img src="../assets/img/software-code.webp" alt="Code on a monitor, representing the Cornell Wardrobe app build" loading="lazy"><span class="pcard-badge">Closed</span></div>
         <div class="pcard-body">
           <div class="pcard-k">Software / Ithaca, New York</div>
-          <h3>Tech for Sustainability &amp; Equity</h3>
-          <p>A Cornell Wardrobe rental app (Swift, Firebase) and a carbon-offset app for the Tompkins Climate Fund (React Native).</p>
+          <h3>EWB x Cornell Wardrobe App</h3>
+          <p>A mobile application that allows students to rent professional attire directly from their phones.</p>
+        </div>
+      </a>
+
+      <a href="/pages/project-climate-fund.html" class="pcard rv rv-d3" data-cat="software completed">
+        <div class="pcard-media"><img src="../assets/img/climate-fund-march.webp" alt="Climate march, representing the Tompkins Climate Fund partnership" loading="lazy"><span class="pcard-badge">Closed</span></div>
+        <div class="pcard-body">
+          <div class="pcard-k">Software / Tompkins County, New York</div>
+          <h3>Climate Fund App</h3>
+          <p>An app in collaboration with the Tompkins Climate Fund, allowing you to carbon offset, a process by which you donate money in order to account for your carbon footprint.</p>
         </div>
       </a>
     </div>
@@ -157,10 +159,11 @@
         <h4>Projects</h4>
         <ul>
           <li><a href="/pages/project-bolivia.html">Bolivia</a></li>
-          <li><a href="/pages/project-tanzania.html">Tanzania</a></li>
           <li><a href="/pages/project-austin.html">Austin</a></li>
           <li><a href="/pages/project-pine-ridge.html">Pine Ridge</a></li>
-          <li><a href="/pages/project-digital-ag.html">Digital Agriculture</a></li>
+          <li><a href="/pages/teams-digital-agriculture.html">Digital Agriculture/IoT</a></li>
+<li><a href="/pages/project-wardrobe.html">Cornell Wardrobe App</a></li>
+<li><a href="/pages/project-climate-fund.html">Climate Fund App</a></li>
         </ul>
       </div>
       <div class="footer-col">
@@ -169,11 +172,13 @@
         <div class="footer-contact-item"><i class="ti ti-map-pin footer-icon"></i><span>Cornell University<br>Ithaca, NY 14853</span></div>
       </div>
     </div>
-    <div class="footer-bottom"><span>&#169; 2026 Engineers Without Borders at Cornell University</span></div>
+    <div class="footer-bottom"><span>&#169; 2026 Engineers Without Borders at Cornell University</span>
+      <span class="footer-eeo">Engineers Without Borders at Cornell University is a registered student organization of Cornell University. <a href="https://hr.cornell.edu/about/workplace-rights/equal-education-and-employment" target="_blank" rel="noopener">Equal Education and Employment</a></span>
+    </div>
   </div>
 </footer>
 
-<script src="../js/script.js?v=23"></script>
-<script src="../js/pages.js?v=23"></script>
+<script src="../js/script.js?v=43"></script>
+<script src="../js/pages.js?v=43"></script>
 </body>
 </html>

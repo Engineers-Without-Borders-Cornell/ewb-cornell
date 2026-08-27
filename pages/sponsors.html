@@ -8,9 +8,10 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.6.0/dist/tabler-icons.min.css">
-  <link rel="stylesheet" href="../css/style.css?v=23">
-  <link rel="stylesheet" href="../css/pages.css?v=23">
-  <script>(function(){var t=localStorage.getItem('ewb-theme')||'light';document.documentElement.setAttribute('data-theme',t);document.documentElement.classList.add('js');})();</script>
+  <link rel="stylesheet" href="../css/style.css?v=43">
+  <link rel="stylesheet" href="../css/pages.css?v=43">
+  <link rel="stylesheet" media="print" href="../css/print.css?v=43">
+  <script>document.documentElement.classList.add('js');</script>
 </head>
 <body>
 
@@ -20,19 +21,18 @@
     <ul class="nav-links">
       <li><a href="/pages/about.html">About</a></li>
       <li><a href="/pages/members.html">Members</a></li>
-      <li><a href="/pages/projects.html">Projects</a></li>
       <li><a href="/pages/teams.html">Teams</a></li>
+      <li><a href="/pages/projects.html">Projects</a></li>
       <li><a href="/pages/gallery.html">Gallery</a></li>
       <li><a href="/pages/sponsors.html" class="active">Sponsors</a></li>
       <li><a href="/pages/apply.html" class="nav-cta">Apply Now</a></li>
     </ul>
-    <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle theme">&#9728;&#65039;</button>
     <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
   </div>
 </div></div></nav>
 <div class="mobile-backdrop" id="mobileBackdrop"></div>
 <nav class="mobile-menu" id="mobileMenu">
-  <a href="/pages/about.html">About</a><a href="/pages/members.html">Members</a><a href="/pages/projects.html">Projects</a><a href="/pages/teams.html">Teams</a>
+  <a href="/pages/about.html">About</a><a href="/pages/members.html">Members</a><a href="/pages/teams.html">Teams</a><a href="/pages/projects.html">Projects</a>
   <a href="/pages/gallery.html">Gallery</a><a href="/pages/sponsors.html">Sponsors</a>
   <a href="/pages/apply.html" class="mobile-cta">Apply Now</a>
 </nav>
@@ -96,7 +96,7 @@
         </div>
         <div class="impact-card">
           <div class="qty" id="impTool">2</div>
-          <div class="desc">open-source tool builds<small>Software &amp; Digital Agriculture ($500 / build)</small></div>
+          <div class="desc">open-source tool builds<small>Software &amp; Digital Agriculture/IoT ($500 / build)</small></div>
         </div>
         <a href="#give" class="btn btn-primary" style="align-self:flex-start;margin-top:6px;">Choose how to give</a>
       </div>
@@ -163,7 +163,7 @@
         <p class="xindex">03 / How To Give</p>
         <h2>Three ways to support the chapter.</h2>
       </div>
-      <p>Donations are tax-deductible. Need a charitable receipt or an invoice? Our treasurer can help.</p>
+      <p>Donations are tax-deductible. Need a charitable receipt or an invoice? Email the chapter and we will sort it out.</p>
     </div>
 
     <div class="tier-cards rv">
@@ -176,8 +176,14 @@
       <article class="tcard">
         <div class="badge">02 / Receipt</div>
         <div class="nm" style="font-size:1.15rem;margin-top:0;">Donation Form</div>
-        <p style="color:var(--muted);font-size:.9rem;line-height:1.6;flex:1;">Prefer a form or need a charitable donation receipt? Email our treasurer L.B. and we will send one over.</p>
-        <a href="mailto:lbxxx@cornell.edu" class="btn btn-outline btn-sm">Email the treasurer</a>
+        <p style="color:var(--muted);font-size:.9rem;line-height:1.6;flex:1;">Prefer a form or need a charitable donation receipt? Email the chapter and we will send one over.</p>
+        <a href="mailto:ewb@cornell.edu" class="btn btn-outline btn-sm">Request the form</a>
+      </article>
+      <article class="tcard">
+        <div class="badge">04 / Full Details</div>
+        <div class="nm" style="font-size:1.15rem;margin-top:0;">Sponsorship Package</div>
+        <p style="color:var(--muted);font-size:.9rem;line-height:1.6;flex:1;">The full 2025&#8211;26 package: project briefs, the Barrio San Crist&#243;bal budget, every funding tier, and a printable donation form.</p>
+        <a href="/assets/docs/EWB-Cornell-Sponsorship-Package-2025-26.pdf" class="btn btn-outline btn-sm" download>Download PDF (5.7 MB)</a>
       </article>
       <article class="tcard">
         <div class="badge">03 / Organizations</div>
@@ -187,7 +193,12 @@
       </article>
     </div>
 
-    <p class="dmeta rv" style="margin-top:28px;">Mail checks to: Cornell University, Box 37334, Boone, IA 50037-0334 &nbsp;/&nbsp; Treasurer: L.B., lbxxx@cornell.edu, xxx.xxx.xxxx</p>
+    <div class="rv" style="margin-top:34px;padding:24px 26px;border:1px solid var(--accent-soft-bd);background:var(--accent-soft);border-radius:var(--radius-lg);">
+      <p class="xindex" style="margin-bottom:10px;">Your Name, Their Future</p>
+      <p style="color:var(--muted);line-height:1.7;max-width:70ch;">We recognize component-level sponsors directly in our design packages, documentation, and community reporting. For major contributions, naming opportunities are available, for example a &#8220;Stantec Community Septic System&#8221;.</p>
+    </div>
+
+    <p class="dmeta rv" style="margin-top:28px;">Mail checks to: Cornell University, Box 37334, Boone, IA 50037-0334. Make cheques out to &#8220;Cornell University&#8221; with the memo &#8220;Engineers Without Borders at Cornell&#8221;.</p>
   </div>
 </section>
 
@@ -201,14 +212,11 @@
       </div>
       <a href="mailto:ewb@cornell.edu" class="btn btn-ghost">Become a partner</a>
     </div>
-    <div class="swall rv">
-      <div class="slogo">Cornell Engineering</div>
-      <div class="slogo">EWB-USA</div>
-      <div class="slogo">Sustainable Tompkins</div>
-      <div class="slogo">Tompkins Climate Fund</div>
-      <div class="slogo">First Families Now</div>
-      <div class="slogo">Ithaca ReUse</div>
-      <div class="slogo" style="border-style:dashed;">Your logo here</div>
+    <div class="swall-logos rv">
+      <div class="slogo-img"><img src="../assets/img/sponsors/stantec.webp" alt="Stantec" loading="lazy"></div>
+      <div class="slogo-img"><img src="../assets/img/sponsors/kimley-horn.webp" alt="Kimley-Horn" loading="lazy"></div>
+      <div class="slogo-img"><img src="../assets/img/sponsors/ewb-usa.webp" alt="Engineers Without Borders USA" loading="lazy"></div>
+      <div class="slogo-img"><img src="../assets/img/sponsors/community-engineering-corps.webp" alt="Community Engineering Corps" loading="lazy"></div>
     </div>
   </div>
 </section>
@@ -237,8 +245,8 @@
         <ul>
           <li><a href="/pages/about.html">About</a></li>
           <li><a href="/pages/members.html">Members</a></li>
-          <li><a href="/pages/projects.html">Projects</a></li>
           <li><a href="/pages/teams.html">Teams</a></li>
+          <li><a href="/pages/projects.html">Projects</a></li>
           <li><a href="/pages/gallery.html">Gallery</a></li>
           <li><a href="/pages/apply.html">Apply</a></li>
         </ul>
@@ -247,7 +255,7 @@
         <h4>Give</h4>
         <ul>
           <li><a href="https://tinyurl.com/ewb-cornell/" target="_blank" rel="noopener">Cornell Gift Fund</a></li>
-          <li><a href="mailto:lbxxx@cornell.edu">Donation form</a></li>
+          <li><a href="mailto:ewb@cornell.edu">Donation form</a></li>
           <li><a href="mailto:ewb@cornell.edu">Corporate invoice</a></li>
         </ul>
       </div>
@@ -257,11 +265,13 @@
         <div class="footer-contact-item"><i class="ti ti-map-pin footer-icon"></i><span>Cornell University<br>Ithaca, NY 14853</span></div>
       </div>
     </div>
-    <div class="footer-bottom"><span>&#169; 2026 Engineers Without Borders at Cornell University</span></div>
+    <div class="footer-bottom"><span>&#169; 2026 Engineers Without Borders at Cornell University</span>
+      <span class="footer-eeo">Engineers Without Borders at Cornell University is a registered student organization of Cornell University. <a href="https://hr.cornell.edu/about/workplace-rights/equal-education-and-employment" target="_blank" rel="noopener">Equal Education and Employment</a></span>
+    </div>
   </div>
 </footer>
 
-<script src="../js/script.js?v=23"></script>
-<script src="../js/pages.js?v=23"></script>
+<script src="../js/script.js?v=43"></script>
+<script src="../js/pages.js?v=43"></script>
 </body>
 </html>

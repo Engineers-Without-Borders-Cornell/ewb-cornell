@@ -115,7 +115,7 @@
 
   --radius:    6px;
   --radius-lg: 10px;
-  --nav-h:     70px;
+  --nav-h:     84px;
   --maxw:      1120px;
 
   --font: 'Work Sans', system-ui, -apple-system, sans-serif;
@@ -127,6 +127,7 @@
   --z-sticky: 20;
   --z-backdrop: 40;
   --z-menu: 45;
+  --z-nav: 46;   /* nav bar sits above the open drawer so the close button stays reachable */
   --z-modal: 50;
   --z-lightbox: 60;
 }
@@ -263,7 +264,7 @@ p { text-wrap: pretty; }
   position: fixed;
   top: 0; left: 0; right: 0;
   height: var(--nav-h);
-  z-index: var(--z-sticky);
+  z-index: var(--z-nav);
   display: flex;
   align-items: center;
   border-bottom: 1px solid transparent;
@@ -292,7 +293,7 @@ p { text-wrap: pretty; }
 }
 
 .nav-right { display: flex; align-items: center; gap: 6px; }
-.nav-links { display: flex; align-items: center; gap: 2px; margin-right: 6px; }
+.nav-links { display: flex; align-items: center; gap: 2px; }
 .nav-links a {
   position: relative;
   padding: 8px 12px;
@@ -320,23 +321,21 @@ p { text-wrap: pretty; }
 .nav-cta::after { display: none !important; }
 @media (hover: hover) { .nav-cta:hover { background: var(--accent-hover) !important; } }
 
-.theme-toggle {
-  width: 36px; height: 36px; border-radius: var(--radius);
-  background: var(--surface); border: 1px solid var(--border); color: var(--muted);
-  font-size: 0.95rem;
-  display: flex; align-items: center; justify-content: center;
-  margin-left: 4px; flex-shrink: 0;
-  transition: border-color 0.18s ease, color 0.18s ease !important;
-}
-@media (hover: hover) { .theme-toggle:hover { border-color: var(--border-strong); color: var(--ink); } }
 
 /* Hamburger */
-.hamburger { display: none; flex-direction: column; gap: 5px; padding: 8px; z-index: 46; flex-shrink: 0; }
+.hamburger {
+  display: none; flex-direction: column; align-items: center; justify-content: center;
+  gap: 5px; width: 44px; height: 44px; padding: 0; margin-right: -10px;
+  z-index: 1; flex-shrink: 0; background: none; border: 0; cursor: pointer;
+}
 .hamburger span { display: block; width: 22px; height: 2px; background: var(--ink); border-radius: 2px;
   transition: transform 0.3s var(--ease-out), opacity 0.3s ease !important; }
 .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
 .hamburger.open span:nth-child(2) { opacity: 0; }
 .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+/* The X overlays the drawer, so it must use the drawer's ink colour even on
+   pages where the unscrolled bar draws white bars over a dark hero. */
+.nav .hamburger.open span { background: var(--ink) !important; }
 
 /* Mobile menu */
 .mobile-menu {
@@ -362,10 +361,6 @@ p { text-wrap: pretty; }
   padding: 14px 24px; border-radius: var(--radius); text-align: center; border-bottom: none;
 }
 .mobile-menu .mobile-cta:hover { padding-left: 24px; background: var(--accent-hover); }
-.mobile-theme-row {
-  display: flex; align-items: center; justify-content: flex-start;
-  padding: 14px 0; border-bottom: 1px solid var(--border);
-}
 .mobile-backdrop {
   position: fixed; inset: 0; background: oklch(20% 0.02 258 / 0.4);
   z-index: var(--z-backdrop); opacity: 0; pointer-events: none;
@@ -689,16 +684,25 @@ p { text-wrap: pretty; }
 .members-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 16px; }
 .member-card {
   background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-lg);
-  padding: 26px 18px 20px; text-align: center; cursor: pointer;
+  padding: 26px 18px 20px; text-align: center; cursor: default;
   transition: border-color 0.18s ease, transform 0.18s var(--ease-out) !important;
 }
-@media (hover: hover) { .member-card:hover { border-color: var(--border-strong); transform: translateY(-3px); } }
-.member-avatar {
-  width: 64px; height: 64px; border-radius: 50%;
-  display: flex; align-items: center; justify-content: center;
-  font-family: var(--mono); font-size: 1rem; font-weight: 500; color: #fff;
-  margin: 0 auto 14px; background: var(--accent-solid);
+/* Cards only look interactive when script.js has actually bound the pop-up
+   (MEMBER_MODAL_ENABLED). While it is off, they are plain cards. */
+.member-card.is-clickable { cursor: pointer; }
+@media (hover: hover) {
+  .member-card.is-clickable:hover { border-color: var(--border-strong); transform: translateY(-3px); }
 }
+.member-avatar {
+  /* Sized to hold a real headshot, not just initials. Keep it square so a
+     photo dropped in via <img> fills the circle without distortion. */
+  width: 104px; height: 104px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--mono); font-size: 1.35rem; font-weight: 500; color: #fff;
+  margin: 0 auto 16px; background: var(--accent-solid);
+  overflow: hidden; flex-shrink: 0;
+}
+.member-avatar img { width: 100%; height: 100%; object-fit: cover; display: block; }
 .member-card:nth-child(4n+2) .member-avatar { background: oklch(48% 0.09 245); }
 .member-card:nth-child(4n+3) .member-avatar { background: oklch(46% 0.1 150); }
 .member-card:nth-child(4n+4) .member-avatar { background: oklch(45% 0.08 290); }
@@ -862,7 +866,7 @@ p { text-wrap: pretty; }
 .modal-card { background: var(--surface); border-radius: var(--radius-lg); border: 1px solid var(--border-strong); max-width: 560px; width: 100%; max-height: 90vh; overflow-y: auto; box-shadow: var(--shadow-lg); position: relative; transform: scale(0.96) translateY(12px); transition: transform 0.3s var(--ease-out) !important; }
 .modal-overlay.open .modal-card { transform: scale(1) translateY(0); }
 .modal-header { padding: 30px 30px 22px; display: flex; gap: 18px; align-items: flex-start; border-bottom: 1px solid var(--border); position: sticky; top: 0; background: var(--surface); z-index: 2; }
-.modal-photo { width: 80px; height: 80px; border-radius: 50%; background: var(--accent-solid); flex-shrink: 0; display: flex; align-items: center; justify-content: center; font-family: var(--mono); font-size: 1.3rem; font-weight: 500; color: #fff; overflow: hidden; }
+.modal-photo { width: 112px; height: 112px; border-radius: 50%; background: var(--accent-solid); flex-shrink: 0; display: flex; align-items: center; justify-content: center; font-family: var(--mono); font-size: 1.3rem; font-weight: 500; color: #fff; overflow: hidden; }
 .modal-photo img { width: 100%; height: 100%; object-fit: cover; }
 .modal-info { flex: 1; min-width: 0; }
 .modal-info h2 { font-size: var(--fs-md); font-weight: 700; color: var(--ink); margin-bottom: 3px; }
@@ -926,7 +930,12 @@ p { text-wrap: pretty; }
   .impact-fig { border-right: none; border-bottom: 1px solid var(--border); }
   .impact-fig:last-child { border-bottom: none; }
 
-  .members-grid, .apply-steps, .grid-2, .grid-3, .grid-4, .values-grid { grid-template-columns: 1fr; }
+  .apply-steps, .grid-2, .grid-3, .grid-4, .values-grid { grid-template-columns: 1fr; }
+  /* Roster stays two-up on phones: one column turns 49 members into an
+     endless scroll and wastes most of the width. */
+  .members-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+  .member-card { padding: 20px 12px 16px; }
+  .member-avatar { width: 84px; height: 84px; font-size: 1.1rem; margin-bottom: 12px; }
 
   .project-row { grid-template-columns: 64px 1fr; gap: 16px; }
   .project-row .thumb { width: 64px; height: 48px; }
@@ -955,14 +964,14 @@ p { text-wrap: pretty; }
    BRAND LOGO (nav + footer), adapts to every header mode
 ============================================================= */
 .nav-logo { gap: 0; }
-.nav-logo-img { height: 46px; width: auto; display: block; }
+.nav-logo-img { height: 62px; width: auto; display: block; }
 /* Dark theme: render the blue logo white for contrast */
 [data-theme="dark"] .nav-logo-img { filter: brightness(0) saturate(100%) invert(1); }
 /* Footer is a fixed dark panel in both themes: always white */
 .footer-logo-img { height: 72px; width: auto; display: block; }
 /* Light footer = blue logo; dark footer = white logo */
 [data-theme="dark"] .footer-logo-img { filter: brightness(0) saturate(100%) invert(1); }
-@media (max-width: 768px) { .nav-logo-img { height: 38px; } .footer-logo-img { height: 56px; } }
+@media (max-width: 768px) { .nav-logo-img { height: 46px; } .footer-logo-img { height: 56px; } }
 
 /* Back link on its own line, clearly separated from the kicker and title */
 .page-hero-back, .back-link {
@@ -995,8 +1004,35 @@ html.scroll-locked .rail { right: calc(24px + var(--sbw, 0px)); }
 .nav-links a, .nav-cta { white-space: nowrap; }
 
 @media (min-width: 769px) and (max-width: 950px) {
-  .nav-links { gap: 0; margin-right: 2px; }
+  .nav-links { gap: 0; }
   .nav-links a { padding-left: 7px; padding-right: 7px; }
   .nav-links a::after { left: 7px; right: 7px; }
-  .nav-logo-img { height: 38px; }
+  .nav-logo-img { height: 46px; }
+}
+
+/* Cornell EEO statement in the footer bottom bar. */
+.footer-eeo { display: block; margin-top: 10px; font-size: var(--fs-xs); color: var(--dim); line-height: 1.6; }
+.footer-eeo a { color: var(--muted); text-decoration: underline; text-underline-offset: 2px; }
+.footer-eeo a:hover { color: var(--accent-ink); }
+
+/* =============================================================
+   TOUCH TARGETS
+   Text links and icon buttons sit well under the ~44px comfortable
+   tap size on phones. Grow the hit area without moving the type.
+============================================================= */
+@media (max-width: 768px) {
+  /* The drawer covers most of the width, so the logo would straddle its edge.
+     Fade it out while the menu is open and leave just the close button. */
+  .nav-logo { transition: opacity .25s var(--ease-out) !important; }
+  .menu-open .nav-logo { opacity: 0; pointer-events: none; }
+
+  /* keep display:flex/width:max-content so it stays on its own line */
+  .page-hero-back { min-height: 44px; }
+  .footer-col ul a { display: inline-block; padding: 7px 0; }
+  .footer-contact-item a { display: inline-block; padding: 8px 0; }
+  .roster-group-h a { display: inline-flex; align-items: center; min-height: 40px; }
+  .lightbox-close { width: 44px; height: 44px; font-size: 1.9rem; }
+  .modal-close { width: 44px; height: 44px; }
+  .fchip { min-height: 40px; display: inline-flex; align-items: center; }
+  .gc-loc + br { display: none; }
 }

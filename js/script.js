@@ -1,30 +1,10 @@
 'use strict';
 
 // =============================================
-// THEME TOGGLE
+// THEME (light only - the dark/light toggle was removed)
 // =============================================
 const html = document.documentElement;
-
-function getTheme() {
-  return localStorage.getItem('ewb-theme') || 'light';
-}
-
-function applyTheme(theme) {
-  html.setAttribute('data-theme', theme);
-  localStorage.setItem('ewb-theme', theme);
-  // Update all toggle buttons
-  document.querySelectorAll('.theme-toggle, .mobile-theme-btn').forEach(btn => {
-    btn.setAttribute('aria-label', theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode');
-    btn.innerHTML = theme === 'dark' ? '<i class="ti ti-sun"></i>' : '<i class="ti ti-moon"></i>';
-  });
-}
-
-function toggleTheme() {
-  applyTheme(getTheme() === 'dark' ? 'light' : 'dark');
-}
-
-// Apply on load
-applyTheme(getTheme());
+html.setAttribute('data-theme', 'light');
 
 // =============================================
 // NAVIGATION - SCROLL BEHAVIOR + PARALLAX
@@ -90,6 +70,8 @@ function openMenu() {
   mobileMenu.classList.add('open');
   if (mobileBackdrop) mobileBackdrop.classList.add('open');
   hamburger.setAttribute('aria-expanded', 'true');
+  hamburger.setAttribute('aria-label', 'Close menu');
+  document.documentElement.classList.add('menu-open');
   lockScroll();
 }
 
@@ -99,6 +81,8 @@ function closeMenu() {
   mobileMenu.classList.remove('open');
   if (mobileBackdrop) mobileBackdrop.classList.remove('open');
   hamburger.setAttribute('aria-expanded', 'false');
+  hamburger.setAttribute('aria-label', 'Open menu');
+  document.documentElement.classList.remove('menu-open');
   unlockScroll();
 }
 
@@ -109,12 +93,6 @@ if (mobileBackdrop) mobileBackdrop.addEventListener('click', closeMenu);
 document.addEventListener('keydown', e => { if (e.key === 'Escape') closeMenu(); });
 if (mobileMenu) mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', closeMenu));
 
-// Mobile theme row: keyboard support (whole row already toggles on click)
-document.querySelectorAll('.mobile-theme-row').forEach(row => {
-  row.addEventListener('keydown', e => {
-    if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); toggleTheme(); }
-  });
-});
 
 // =============================================
 // SCROLL REVEAL (Intersection Observer)
@@ -341,12 +319,12 @@ window.handleApply = function(e) {
           <p id="modalInvolvements"></p>
         </div>
         <div class="modal-field modal-about">
-          <label>About</label>
-          <p id="modalAbout"></p>
-        </div>
-        <div class="modal-field modal-about">
           <label>Interests</label>
           <p id="modalInterests"></p>
+        </div>
+        <div class="modal-field modal-about">
+          <label>Professional Experience</label>
+          <p id="modalExperience"></p>
         </div>
       </div>
       <div class="modal-footer" id="modalReach">
@@ -369,10 +347,12 @@ window.openMemberModal = function(data) {
   document.getElementById('modalRole').textContent  = data.role  || '';
   document.getElementById('modalMajor').textContent = data.major || '';
   document.getElementById('modalYear').textContent  = data.year  || '';
-  document.getElementById('modalHometown').textContent    = data.hometown    || 'N/A';
-  document.getElementById('modalInvolvements').textContent = data.involvements || 'EWB Cornell';
-  document.getElementById('modalInterests').textContent  = data.interests  || '';
-  document.getElementById('modalAbout').textContent      = data.about      || '';
+  // Fields with no roster data stay blank on purpose. Do not reintroduce
+  // placeholder defaults here.
+  document.getElementById('modalHometown').textContent     = data.hometown     || '';
+  document.getElementById('modalInvolvements').textContent = data.involvements || '';
+  document.getElementById('modalInterests').textContent    = data.interests    || '';
+  document.getElementById('modalExperience').textContent   = data.experience   || '';
 
   // Photo
   const photoEl = document.getElementById('modalPhoto');
@@ -410,6 +390,27 @@ window.openMemberModal = function(data) {
   overlay.classList.add('open');
   lockScroll();
 };
+
+// Roster cards carry their profile in a data-member attribute. The pop-up is
+// temporarily switched off: set MEMBER_MODAL_ENABLED to true to make the cards
+// clickable again. Nothing else needs to change.
+const MEMBER_MODAL_ENABLED = false;
+
+document.addEventListener('DOMContentLoaded', function initMemberCards() {
+  document.querySelectorAll('.member-card[data-member]').forEach(card => {
+    if (!MEMBER_MODAL_ENABLED) return;
+    card.classList.add('is-clickable');
+    card.setAttribute('role', 'button');
+    card.setAttribute('tabindex', '0');
+    const open = () => {
+      try { window.openMemberModal(JSON.parse(card.dataset.member)); } catch (e) {}
+    };
+    card.addEventListener('click', open);
+    card.addEventListener('keydown', e => {
+      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); open(); }
+    });
+  });
+});
 
 window.closeMemberModal = function() {
   const overlay = document.getElementById('memberModal');

@@ -1,13 +1,14 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Software Development · EWB Cornell</title>
-  <script>(function(){var t=localStorage.getItem('ewb-theme')||'light';document.documentElement.setAttribute('data-theme',t);document.documentElement.classList.add('js');})();</script>
+  <script>document.documentElement.classList.add('js');</script>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.6.0/dist/tabler-icons.min.css">
-  <link rel="stylesheet" href="../css/style.css?v=23">
-  <link rel="stylesheet" href="../css/pages.css?v=23">
+  <link rel="stylesheet" href="../css/style.css?v=43">
+  <link rel="stylesheet" href="../css/pages.css?v=43">
+  <link rel="stylesheet" media="print" href="../css/print.css?v=43">
 </head>
 <body>
 
@@ -17,19 +18,18 @@
     <ul class="nav-links">
       <li><a href="/pages/about.html">About</a></li>
       <li><a href="/pages/members.html">Members</a></li>
-      <li><a href="/pages/projects.html">Projects</a></li>
       <li><a href="/pages/teams.html" class="active">Teams</a></li>
+      <li><a href="/pages/projects.html">Projects</a></li>
       <li><a href="/pages/gallery.html">Gallery</a></li>
       <li><a href="/pages/sponsors.html">Sponsors</a></li>
       <li><a href="/pages/apply.html" class="nav-cta">Apply Now</a></li>
     </ul>
-    <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle theme"></button>
     <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
   </div>
 </div></div></nav>
 <div class="mobile-backdrop" id="mobileBackdrop"></div>
 <nav class="mobile-menu" id="mobileMenu">
-  <a href="/pages/about.html">About</a><a href="/pages/members.html">Members</a><a href="/pages/projects.html">Projects</a><a href="/pages/teams.html">Teams</a>
+  <a href="/pages/about.html">About</a><a href="/pages/members.html">Members</a><a href="/pages/teams.html">Teams</a><a href="/pages/projects.html">Projects</a>
   <a href="/pages/gallery.html">Gallery</a><a href="/pages/sponsors.html">Sponsors</a>
   <a href="/pages/apply.html" class="mobile-cta">Apply Now →</a>
 </nav>
@@ -41,7 +41,7 @@
     <h1>Software <em>Development</em></h1>
     <p class="page-hero-sub">Mobile apps built with Finger Lakes sustainability partners</p>
     <div class="page-hero-stats lg">
-      <div class="page-hero-stat"><strong>9</strong><span>Members</span></div>
+      <div class="page-hero-stat"><strong>10</strong><span>Members</span></div>
       <div class="page-hero-stat"><strong>2</strong><span>Apps</span></div>
       <div class="page-hero-stat"><strong>React Native &amp; Swift</strong><span>Focus area</span></div>
     </div>
@@ -53,7 +53,7 @@
     <div>
       <span class="section-label">Subteam Overview</span>
       <h2 class="section-title">About the Subteam</h2>
-      <p class="team-overview-desc">The software team builds mobile applications for local sustainability partners. Two are in development: a rental app for professional clothing, and a carbon-offset app for the Tompkins Climate Fund.</p>
+      <p class="team-overview-desc">The software team builds mobile applications for local sustainability partners: a rental app for professional clothing built with Cornell Wardrobe, and a carbon-offset app built with the Tompkins Climate Fund. Both projects are now closed.</p>
       <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:16px;">
         <span style="background:var(--bg);border:1px solid var(--border);padding:4px 12px;border-radius:50px;font-size:0.78rem;color:var(--text-muted);">React Native</span>
         <span style="background:var(--bg);border:1px solid var(--border);padding:4px 12px;border-radius:50px;font-size:0.78rem;color:var(--text-muted);">Swift</span>
@@ -63,7 +63,7 @@
       </div>
     </div>
     <div class="team-overview-box">
-      <div class="team-overview-row"><span class="label">Members</span><span class="value">9</span></div>
+      <div class="team-overview-row"><span class="label">Members</span><span class="value">10</span></div>
       <div class="team-overview-row"><span class="label">Status</span><span class="value" style="color:var(--green);">Active</span></div>
       <div class="team-overview-row"><span class="label">Stack</span><span class="value">React Native/Swift/Firebase</span></div>
       <div class="team-overview-row"><span class="label">Apps</span><span class="value">2 in development</span></div>
@@ -74,70 +74,70 @@
 <section class="section" style="background:var(--surface);"><div class="container">
   <span class="section-label">The Team</span>
   <h2 class="section-title">Our Members</h2>
-  <p style="color:var(--text-muted);font-size:0.85rem;margin-bottom:24px;">Click any member to learn more about them.</p>
+  <figure class="team-photo rv">
+    <img src="../assets/img/teams/team-software.webp" alt="The Software subteam at Cornell" loading="lazy">
+    <figcaption class="dmeta">The Software subteam</figcaption>
+  </figure>
   <div class="members-grid" style="margin-top:32px;">
-    <div class="member-card" onclick="openMemberModal({name:'A.P.',initials:'AP',role:'Software Lead',major:'Computer Science',year:'Class of 2026',hometown:'New York, NY',involvements:'EWB Cornell Software Lead, Cornell AppDev, ACM',interests:'iOS development, HCI, UI/UX design, music production',about:'A.P. leads the Software Development team, overseeing both the Cornell Wardrobe App and the Climate Fund App. He has three years of iOS development experience.',netid:'ap999'})">
-      <div class="member-avatar">AP</div>
-      <div class="member-name">A.P.</div>
+    <div class="member-card" data-member="{&quot;name&quot;: &quot;Hyunsuh Lee&quot;, &quot;initials&quot;: &quot;HL&quot;, &quot;role&quot;: &quot;Software Lead&quot;, &quot;major&quot;: &quot;Math&quot;, &quot;year&quot;: &quot;Class of 2028&quot;, &quot;subteam&quot;: &quot;Software&quot;, &quot;email&quot;: &quot;tpl52@cornell.edu&quot;, &quot;hometown&quot;: &quot;&quot;, &quot;involvements&quot;: &quot;&quot;, &quot;interests&quot;: &quot;&quot;, &quot;experience&quot;: &quot;&quot;, &quot;photo&quot;: &quot;../assets/img/members/hyunsuh-lee.webp&quot;}">
+      <div class="member-avatar"><img src="../assets/img/members/hyunsuh-lee.webp" alt="Hyunsuh Lee" loading="lazy"></div>
+      <div class="member-name">Hyunsuh Lee</div>
       <div class="member-role">Software Lead</div>
-      <div class="member-major">Computer Science<br>Class of 2026</div>
-      <div class="member-linkedin-badge"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>LinkedIn</div>
+      <div class="member-major">Math<br>Class of 2028</div>
     </div>
-    <div class="member-card" onclick="openMemberModal({name:'W.C.',initials:'WC',role:'Internal Management Officer',major:'TBD',year:'TBD',hometown:'TBD',involvements:'EWB Cornell Executive Board, Software Subteam',interests:'Engineering and humanitarian work',about:'W.C. serves as Internal Management Officer, running chapter meetings, internal logistics, and cross-subteam coordination. W.C. also builds on the Software subteam.',netid:'xxx'})">
-      <div class="member-avatar">WC</div>
-      <div class="member-name">W.C.</div>
-      <div class="member-role">Internal Mgmt Officer</div>
-      <div class="member-major">Executive Board</div>
-      <div class="member-linkedin-badge"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>LinkedIn</div>
-    </div>
-    <div class="member-card" onclick="openMemberModal({name:'R.T.',initials:'RT',role:'iOS Developer',major:'Computer Science',year:'Class of 2027',hometown:'Los Angeles, CA',involvements:'EWB Cornell, Cornell Women in Computing, AppDev',interests:'Mobile development, accessibility, photography',about:'R.T. is the primary iOS developer on the Cornell Wardrobe App, building Swift/Firebase functionality and the user authentication flow.',netid:'rt999'})">
-      <div class="member-avatar">RT</div>
-      <div class="member-name">R.T.</div>
-      <div class="member-role">iOS Developer</div>
-      <div class="member-major">Computer Science<br>Class of 2027</div>
-      <div class="member-linkedin-badge"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>LinkedIn</div>
-    </div>
-    <div class="member-card" onclick="openMemberModal({name:'K.Z.',initials:'KZ',role:'Full Stack Developer',major:'Information Science',year:'Class of 2027',hometown:'San Jose, CA',involvements:'EWB Cornell, Cornell Data Science, Hackathon Club',interests:'Backend systems, APIs, data visualization, ping pong',about:'K.Z. works on the backend infrastructure for both apps, managing Firebase integrations and building REST APIs for the Climate Fund platform.',netid:'kz999'})">
-      <div class="member-avatar">KZ</div>
-      <div class="member-name">K.Z.</div>
-      <div class="member-role">Full Stack Developer</div>
-      <div class="member-major">Information Science<br>Class of 2027</div>
-      <div class="member-linkedin-badge"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>LinkedIn</div>
-    </div>
-    <div class="member-card" onclick="openMemberModal({name:'P.S.',initials:'PS',role:'React Native Developer',major:'Computer Science',year:'Class of 2026',hometown:'Houston, TX',involvements:'EWB Cornell, Cornell Dev, Society of Women Engineers',interests:'Cross-platform mobile, climate tech, yoga',about:'P.S. leads React Native development on the Climate Fund App, implementing the carbon footprint calculator and offset marketplace UI.',netid:'ps999'})">
-      <div class="member-avatar">PS</div>
-      <div class="member-name">P.S.</div>
-      <div class="member-role">React Native Developer</div>
-      <div class="member-major">Computer Science<br>Class of 2026</div>
-      <div class="member-linkedin-badge"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>LinkedIn</div>
-    </div>
-    <div class="member-card" onclick="openMemberModal({name:'M.J.',initials:'MJ',role:'Embedded Systems',major:'Electrical & Computer Engineering',year:'Class of 2028',hometown:'Denver, CO',involvements:'EWB Cornell, IEEE, Cornell Maker Club',interests:'Hardware/software integration, IoT, skiing',about:'M.J. handles embedded systems and hardware, integrating sensors with the software platforms for planned IoT features.',netid:'mj999'})">
-      <div class="member-avatar">MJ</div>
-      <div class="member-name">M.J.</div>
-      <div class="member-role">Embedded Systems</div>
-      <div class="member-major">Electrical &amp; Computer Eng<br>Class of 2028</div>
-      <div class="member-linkedin-badge"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>LinkedIn</div>
-    </div>
-    <div class="member-card" onclick="openMemberModal({name:'O.H.',initials:'OH',role:'UI/UX Designer',major:'Computer Science',year:'Class of 2028',hometown:'Dearborn, MI',involvements:'EWB Cornell, Cornell Human-Computer Interaction Lab, Design Club',interests:'User research, design systems, basketball',about:'O.H. leads UI/UX design for both applications, producing the wireframes, user flows, and final visual designs.',netid:'oh999'})">
-      <div class="member-avatar">OH</div>
-      <div class="member-name">O.H.</div>
-      <div class="member-role">UI/UX Designer</div>
+    <div class="member-card" data-member="{&quot;name&quot;: &quot;Renee Gowda&quot;, &quot;initials&quot;: &quot;RG&quot;, &quot;role&quot;: &quot;Software Lead&quot;, &quot;major&quot;: &quot;Computer Science&quot;, &quot;year&quot;: &quot;Class of 2028&quot;, &quot;subteam&quot;: &quot;Software&quot;, &quot;email&quot;: &quot;rsg276@cornell.edu&quot;, &quot;hometown&quot;: &quot;&quot;, &quot;involvements&quot;: &quot;&quot;, &quot;interests&quot;: &quot;&quot;, &quot;experience&quot;: &quot;&quot;, &quot;photo&quot;: &quot;../assets/img/members/renee-gowda.webp&quot;}">
+      <div class="member-avatar"><img src="../assets/img/members/renee-gowda.webp" alt="Renee Gowda" loading="lazy"></div>
+      <div class="member-name">Renee Gowda</div>
+      <div class="member-role">Software Lead</div>
       <div class="member-major">Computer Science<br>Class of 2028</div>
-      <div class="member-linkedin-badge"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>LinkedIn</div>
     </div>
-    <div class="member-card" onclick="openMemberModal({name:'L.C.',initials:'LC',role:'Developer',major:'Information Science',year:'Class of 2029',hometown:'Philadelphia, PA',involvements:'EWB Cornell, Cornell Big Red Marching Band, Women in Tech',interests:'Human-computer interaction, data science, violin',about:'L.C. is a new team member learning full-stack mobile development, working on features and testing for the Cornell Wardrobe App.',netid:'lc999'})">
-      <div class="member-avatar">LC</div>
-      <div class="member-name">L.C.</div>
-      <div class="member-role">Developer</div>
-      <div class="member-major">Information Science<br>Class of 2029</div>
-      <div class="member-linkedin-badge"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>LinkedIn</div>
+    <div class="member-card" data-member="{&quot;name&quot;: &quot;Willow Chen&quot;, &quot;initials&quot;: &quot;WC&quot;, &quot;role&quot;: &quot;Internal Management Officer&quot;, &quot;major&quot;: &quot;Computer Science &amp; English&quot;, &quot;year&quot;: &quot;Class of 2029&quot;, &quot;subteam&quot;: &quot;Software&quot;, &quot;email&quot;: &quot;wc697@cornell.edu&quot;, &quot;hometown&quot;: &quot;&quot;, &quot;involvements&quot;: &quot;&quot;, &quot;interests&quot;: &quot;&quot;, &quot;experience&quot;: &quot;&quot;, &quot;photo&quot;: &quot;../assets/img/members/willow-chen.webp&quot;}">
+      <div class="member-avatar"><img src="../assets/img/members/willow-chen.webp" alt="Willow Chen" loading="lazy"></div>
+      <div class="member-name">Willow Chen</div>
+      <div class="member-role">Internal Management Officer</div>
+      <div class="member-major">Computer Science &amp; English<br>Class of 2029</div>
     </div>
-    <div class="member-card" onclick="openMemberModal({name:'D.K.',initials:'DK',role:'Developer',major:'Computer Science',year:'Class of 2029',hometown:'Seattle, WA',involvements:'EWB Cornell, Cornell Badminton Team, Open Source Club',interests:'Algorithms, competitive programming, badminton',about:'D.K. is a freshman contributor focused on learning React Native while building out the Climate Fund App\'s real-time impact tracking features.',netid:'dk999'})">
-      <div class="member-avatar">DK</div>
-      <div class="member-name">D.K.</div>
-      <div class="member-role">Developer</div>
+    <div class="member-card" data-member="{&quot;name&quot;: &quot;Ahlaam Sebri&quot;, &quot;initials&quot;: &quot;AS&quot;, &quot;role&quot;: &quot;Member&quot;, &quot;major&quot;: &quot;Computer Science&quot;, &quot;year&quot;: &quot;Class of 2027&quot;, &quot;subteam&quot;: &quot;Software&quot;, &quot;email&quot;: &quot;ans264@cornell.edu&quot;, &quot;hometown&quot;: &quot;&quot;, &quot;involvements&quot;: &quot;&quot;, &quot;interests&quot;: &quot;&quot;, &quot;experience&quot;: &quot;&quot;, &quot;photo&quot;: &quot;../assets/img/members/ahlaam-sebri.webp&quot;}">
+      <div class="member-avatar"><img src="../assets/img/members/ahlaam-sebri.webp" alt="Ahlaam Sebri" loading="lazy"></div>
+      <div class="member-name">Ahlaam Sebri</div>
+      <div class="member-role">Member</div>
+      <div class="member-major">Computer Science<br>Class of 2027</div>
+    </div>
+    <div class="member-card" data-member="{&quot;name&quot;: &quot;Enaika Kishnani&quot;, &quot;initials&quot;: &quot;EK&quot;, &quot;role&quot;: &quot;Member&quot;, &quot;major&quot;: &quot;Computer Science&quot;, &quot;year&quot;: &quot;Class of 2028&quot;, &quot;subteam&quot;: &quot;Software&quot;, &quot;email&quot;: &quot;ek756@cornell.edu&quot;, &quot;hometown&quot;: &quot;&quot;, &quot;involvements&quot;: &quot;&quot;, &quot;interests&quot;: &quot;&quot;, &quot;experience&quot;: &quot;&quot;}">
+      <div class="member-avatar">EK</div>
+      <div class="member-name">Enaika Kishnani</div>
+      <div class="member-role">Member</div>
+      <div class="member-major">Computer Science<br>Class of 2028</div>
+    </div>
+    <div class="member-card" data-member="{&quot;name&quot;: &quot;Eunseo (Dana) Ryu&quot;, &quot;initials&quot;: &quot;ER&quot;, &quot;role&quot;: &quot;Member&quot;, &quot;major&quot;: &quot;Cognitive Science&quot;, &quot;year&quot;: &quot;Class of 2029&quot;, &quot;subteam&quot;: &quot;Software&quot;, &quot;email&quot;: &quot;er559@cornell.edu&quot;, &quot;hometown&quot;: &quot;&quot;, &quot;involvements&quot;: &quot;&quot;, &quot;interests&quot;: &quot;&quot;, &quot;experience&quot;: &quot;&quot;, &quot;photo&quot;: &quot;../assets/img/members/eunseo-dana-ryu.webp&quot;}">
+      <div class="member-avatar"><img src="../assets/img/members/eunseo-dana-ryu.webp" alt="Eunseo (Dana) Ryu" loading="lazy"></div>
+      <div class="member-name">Eunseo (Dana) Ryu</div>
+      <div class="member-role">Member</div>
+      <div class="member-major">Cognitive Science<br>Class of 2029</div>
+    </div>
+    <div class="member-card" data-member="{&quot;name&quot;: &quot;Kenan Tat&quot;, &quot;initials&quot;: &quot;KT&quot;, &quot;role&quot;: &quot;Member&quot;, &quot;major&quot;: &quot;Computer Science&quot;, &quot;year&quot;: &quot;Class of 2028&quot;, &quot;subteam&quot;: &quot;Software&quot;, &quot;email&quot;: &quot;ktt38@cornell.edu&quot;, &quot;hometown&quot;: &quot;&quot;, &quot;involvements&quot;: &quot;&quot;, &quot;interests&quot;: &quot;&quot;, &quot;experience&quot;: &quot;&quot;, &quot;photo&quot;: &quot;../assets/img/members/kenan-tat.webp&quot;}">
+      <div class="member-avatar"><img src="../assets/img/members/kenan-tat.webp" alt="Kenan Tat" loading="lazy"></div>
+      <div class="member-name">Kenan Tat</div>
+      <div class="member-role">Member</div>
+      <div class="member-major">Computer Science<br>Class of 2028</div>
+    </div>
+    <div class="member-card" data-member="{&quot;name&quot;: &quot;Manya Pradeep Narayan&quot;, &quot;initials&quot;: &quot;MN&quot;, &quot;role&quot;: &quot;Member&quot;, &quot;major&quot;: &quot;Computer Science&quot;, &quot;year&quot;: &quot;Class of 2029&quot;, &quot;subteam&quot;: &quot;Software&quot;, &quot;email&quot;: &quot;mp2343@cornell.edu&quot;, &quot;hometown&quot;: &quot;&quot;, &quot;involvements&quot;: &quot;&quot;, &quot;interests&quot;: &quot;&quot;, &quot;experience&quot;: &quot;&quot;, &quot;photo&quot;: &quot;../assets/img/members/manya-pradeep-narayan.webp&quot;}">
+      <div class="member-avatar"><img src="../assets/img/members/manya-pradeep-narayan.webp" alt="Manya Pradeep Narayan" loading="lazy"></div>
+      <div class="member-name">Manya Pradeep Narayan</div>
+      <div class="member-role">Member</div>
       <div class="member-major">Computer Science<br>Class of 2029</div>
-      <div class="member-linkedin-badge"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>LinkedIn</div>
+    </div>
+    <div class="member-card" data-member="{&quot;name&quot;: &quot;Neha Bommireddy&quot;, &quot;initials&quot;: &quot;NB&quot;, &quot;role&quot;: &quot;Member&quot;, &quot;major&quot;: &quot;Computer Science&quot;, &quot;year&quot;: &quot;Class of 2028&quot;, &quot;subteam&quot;: &quot;Software&quot;, &quot;email&quot;: &quot;nb644@cornell.edu&quot;, &quot;hometown&quot;: &quot;&quot;, &quot;involvements&quot;: &quot;&quot;, &quot;interests&quot;: &quot;&quot;, &quot;experience&quot;: &quot;&quot;, &quot;photo&quot;: &quot;../assets/img/members/neha-bommireddy.webp&quot;}">
+      <div class="member-avatar"><img src="../assets/img/members/neha-bommireddy.webp" alt="Neha Bommireddy" loading="lazy"></div>
+      <div class="member-name">Neha Bommireddy</div>
+      <div class="member-role">Member</div>
+      <div class="member-major">Computer Science<br>Class of 2028</div>
+    </div>
+    <div class="member-card" data-member="{&quot;name&quot;: &quot;Sabrina Gerson&quot;, &quot;initials&quot;: &quot;SG&quot;, &quot;role&quot;: &quot;Member&quot;, &quot;major&quot;: &quot;Statistics&quot;, &quot;year&quot;: &quot;Class of 2029&quot;, &quot;subteam&quot;: &quot;Software&quot;, &quot;email&quot;: &quot;sjg326@cornell.edu&quot;, &quot;hometown&quot;: &quot;&quot;, &quot;involvements&quot;: &quot;&quot;, &quot;interests&quot;: &quot;&quot;, &quot;experience&quot;: &quot;&quot;}">
+      <div class="member-avatar">SG</div>
+      <div class="member-name">Sabrina Gerson</div>
+      <div class="member-role">Member</div>
+      <div class="member-major">Statistics<br>Class of 2029</div>
     </div>
   </div>
 </div></section>
@@ -146,60 +146,56 @@
   <span class="section-label">Our Work</span>
   <h2 class="section-title">Projects</h2>
   <div class="grid-2" style="margin-top:32px;">
-    <div class="project-card">
-      <div class="project-card-visual" style="background:linear-gradient(135deg,#1a1040,#2d1a6e);">
-        <svg width="80" height="80" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <rect x="22" y="14" width="36" height="52" rx="4" stroke="#60a5fa" stroke-width="2"/>
-          <rect x="28" y="22" width="24" height="4" rx="2" fill="#60a5fa" opacity="0.6"/>
-          <rect x="28" y="30" width="18" height="4" rx="2" fill="#60a5fa" opacity="0.4"/>
-          <rect x="28" y="38" width="20" height="4" rx="2" fill="#60a5fa" opacity="0.4"/>
-          <circle cx="40" cy="54" r="3" stroke="#60a5fa" stroke-width="2"/>
-        </svg>
+    <a href="/pages/project-wardrobe.html" class="project-card">
+      <div class="project-card-visual" style="padding:0;overflow:hidden;">
+        <img src="../assets/img/software-code.webp" alt="Code on a monitor, representing the Cornell Wardrobe app build" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;">
       </div>
           <div class="project-card-body">
         <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px;">
-          <span class="project-card-tag tag-active">Active</span>
+          <span class="project-card-tag tag-completed">Closed</span>
           <span class="project-card-tag" style="background:rgba(96,165,250,0.15);color:var(--blue);">Software</span>
         </div>
-        <h3>Cornell Wardrobe App</h3>
-        <p>A mobile rental platform enabling Cornell students to borrow professional clothing for interviews, networking events, and career fairs, so the cost of an interview outfit is not a barrier. Built with Swift and Firebase.</p>
+        <h3>EWB x Cornell Wardrobe App</h3>
+        <p>In the Spring 2023 Semester, our team and Cornell Wardrobe collaborated to create a mobile application that allows students to rent professional attire directly from their phones. Developed using Swift and Firebase, we aim to release an MVP (Minimum Viable Product) later this year. Additionally, a new inventory management system has been implemented for Cornell Wardrobe using Monday, Make, and Firebase, enabling real-time updates on clothing availability.</p>
         <div style="display:flex;gap:14px;flex-wrap:wrap;margin-top:14px;">
           <span style="font-size:0.78rem;color:var(--text-muted);display:flex;align-items:center;gap:5px;">Cornell Campus</span>
           <span style="font-size:0.78rem;color:var(--text-muted);display:flex;align-items:center;gap:5px;">Swift/Firebase</span>
-          <span style="font-size:0.78rem;color:var(--primary);font-weight:600;">Active</span>
+          <span style="font-size:0.78rem;color:var(--text-muted);">Closed</span>
         </div>
       </div>
-    </div>
-    <div class="project-card">
-      <div class="project-card-visual" style="background:linear-gradient(135deg,#0d2a1a,#1a3d25);">
-        <svg width="80" height="80" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <circle cx="40" cy="40" r="22" stroke="#34d399" stroke-width="2"/>
-          <path d="M40 18 L44 30 L56 30 L46 38 L50 50 L40 42 L30 50 L34 38 L24 30 L36 30 Z" fill="#34d399" opacity="0.5"/>
-          <circle cx="40" cy="40" r="6" fill="#34d399" opacity="0.9"/>
-        </svg>
+    </a>
+    <a href="/pages/project-climate-fund.html" class="project-card">
+      <div class="project-card-visual" style="padding:0;overflow:hidden;">
+        <img src="../assets/img/climate-fund-march.webp" alt="Climate march, representing the Tompkins Climate Fund partnership" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;">
       </div>
           <div class="project-card-body">
         <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px;">
-          <span class="project-card-tag tag-active">Active</span>
+          <span class="project-card-tag tag-completed">Closed</span>
           <span class="project-card-tag" style="background:rgba(96,165,250,0.15);color:var(--blue);">Software</span>
         </div>
         <h3>Climate Fund App</h3>
-        <p>A React Native carbon offset platform connecting users with verified climate projects. Users calculate their carbon footprint, purchase offsets, and track what their contributions funded.</p>
+        <p>Our team has been working on an app in collaboration with the Tompkins Climate Fund, allowing you to carbon offset, a process by which you donate money in order to account for your carbon footprint. All donations go to the Finger Lakes Climate Fund, which then uses the money to invest in local sustainable projects</p>
         <div style="display:flex;gap:14px;flex-wrap:wrap;margin-top:14px;">
           <span style="font-size:0.78rem;color:var(--text-muted);display:flex;align-items:center;gap:5px;">Climate Action</span>
           <span style="font-size:0.78rem;color:var(--text-muted);display:flex;align-items:center;gap:5px;">React Native</span>
-          <span style="font-size:0.78rem;color:var(--text-muted);display:flex;align-items:center;gap:5px;">In Development</span>
+          <span style="font-size:0.78rem;color:var(--text-muted);display:flex;align-items:center;gap:5px;">Closed</span>
         </div>
       </div>
-    </div>
+    </a>
   </div>
 </div></section>
 
-<div class="team-subnav">
-      <a href="/pages/projects.html" class="btn btn-outline">← All Projects</a>
-      <a href="/pages/apply.html" class="btn btn-primary">Join the Subteam</a>
-      <a href="/pages/sponsors.html" class="btn btn-outline">Donate →</a>
-    </div>
+<section class="cta-band">
+  <div class="container">
+    <h2>Want to join the Software Subteam?</h2>
+    <p>We build and ship production apps with local sustainability partners.</p>
+      <div class="cta-buttons">
+        <a href="/pages/apply.html" class="btn btn-primary">Join the subteam</a>
+        <a href="/pages/projects.html" class="btn btn-outline">All projects</a>
+        <a href="/pages/sponsors.html" class="btn btn-ghost">Support our work</a>
+      </div>
+  </div>
+</section>
 
 <footer class="footer"><div class="container">
   <div class="footer-grid">
@@ -216,12 +212,14 @@
     <div class="footer-col"><h4>Navigate</h4><ul>
       <li><a href="/pages/about.html">About</a></li>
       <li><a href="/pages/members.html">Members</a></li>
-      <li><a href="/pages/projects.html">Projects</a></li><li><a href="/pages/teams.html">Teams</a></li><li><a href="/pages/apply.html">Apply</a></li>
+      <li><a href="/pages/teams.html">Teams</a></li><li><a href="/pages/projects.html">Projects</a></li><li><a href="/pages/apply.html">Apply</a></li>
     </ul></div>
     <div class="footer-col"><h4>Teams</h4><ul>
       <li><a href="/pages/teams-international.html">International</a></li>
       <li><a href="/pages/teams-domestic.html">Domestic</a></li>
-      <li><a href="/pages/teams-digital-agriculture.html">Digital Agriculture</a></li>
+      <li><a href="/pages/teams-digital-agriculture.html">Digital Agriculture/IoT</a></li>
+<li><a href="/pages/project-wardrobe.html">Cornell Wardrobe App</a></li>
+<li><a href="/pages/project-climate-fund.html">Climate Fund App</a></li>
       <li><a href="/pages/teams-software.html">Software</a></li>
       <li><a href="/pages/teams-business.html">Business</a></li>
     </ul></div>
@@ -230,10 +228,12 @@
       <div class="footer-contact-item"><i class="ti ti-map-pin footer-icon" aria-hidden="true"></i><span>Cornell University, Ithaca NY</span></div>
     </div>
   </div>
-  <div class="footer-bottom"><span>© 2025 EWB Cornell.</span></div>
+  <div class="footer-bottom"><span>© 2025 EWB Cornell.</span>
+    <span class="footer-eeo">Engineers Without Borders at Cornell University is a registered student organization of Cornell University. <a href="https://hr.cornell.edu/about/workplace-rights/equal-education-and-employment" target="_blank" rel="noopener">Equal Education and Employment</a></span>
+  </div>
 </div></footer>
 
 <script src="../js/script.js"></script>
-<script src="../js/pages.js?v=23"></script>
+<script src="../js/pages.js?v=43"></script>
 </body>
 </html>

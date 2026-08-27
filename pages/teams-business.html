@@ -1,13 +1,14 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Business Subteam · EWB Cornell</title>
-  <script>(function(){var t=localStorage.getItem('ewb-theme')||'light';document.documentElement.setAttribute('data-theme',t);document.documentElement.classList.add('js');})();</script>
+  <script>document.documentElement.classList.add('js');</script>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.6.0/dist/tabler-icons.min.css">
-  <link rel="stylesheet" href="../css/style.css?v=23">
-  <link rel="stylesheet" href="../css/pages.css?v=23">
+  <link rel="stylesheet" href="../css/style.css?v=43">
+  <link rel="stylesheet" href="../css/pages.css?v=43">
+  <link rel="stylesheet" media="print" href="../css/print.css?v=43">
 </head>
 <body>
 
@@ -17,19 +18,18 @@
     <ul class="nav-links">
       <li><a href="/pages/about.html">About</a></li>
       <li><a href="/pages/members.html">Members</a></li>
-      <li><a href="/pages/projects.html">Projects</a></li>
       <li><a href="/pages/teams.html" class="active">Teams</a></li>
+      <li><a href="/pages/projects.html">Projects</a></li>
       <li><a href="/pages/gallery.html">Gallery</a></li>
       <li><a href="/pages/sponsors.html">Sponsors</a></li>
       <li><a href="/pages/apply.html" class="nav-cta">Apply Now</a></li>
     </ul>
-    <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle theme"></button>
     <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
   </div>
 </div></div></nav>
 <div class="mobile-backdrop" id="mobileBackdrop"></div>
 <nav class="mobile-menu" id="mobileMenu">
-  <a href="/pages/about.html">About</a><a href="/pages/members.html">Members</a><a href="/pages/projects.html">Projects</a><a href="/pages/teams.html">Teams</a>
+  <a href="/pages/about.html">About</a><a href="/pages/members.html">Members</a><a href="/pages/teams.html">Teams</a><a href="/pages/projects.html">Projects</a>
   <a href="/pages/gallery.html">Gallery</a><a href="/pages/sponsors.html">Sponsors</a>
   <a href="/pages/apply.html" class="mobile-cta">Apply Now →</a>
 </nav>
@@ -41,7 +41,7 @@
     <h1>Business <em>Subteam</em></h1>
     <p class="page-hero-sub">Fundraising, sponsor relations, and chapter operations</p>
     <div class="page-hero-stats lg">
-      <div class="page-hero-stat"><strong>4</strong><span>Members</span></div>
+      <div class="page-hero-stat"><strong>5</strong><span>Members</span></div>
       <div class="page-hero-stat"><strong>$60K+</strong><span>Raised</span></div>
       <div class="page-hero-stat"><strong>3</strong><span>Initiatives</span></div>
     </div>
@@ -63,7 +63,7 @@
       </div>
     </div>
     <div class="team-overview-box">
-      <div class="team-overview-row"><span class="label">Members</span><span class="value">4</span></div>
+      <div class="team-overview-row"><span class="label">Members</span><span class="value">5</span></div>
       <div class="team-overview-row"><span class="label">Status</span><span class="value" style="color:var(--green);">Active</span></div>
       <div class="team-overview-row"><span class="label">Raised</span><span class="value">$60,000+</span></div>
       <div class="team-overview-row"><span class="label">Focus</span><span class="value">Ops &amp; Growth</span></div>
@@ -96,34 +96,40 @@
 <section class="section"><div class="container">
   <span class="section-label">The Team</span>
   <h2 class="section-title">Our Members</h2>
+  <figure class="team-photo rv">
+    <img src="../assets/img/teams/team-business.webp" alt="The Business subteam at Cornell" loading="lazy">
+    <figcaption class="dmeta">The Business subteam</figcaption>
+  </figure>
   <div class="members-grid" style="margin-top:32px;">
-    <div class="member-card" onclick="openMemberModal({name:'P.M.',initials:'PM',role:'Business Lead',major:'Biomedical Engineering',year:'Class of 2027',hometown:'TBD',involvements:'EWB Cornell',interests:'Engineering and humanitarian work',about:'Member of the EWB Cornell team.',netid:'xxx'})">
-      <div class="member-avatar">PM</div>
-      <div class="member-name">P.M.</div>
+    <div class="member-card" data-member="{&quot;name&quot;: &quot;Liam Kim&quot;, &quot;initials&quot;: &quot;LK&quot;, &quot;role&quot;: &quot;Business Lead&quot;, &quot;major&quot;: &quot;Urban and Regional Studies&quot;, &quot;year&quot;: &quot;Class of 2029&quot;, &quot;subteam&quot;: &quot;Business&quot;, &quot;email&quot;: &quot;gk463@cornell.edu&quot;, &quot;hometown&quot;: &quot;&quot;, &quot;involvements&quot;: &quot;&quot;, &quot;interests&quot;: &quot;&quot;, &quot;experience&quot;: &quot;&quot;, &quot;photo&quot;: &quot;../assets/img/members/liam-kim.webp&quot;}">
+      <div class="member-avatar"><img src="../assets/img/members/liam-kim.webp" alt="Liam Kim" loading="lazy"></div>
+      <div class="member-name">Liam Kim</div>
       <div class="member-role">Business Lead</div>
+      <div class="member-major">Urban and Regional Studies<br>Class of 2029</div>
+    </div>
+    <div class="member-card" data-member="{&quot;name&quot;: &quot;Pratyusha Mandal&quot;, &quot;initials&quot;: &quot;PM&quot;, &quot;role&quot;: &quot;Financial Officer&quot;, &quot;major&quot;: &quot;Biomedical Engineering&quot;, &quot;year&quot;: &quot;Class of 2027&quot;, &quot;subteam&quot;: &quot;Business&quot;, &quot;email&quot;: &quot;pm634@cornell.edu&quot;, &quot;hometown&quot;: &quot;&quot;, &quot;involvements&quot;: &quot;&quot;, &quot;interests&quot;: &quot;&quot;, &quot;experience&quot;: &quot;&quot;, &quot;photo&quot;: &quot;../assets/img/members/pratyusha-mandal.webp&quot;}">
+      <div class="member-avatar"><img src="../assets/img/members/pratyusha-mandal.webp" alt="Pratyusha Mandal" loading="lazy"></div>
+      <div class="member-name">Pratyusha Mandal</div>
+      <div class="member-role">Financial Officer</div>
       <div class="member-major">Biomedical Engineering<br>Class of 2027</div>
-      <div class="member-linkedin-badge"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>LinkedIn</div>
     </div>
-    <div class="member-card" onclick="openMemberModal({name:'P.S.',initials:'PS',role:'Member',major:'Computer Science',year:'Class of 2026',hometown:'TBD',involvements:'EWB Cornell',interests:'Engineering and humanitarian work',about:'Member of the EWB Cornell team.',netid:'xxx'})">
-      <div class="member-avatar">PS</div>
-      <div class="member-name">P.S.</div>
-      <div class="member-role"></div>
-      <div class="member-major">Computer Science<br>Class of 2026</div>
-      <div class="member-linkedin-badge"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>LinkedIn</div>
+    <div class="member-card" data-member="{&quot;name&quot;: &quot;Mea Ho&quot;, &quot;initials&quot;: &quot;MH&quot;, &quot;role&quot;: &quot;Member&quot;, &quot;major&quot;: &quot;East Asian Studies&quot;, &quot;year&quot;: &quot;Class of 2029&quot;, &quot;subteam&quot;: &quot;Business&quot;, &quot;email&quot;: &quot;mwh86@cornell.edu&quot;, &quot;hometown&quot;: &quot;&quot;, &quot;involvements&quot;: &quot;&quot;, &quot;interests&quot;: &quot;&quot;, &quot;experience&quot;: &quot;&quot;, &quot;photo&quot;: &quot;../assets/img/members/mea-ho.webp&quot;}">
+      <div class="member-avatar"><img src="../assets/img/members/mea-ho.webp" alt="Mea Ho" loading="lazy"></div>
+      <div class="member-name">Mea Ho</div>
+      <div class="member-role">Member</div>
+      <div class="member-major">East Asian Studies<br>Class of 2029</div>
     </div>
-    <div class="member-card" onclick="openMemberModal({name:'M.H.',initials:'MH',role:'Member',major:'Near Eastern Studies &amp; China Asia Pacific Studies',year:'Class of 2028',hometown:'TBD',involvements:'EWB Cornell',interests:'Engineering and humanitarian work',about:'Member of the EWB Cornell team.',netid:'xxx'})">
-      <div class="member-avatar">MH</div>
-      <div class="member-name">M.H.</div>
-      <div class="member-role"></div>
-      <div class="member-major">Near Eastern Studies &amp; China Asia Pacific Studies<br>Class of 2028</div>
-      <div class="member-linkedin-badge"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>LinkedIn</div>
+    <div class="member-card" data-member="{&quot;name&quot;: &quot;Medha Goli&quot;, &quot;initials&quot;: &quot;MG&quot;, &quot;role&quot;: &quot;Member&quot;, &quot;major&quot;: &quot;Computer Science&quot;, &quot;year&quot;: &quot;Class of 2029&quot;, &quot;subteam&quot;: &quot;Business&quot;, &quot;email&quot;: &quot;mrg286@cornell.edu&quot;, &quot;hometown&quot;: &quot;&quot;, &quot;involvements&quot;: &quot;&quot;, &quot;interests&quot;: &quot;&quot;, &quot;experience&quot;: &quot;&quot;, &quot;photo&quot;: &quot;../assets/img/members/medha-goli.webp&quot;}">
+      <div class="member-avatar"><img src="../assets/img/members/medha-goli.webp" alt="Medha Goli" loading="lazy"></div>
+      <div class="member-name">Medha Goli</div>
+      <div class="member-role">Member</div>
+      <div class="member-major">Computer Science<br>Class of 2029</div>
     </div>
-    <div class="member-card" onclick="openMemberModal({name:'N.D.',initials:'ND',role:'Member',major:'Hotel Administration',year:'Class of 2029',hometown:'TBD',involvements:'EWB Cornell',interests:'Engineering and humanitarian work',about:'Member of the EWB Cornell team.',netid:'xxx'})">
-      <div class="member-avatar">ND</div>
-      <div class="member-name">N.D.</div>
-      <div class="member-role"></div>
+    <div class="member-card" data-member="{&quot;name&quot;: &quot;Nam Dao&quot;, &quot;initials&quot;: &quot;ND&quot;, &quot;role&quot;: &quot;Member&quot;, &quot;major&quot;: &quot;Hotel Administration&quot;, &quot;year&quot;: &quot;Class of 2029&quot;, &quot;subteam&quot;: &quot;Business&quot;, &quot;email&quot;: &quot;&quot;, &quot;hometown&quot;: &quot;&quot;, &quot;involvements&quot;: &quot;&quot;, &quot;interests&quot;: &quot;&quot;, &quot;experience&quot;: &quot;&quot;, &quot;photo&quot;: &quot;../assets/img/members/nam-dao.webp&quot;}">
+      <div class="member-avatar"><img src="../assets/img/members/nam-dao.webp" alt="Nam Dao" loading="lazy"></div>
+      <div class="member-name">Nam Dao</div>
+      <div class="member-role">Member</div>
       <div class="member-major">Hotel Administration<br>Class of 2029</div>
-      <div class="member-linkedin-badge"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>LinkedIn</div>
     </div>
   </div>
 </div></section>
@@ -153,11 +159,17 @@
   </div>
 </div></section>
 
-<div class="team-subnav">
-      <a href="/pages/projects.html" class="btn btn-outline">← All Projects</a>
-      <a href="/pages/apply.html" class="btn btn-primary">Join the Subteam</a>
-      <a href="/pages/sponsors.html" class="btn btn-outline">Donate →</a>
-    </div>
+<section class="cta-band">
+  <div class="container">
+    <h2>Want to join the Business Subteam?</h2>
+    <p>Fundraising, sponsor relations, and chapter operations. No engineering background required.</p>
+      <div class="cta-buttons">
+        <a href="/pages/apply.html" class="btn btn-primary">Join the subteam</a>
+        <a href="/pages/projects.html" class="btn btn-outline">All projects</a>
+        <a href="/pages/sponsors.html" class="btn btn-ghost">Support our work</a>
+      </div>
+  </div>
+</section>
 
 <footer class="footer"><div class="container">
   <div class="footer-grid">
@@ -174,12 +186,14 @@
     <div class="footer-col"><h4>Navigate</h4><ul>
       <li><a href="/pages/about.html">About</a></li>
       <li><a href="/pages/members.html">Members</a></li>
-      <li><a href="/pages/projects.html">Projects</a></li><li><a href="/pages/teams.html">Teams</a></li><li><a href="/pages/apply.html">Apply</a></li>
+      <li><a href="/pages/teams.html">Teams</a></li><li><a href="/pages/projects.html">Projects</a></li><li><a href="/pages/apply.html">Apply</a></li>
     </ul></div>
     <div class="footer-col"><h4>Teams</h4><ul>
       <li><a href="/pages/teams-international.html">International</a></li>
       <li><a href="/pages/teams-domestic.html">Domestic</a></li>
-      <li><a href="/pages/teams-digital-agriculture.html">Digital Agriculture</a></li>
+      <li><a href="/pages/teams-digital-agriculture.html">Digital Agriculture/IoT</a></li>
+<li><a href="/pages/project-wardrobe.html">Cornell Wardrobe App</a></li>
+<li><a href="/pages/project-climate-fund.html">Climate Fund App</a></li>
       <li><a href="/pages/teams-software.html">Software</a></li>
       <li><a href="/pages/teams-business.html">Business</a></li>
     </ul></div>
@@ -188,10 +202,12 @@
       <div class="footer-contact-item"><i class="ti ti-map-pin footer-icon" aria-hidden="true"></i><span>Cornell University, Ithaca NY</span></div>
     </div>
   </div>
-  <div class="footer-bottom"><span>© 2025 EWB Cornell.</span></div>
+  <div class="footer-bottom"><span>© 2025 EWB Cornell.</span>
+    <span class="footer-eeo">Engineers Without Borders at Cornell University is a registered student organization of Cornell University. <a href="https://hr.cornell.edu/about/workplace-rights/equal-education-and-employment" target="_blank" rel="noopener">Equal Education and Employment</a></span>
+  </div>
 </div></footer>
 
 <script src="../js/script.js"></script>
-<script src="../js/pages.js?v=23"></script>
+<script src="../js/pages.js?v=43"></script>
 </body>
 </html>

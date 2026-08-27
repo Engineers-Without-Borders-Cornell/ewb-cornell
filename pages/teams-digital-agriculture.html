@@ -1,13 +1,14 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Digital Agriculture · EWB Cornell</title>
-  <script>(function(){var t=localStorage.getItem('ewb-theme')||'light';document.documentElement.setAttribute('data-theme',t);document.documentElement.classList.add('js');})();</script>
+  <title>Digital Agriculture/IoT · EWB Cornell</title>
+  <script>document.documentElement.classList.add('js');</script>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.6.0/dist/tabler-icons.min.css">
-  <link rel="stylesheet" href="../css/style.css?v=23">
-  <link rel="stylesheet" href="../css/pages.css?v=23">
+  <link rel="stylesheet" href="../css/style.css?v=43">
+  <link rel="stylesheet" href="../css/pages.css?v=43">
+  <link rel="stylesheet" media="print" href="../css/print.css?v=43">
 </head>
 <body>
 
@@ -17,19 +18,18 @@
     <ul class="nav-links">
       <li><a href="/pages/about.html">About</a></li>
       <li><a href="/pages/members.html">Members</a></li>
-      <li><a href="/pages/projects.html">Projects</a></li>
       <li><a href="/pages/teams.html" class="active">Teams</a></li>
+      <li><a href="/pages/projects.html">Projects</a></li>
       <li><a href="/pages/gallery.html">Gallery</a></li>
       <li><a href="/pages/sponsors.html">Sponsors</a></li>
       <li><a href="/pages/apply.html" class="nav-cta">Apply Now</a></li>
     </ul>
-    <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle theme"></button>
     <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
   </div>
 </div></div></nav>
 <div class="mobile-backdrop" id="mobileBackdrop"></div>
 <nav class="mobile-menu" id="mobileMenu">
-  <a href="/pages/about.html">About</a><a href="/pages/members.html">Members</a><a href="/pages/projects.html">Projects</a><a href="/pages/teams.html">Teams</a>
+  <a href="/pages/about.html">About</a><a href="/pages/members.html">Members</a><a href="/pages/teams.html">Teams</a><a href="/pages/projects.html">Projects</a>
   <a href="/pages/gallery.html">Gallery</a><a href="/pages/sponsors.html">Sponsors</a>
   <a href="/pages/apply.html" class="mobile-cta">Apply Now →</a>
 </nav>
@@ -37,13 +37,13 @@
 <header class="page-hero">
   <div class="container">
     <a href="/pages/teams.html" class="page-hero-back">← Back to Teams</a>
-    <span class="page-hero-tag">Digital Agriculture Subteam</span>
-    <h1>Digital <em>Agriculture</em></h1>
-    <p class="page-hero-sub">Drone and rover systems that detect crop disease in maize</p>
+    <span class="page-hero-tag">Digital Agriculture/Internet of Things</span>
+    <h1>Digital Agriculture/<em>Internet of Things</em></h1>
+    <p class="page-hero-sub">Hardware, software, and machine learning for Zero Waste Ithaca, plus computer vision for agriculture</p>
     <div class="page-hero-stats lg">
-      <div class="page-hero-stat"><strong>8</strong><span>Members</span></div>
-      <div class="page-hero-stat"><strong>3</strong><span>Sub-teams</span></div>
-      <div class="page-hero-stat"><strong>Sub-Saharan Africa</strong><span>Focus area</span></div>
+      <div class="page-hero-stat"><strong>17</strong><span>Members</span></div>
+      <div class="page-hero-stat"><strong>3</strong><span>Tracks</span></div>
+      <div class="page-hero-stat"><strong>Zero Waste Ithaca</strong><span>Current partner</span></div>
     </div>
   </div>
 </header>
@@ -53,7 +53,8 @@
     <div>
       <span class="section-label">Subteam Overview</span>
       <h2 class="section-title">About the Subteam</h2>
-      <p class="team-overview-desc">The digital agriculture team builds non-commercial, open-source UAV and UGV systems that use deep learning to catch crop disease early. We focus on Northern Leaf Blight in maize, and the goal is an early-warning tool a smallholder farm can actually afford.</p>
+      <p class="team-overview-desc">Last semester, our team began a new partnership with <strong>Zero Waste Ithaca (ZWI)</strong>, a grassroots, volunteer-run nonprofit working to promote zero-waste policies, culture, and environmental justice in the Ithaca/Tompkins County area. One of ZWI's initiatives, the <strong>Skip the Stuff Campaign</strong>, aims to reduce single-use plastics locally, with the long-term goal of turning the practice into city- and county-wide law.</p>
+      <p class="team-overview-desc">Our team is supporting this mission by building hardware and software solutions that make zero-waste programs easier for ZWI to run and easier for the community to use.</p>
       <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:16px;">
         <span style="background:var(--bg);border:1px solid var(--border);padding:4px 12px;border-radius:50px;font-size:0.78rem;color:var(--text-muted);">Machine Learning</span>
         <span style="background:var(--bg);border:1px solid var(--border);padding:4px 12px;border-radius:50px;font-size:0.78rem;color:var(--text-muted);">UAV/UGV</span>
@@ -63,137 +64,224 @@
       </div>
     </div>
     <div class="team-overview-box">
-      <div class="team-overview-row"><span class="label">Members</span><span class="value">8</span></div>
+      <div class="team-overview-row"><span class="label">Members</span><span class="value">17</span></div>
       <div class="team-overview-row"><span class="label">Status</span><span class="value" style="color:var(--green);">Active</span></div>
-      <div class="team-overview-row"><span class="label">Focus</span><span class="value">Maize Disease Detection</span></div>
-      <div class="team-overview-row"><span class="label">Subteams</span><span class="value">ML / Mechanical / Software</span></div>
+      <div class="team-overview-row"><span class="label">Partner</span><span class="value">Zero Waste Ithaca</span></div>
+      <div class="team-overview-row"><span class="label">Tracks</span><span class="value">Hardware / Software / ML</span></div>
     </div>
   </div>
 </div></section>
 
 <section class="section" style="background:var(--surface);"><div class="container">
-  <span class="section-label">Structure</span>
-  <h2 class="section-title">Sub-teams</h2>
-  <div class="grid-3" style="margin-top:32px;">
-    <div style="background:var(--bg);border:1px solid var(--border);border-radius:var(--radius-lg);padding:28px;">
-      <div style="font-size:2rem;margin-bottom:14px;"></div>
-      <h3 style="margin-bottom:10px;font-size:1.1rem;">Machine Learning</h3>
-      <p style="color:var(--text-muted);font-size:0.92rem;line-height:1.6;">Developing deep learning models (PyTorch/TensorFlow) for image-based crop disease classification. Training on field datasets for &gt;95% accuracy.</p>
+  <span class="section-label">Current Project</span>
+  <h2 class="section-title">Zero Waste Ithaca</h2>
+  <p style="color:var(--muted);line-height:1.7;max-width:70ch;margin-top:14px;">Three tracks run in parallel: a physical product for ZWI&#8217;s food distribution, the web infrastructure the nonprofit runs on, and a computer vision model for crop disease.</p>
+
+  <div class="track-grid">
+
+    <div class="track-card">
+      <div class="tk">Hardware</div>
+      <h3>Reusable CSA Box</h3>
+      <p>We&#8217;re designing a reusable container system for use in ZWI&#8217;s Community Supported Agriculture (CSA) box distribution.</p>
+      <ul>
+        <li><strong>Materials:</strong> Selecting lightweight, food-safe stainless steel for durability and longevity.</li>
+        <li><strong>Mechanical design:</strong> Developing a foldable/flattenable frame for compact storage, with a secure stackable locking mechanism that eliminates the need for plastic cling wrap.</li>
+        <li><strong>Thermal management:</strong> Implementing a fine-mesh design to ensure airflow, preventing vegetable spoilage while maintaining structural integrity.</li>
+      </ul>
+      <p class="note"><strong>Potential future projects &#8212; &#8220;Project Horizon&#8221;:</strong> We&#8217;re also prototyping a wearable-style sensor system with a 3-camera array (front- and side-facing) to capture a wide-angle view of a user&#8217;s surroundings. This is in the idea phase, but if implemented, it would be developed in partnership with our ML subteam, which will translate the visual feed into real-time audio feedback. A key design priority is focusing heavily on user acceptance to ensure the final product feels genuinely supportive and helpful, rather than perceived as just another piece of isolating technology that doesn&#8217;t improve their daily life.</p>
     </div>
-    <div style="background:var(--bg);border:1px solid var(--border);border-radius:var(--radius-lg);padding:28px;">
-      <div style="font-size:2rem;margin-bottom:14px;"></div>
-      <h3 style="margin-bottom:10px;font-size:1.1rem;">Mechanical Engineering</h3>
-      <p style="color:var(--text-muted);font-size:0.92rem;line-height:1.6;">Designing and building custom UAV/UGV platforms optimized for agricultural field surveys. Low-cost, field-repairable designs.</p>
+
+    <div class="track-card">
+      <div class="tk">Software</div>
+      <h3>Digital Infrastructure for ZWI</h3>
+      <p>We&#8217;re rebuilding and modernizing ZWI&#8217;s web infrastructure so it can scale to support both community outreach and government partnerships.</p>
+      <ul>
+        <li><strong>Migrating &#8220;BYO &#8211; US Reduces&#8221;</strong> off an aging WordPress/Bluehost setup that was difficult to maintain and update, including rebuilding the site&#8217;s event registration form.</li>
+        <li><strong>Building a Complaint Tracking System</strong> to be a low-maintenance, flexible tool designed to be usable not just by ZWI, but by city and state government sites as well.</li>
+        <li><strong>Tech stack:</strong> Django for the backend, with React.js powering the static BYO campaign outreach site.</li>
+      </ul>
     </div>
-    <div style="background:var(--bg);border:1px solid var(--border);border-radius:var(--radius-lg);padding:28px;">
-      <div style="font-size:2rem;margin-bottom:14px;"></div>
-      <h3 style="margin-bottom:10px;font-size:1.1rem;">Software Development</h3>
-      <p style="color:var(--text-muted);font-size:0.92rem;line-height:1.6;">Building the embedded software stack, data pipeline, and visualization tools for the disease detection system.</p>
+
+    <div class="track-card">
+      <div class="tk">Machine Learning</div>
+      <h3>Computer Vision for Agriculture</h3>
+      <p>In parallel, our ML subteam has been focusing on our long-standing project, building an end-to-end computer vision pipeline to detect Northern Leaf Blight (NLB), a common corn disease.</p>
+      <ul>
+        <li>Implementing a two-step model architecture combining a <strong>YOLO</strong> object detector with a <strong>CNN</strong> classification step.</li>
+        <li><strong>Pipeline:</strong> Images stored in AWS S3, models built in TensorFlow (with LabelMe for annotation and custom augmentation), trained on AWS EC2/Colab, and containerized with Docker for deployment.</li>
+        <li><strong>Goals:</strong> Deploying the finished model on AWS SageMaker and hosting a public-facing demo, so the tool is freely accessible.</li>
+      </ul>
     </div>
+
+    <div class="track-card">
+      <div class="tk">Looking Ahead</div>
+      <h3>Future &amp; Potential Projects</h3>
+      <p>Beyond our current work with ZWI, we&#8217;re exploring a new potential collaboration with <strong>Professor Max Zhang</strong> on a project called <strong>EngagedIoT</strong>, which would expand our scope into energy, infrastructure, and public health applications across Tompkins County:</p>
+      <ul>
+        <li><strong>Energy Metering:</strong> Designing current-transformer-based power meters to monitor energy use at CCE offices and municipal water pumps.</li>
+        <li><strong>Infrastructure &amp; Health:</strong> Building mobile road-surface monitoring tools, microclimate sensors for &#8220;dual-use&#8221; solar farms, and remote telehealth devices for the county.</li>
+        <li><strong>Social Impact:</strong> Developing privacy-preserving hardware to monitor food cabinet stock levels, supporting local food insecurity efforts.</li>
+      </ul>
+      <p class="note">This would give our team the chance to apply IoT and embedded hardware skills to an even broader range of civic and environmental challenges, including energy systems, public infrastructure, healthcare access, and food security, rooted in direct partnerships with local organizations and researchers.</p>
+    </div>
+
   </div>
 </div></section>
 
 <section class="section"><div class="container">
   <span class="section-label">The Team</span>
   <h2 class="section-title">Our Members</h2>
+  <figure class="team-photo rv">
+    <img src="../assets/img/teams/team-digital-agriculture.webp" alt="The Digital Agriculture/IoT subteam at Cornell" loading="lazy">
+    <figcaption class="dmeta">The Digital Agriculture/IoT subteam</figcaption>
+  </figure>
   <div class="members-grid" style="margin-top:32px;">
-    <div class="member-card" onclick="openMemberModal({name:'J.K.',initials:'JK',role:'Team Lead',major:'Computer Science',year:'Class of 2027',hometown:'TBD',involvements:'EWB Cornell',interests:'Engineering and humanitarian work',about:'Member of the EWB Cornell team.',netid:'xxx'})">
-      <div class="member-avatar">JK</div>
-      <div class="member-name">J.K.</div>
-      <div class="member-role">Team Lead</div>
-      <div class="member-major">Computer Science<br>Class of 2027</div>
-      <div class="member-linkedin-badge"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>LinkedIn</div>
+    <div class="member-card" data-member="{&quot;name&quot;: &quot;Anna Kuang&quot;, &quot;initials&quot;: &quot;AK&quot;, &quot;role&quot;: &quot;Digital Ag/IoT Lead&quot;, &quot;major&quot;: &quot;Computer Science&quot;, &quot;year&quot;: &quot;Class of 2028&quot;, &quot;subteam&quot;: &quot;Digital Agriculture/Internet of Things&quot;, &quot;email&quot;: &quot;ak2747@cornell.edu&quot;, &quot;hometown&quot;: &quot;&quot;, &quot;involvements&quot;: &quot;&quot;, &quot;interests&quot;: &quot;&quot;, &quot;experience&quot;: &quot;&quot;, &quot;photo&quot;: &quot;../assets/img/members/anna-kuang.webp&quot;}">
+      <div class="member-avatar"><img src="../assets/img/members/anna-kuang.webp" alt="Anna Kuang" loading="lazy"></div>
+      <div class="member-name">Anna Kuang</div>
+      <div class="member-role">Digital Ag/IoT Lead</div>
+      <div class="member-major">Computer Science<br>Class of 2028</div>
     </div>
-    <div class="member-card" onclick="openMemberModal({name:'D.M.',initials:'DM',role:'Talent Officer',major:'TBD',year:'TBD',hometown:'TBD',involvements:'EWB Cornell Executive Board, Digital Agriculture Subteam',interests:'Engineering and humanitarian work',about:'D.M. serves as Talent Officer on the EWB Cornell executive board, leading recruitment, coffee chats, and member development. D.M. also builds on the Digital Agriculture subteam.',netid:'xxx'})">
-      <div class="member-avatar">DM</div>
-      <div class="member-name">D.M.</div>
+    <div class="member-card" data-member="{&quot;name&quot;: &quot;Michelle Mercer&quot;, &quot;initials&quot;: &quot;MM&quot;, &quot;role&quot;: &quot;Digital Ag/IoT Lead&quot;, &quot;major&quot;: &quot;Computer Science&quot;, &quot;year&quot;: &quot;Class of 2027&quot;, &quot;subteam&quot;: &quot;Digital Agriculture/Internet of Things&quot;, &quot;email&quot;: &quot;mzm24@cornell.edu&quot;, &quot;hometown&quot;: &quot;&quot;, &quot;involvements&quot;: &quot;&quot;, &quot;interests&quot;: &quot;&quot;, &quot;experience&quot;: &quot;&quot;, &quot;photo&quot;: &quot;../assets/img/members/michelle-mercer.webp&quot;}">
+      <div class="member-avatar"><img src="../assets/img/members/michelle-mercer.webp" alt="Michelle Mercer" loading="lazy"></div>
+      <div class="member-name">Michelle Mercer</div>
+      <div class="member-role">Digital Ag/IoT Lead</div>
+      <div class="member-major">Computer Science<br>Class of 2027</div>
+    </div>
+    <div class="member-card" data-member="{&quot;name&quot;: &quot;Pradhi Pakkerakari&quot;, &quot;initials&quot;: &quot;PP&quot;, &quot;role&quot;: &quot;Digital Ag/IoT Lead&quot;, &quot;major&quot;: &quot;Computer Science&quot;, &quot;year&quot;: &quot;Class of 2027&quot;, &quot;subteam&quot;: &quot;Digital Agriculture/Internet of Things&quot;, &quot;email&quot;: &quot;sp2362@cornell.edu&quot;, &quot;hometown&quot;: &quot;&quot;, &quot;involvements&quot;: &quot;&quot;, &quot;interests&quot;: &quot;&quot;, &quot;experience&quot;: &quot;&quot;, &quot;photo&quot;: &quot;../assets/img/members/pradhi-pakkerakari.webp&quot;}">
+      <div class="member-avatar"><img src="../assets/img/members/pradhi-pakkerakari.webp" alt="Pradhi Pakkerakari" loading="lazy"></div>
+      <div class="member-name">Pradhi Pakkerakari</div>
+      <div class="member-role">Digital Ag/IoT Lead</div>
+      <div class="member-major">Computer Science<br>Class of 2027</div>
+    </div>
+    <div class="member-card" data-member="{&quot;name&quot;: &quot;David Mayorga&quot;, &quot;initials&quot;: &quot;DM&quot;, &quot;role&quot;: &quot;Talent Officer&quot;, &quot;major&quot;: &quot;Electrical and Computer Engineering&quot;, &quot;year&quot;: &quot;Class of 2027&quot;, &quot;subteam&quot;: &quot;Digital Agriculture/Internet of Things&quot;, &quot;email&quot;: &quot;dsm283@cornell.edu&quot;, &quot;hometown&quot;: &quot;&quot;, &quot;involvements&quot;: &quot;&quot;, &quot;interests&quot;: &quot;&quot;, &quot;experience&quot;: &quot;&quot;, &quot;photo&quot;: &quot;../assets/img/members/david-mayorga.webp&quot;}">
+      <div class="member-avatar"><img src="../assets/img/members/david-mayorga.webp" alt="David Mayorga" loading="lazy"></div>
+      <div class="member-name">David Mayorga</div>
       <div class="member-role">Talent Officer</div>
-      <div class="member-major">Executive Board</div>
-      <div class="member-linkedin-badge"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>LinkedIn</div>
+      <div class="member-major">Electrical and Computer Engineering<br>Class of 2027</div>
     </div>
-    <div class="member-card" onclick="openMemberModal({name:'L.B.',initials:'LB',role:'Board Secretary',major:'TBD',year:'TBD',hometown:'TBD',involvements:'EWB Cornell Executive Board, Digital Agriculture Subteam',interests:'Engineering and humanitarian work',about:'L.B. serves as Board Secretary, keeping chapter records, meeting minutes, and EWB-USA reporting in order. L.B. also builds on the Digital Agriculture subteam.',netid:'lb825'})">
-      <div class="member-avatar">LB</div>
-      <div class="member-name">L.B.</div>
+    <div class="member-card" data-member="{&quot;name&quot;: &quot;Lahari Bandaru&quot;, &quot;initials&quot;: &quot;LB&quot;, &quot;role&quot;: &quot;Board Secretary&quot;, &quot;major&quot;: &quot;Computer Science&quot;, &quot;year&quot;: &quot;Class of 2028&quot;, &quot;subteam&quot;: &quot;Digital Agriculture/Internet of Things&quot;, &quot;email&quot;: &quot;lb825@cornell.edu&quot;, &quot;hometown&quot;: &quot;&quot;, &quot;involvements&quot;: &quot;&quot;, &quot;interests&quot;: &quot;&quot;, &quot;experience&quot;: &quot;&quot;, &quot;photo&quot;: &quot;../assets/img/members/lahari-bandaru.webp&quot;}">
+      <div class="member-avatar"><img src="../assets/img/members/lahari-bandaru.webp" alt="Lahari Bandaru" loading="lazy"></div>
+      <div class="member-name">Lahari Bandaru</div>
       <div class="member-role">Board Secretary</div>
-      <div class="member-major">Executive Board</div>
-      <div class="member-linkedin-badge"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>LinkedIn</div>
+      <div class="member-major">Computer Science<br>Class of 2028</div>
     </div>
-    <div class="member-card" onclick="openMemberModal({name:'S.R.',initials:'SR',role:'Member',major:'Electrical &amp; Computer Eng',year:'Class of 2028',hometown:'TBD',involvements:'EWB Cornell',interests:'Engineering and humanitarian work',about:'Member of the EWB Cornell team.',netid:'xxx'})">
-      <div class="member-avatar">SR</div>
-      <div class="member-name">S.R.</div>
-      <div class="member-role"></div>
-      <div class="member-major">Electrical &amp; Computer Eng<br>Class of 2028</div>
-      <div class="member-linkedin-badge"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>LinkedIn</div>
-    </div>
-    <div class="member-card" onclick="openMemberModal({name:'M.C.',initials:'MC',role:'Member',major:'Mechanical Eng',year:'Class of 2028',hometown:'TBD',involvements:'EWB Cornell',interests:'Engineering and humanitarian work',about:'Member of the EWB Cornell team.',netid:'xxx'})">
-      <div class="member-avatar">MC</div>
-      <div class="member-name">M.C.</div>
-      <div class="member-role"></div>
-      <div class="member-major">Mechanical Eng<br>Class of 2028</div>
-      <div class="member-linkedin-badge"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>LinkedIn</div>
-    </div>
-    <div class="member-card" onclick="openMemberModal({name:'P.N.',initials:'PN',role:'Member',major:'Computer Science',year:'Class of 2027',hometown:'TBD',involvements:'EWB Cornell',interests:'Engineering and humanitarian work',about:'Member of the EWB Cornell team.',netid:'xxx'})">
-      <div class="member-avatar">PN</div>
-      <div class="member-name">P.N.</div>
-      <div class="member-role"></div>
-      <div class="member-major">Computer Science<br>Class of 2027</div>
-      <div class="member-linkedin-badge"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>LinkedIn</div>
-    </div>
-    <div class="member-card" onclick="openMemberModal({name:'D.O.',initials:'DO',role:'Member',major:'Mechanical Eng',year:'Class of 2029',hometown:'TBD',involvements:'EWB Cornell',interests:'Engineering and humanitarian work',about:'Member of the EWB Cornell team.',netid:'xxx'})">
-      <div class="member-avatar">DO</div>
-      <div class="member-name">D.O.</div>
-      <div class="member-role"></div>
-      <div class="member-major">Mechanical Eng<br>Class of 2029</div>
-      <div class="member-linkedin-badge"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>LinkedIn</div>
-    </div>
-    <div class="member-card" onclick="openMemberModal({name:'A.M.',initials:'AM',role:'Member',major:'Computer Science',year:'Class of 2029',hometown:'TBD',involvements:'EWB Cornell',interests:'Engineering and humanitarian work',about:'Member of the EWB Cornell team.',netid:'xxx'})">
-      <div class="member-avatar">AM</div>
-      <div class="member-name">A.M.</div>
-      <div class="member-role"></div>
+    <div class="member-card" data-member="{&quot;name&quot;: &quot;Ahmed Shabana&quot;, &quot;initials&quot;: &quot;AS&quot;, &quot;role&quot;: &quot;Member&quot;, &quot;major&quot;: &quot;Computer Science&quot;, &quot;year&quot;: &quot;Class of 2029&quot;, &quot;subteam&quot;: &quot;Digital Agriculture/Internet of Things&quot;, &quot;email&quot;: &quot;aes453@cornell.edu&quot;, &quot;hometown&quot;: &quot;&quot;, &quot;involvements&quot;: &quot;&quot;, &quot;interests&quot;: &quot;&quot;, &quot;experience&quot;: &quot;&quot;, &quot;photo&quot;: &quot;../assets/img/members/ahmed-shabana.webp&quot;}">
+      <div class="member-avatar"><img src="../assets/img/members/ahmed-shabana.webp" alt="Ahmed Shabana" loading="lazy"></div>
+      <div class="member-name">Ahmed Shabana</div>
+      <div class="member-role">Member</div>
       <div class="member-major">Computer Science<br>Class of 2029</div>
-      <div class="member-linkedin-badge"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>LinkedIn</div>
+    </div>
+    <div class="member-card" data-member="{&quot;name&quot;: &quot;Benjamin Lim&quot;, &quot;initials&quot;: &quot;BL&quot;, &quot;role&quot;: &quot;Member&quot;, &quot;major&quot;: &quot;Computer Science&quot;, &quot;year&quot;: &quot;Class of 2029&quot;, &quot;subteam&quot;: &quot;Digital Agriculture/Internet of Things&quot;, &quot;email&quot;: &quot;bcl72@cornell.edu&quot;, &quot;hometown&quot;: &quot;&quot;, &quot;involvements&quot;: &quot;&quot;, &quot;interests&quot;: &quot;&quot;, &quot;experience&quot;: &quot;&quot;, &quot;photo&quot;: &quot;../assets/img/members/benjamin-lim.webp&quot;}">
+      <div class="member-avatar"><img src="../assets/img/members/benjamin-lim.webp" alt="Benjamin Lim" loading="lazy"></div>
+      <div class="member-name">Benjamin Lim</div>
+      <div class="member-role">Member</div>
+      <div class="member-major">Computer Science<br>Class of 2029</div>
+    </div>
+    <div class="member-card" data-member="{&quot;name&quot;: &quot;Daniel Anigioro&quot;, &quot;initials&quot;: &quot;DA&quot;, &quot;role&quot;: &quot;Member&quot;, &quot;major&quot;: &quot;Computer Engineering&quot;, &quot;year&quot;: &quot;Class of 2027&quot;, &quot;subteam&quot;: &quot;Digital Agriculture/Internet of Things&quot;, &quot;email&quot;: &quot;doa8@cornell.edu&quot;, &quot;hometown&quot;: &quot;&quot;, &quot;involvements&quot;: &quot;&quot;, &quot;interests&quot;: &quot;&quot;, &quot;experience&quot;: &quot;&quot;}">
+      <div class="member-avatar">DA</div>
+      <div class="member-name">Daniel Anigioro</div>
+      <div class="member-role">Member</div>
+      <div class="member-major">Computer Engineering<br>Class of 2027</div>
+    </div>
+    <div class="member-card" data-member="{&quot;name&quot;: &quot;Daniel Lee&quot;, &quot;initials&quot;: &quot;DL&quot;, &quot;role&quot;: &quot;Member&quot;, &quot;major&quot;: &quot;Computer Science&quot;, &quot;year&quot;: &quot;Class of 2029&quot;, &quot;subteam&quot;: &quot;Digital Agriculture/Internet of Things&quot;, &quot;email&quot;: &quot;dl2276@cornell.edu&quot;, &quot;hometown&quot;: &quot;&quot;, &quot;involvements&quot;: &quot;&quot;, &quot;interests&quot;: &quot;&quot;, &quot;experience&quot;: &quot;&quot;, &quot;photo&quot;: &quot;../assets/img/members/daniel-lee.webp&quot;}">
+      <div class="member-avatar"><img src="../assets/img/members/daniel-lee.webp" alt="Daniel Lee" loading="lazy"></div>
+      <div class="member-name">Daniel Lee</div>
+      <div class="member-role">Member</div>
+      <div class="member-major">Computer Science<br>Class of 2029</div>
+    </div>
+    <div class="member-card" data-member="{&quot;name&quot;: &quot;Domenic Fioravanti&quot;, &quot;initials&quot;: &quot;DF&quot;, &quot;role&quot;: &quot;Member&quot;, &quot;major&quot;: &quot;Computer Science&quot;, &quot;year&quot;: &quot;Class of 2027&quot;, &quot;subteam&quot;: &quot;Digital Agriculture/Internet of Things&quot;, &quot;email&quot;: &quot;dmf252@cornell.edu&quot;, &quot;hometown&quot;: &quot;&quot;, &quot;involvements&quot;: &quot;&quot;, &quot;interests&quot;: &quot;&quot;, &quot;experience&quot;: &quot;&quot;, &quot;photo&quot;: &quot;../assets/img/members/domenic-fioravanti.webp&quot;}">
+      <div class="member-avatar"><img src="../assets/img/members/domenic-fioravanti.webp" alt="Domenic Fioravanti" loading="lazy"></div>
+      <div class="member-name">Domenic Fioravanti</div>
+      <div class="member-role">Member</div>
+      <div class="member-major">Computer Science<br>Class of 2027</div>
+    </div>
+    <div class="member-card" data-member="{&quot;name&quot;: &quot;Eda Isir&quot;, &quot;initials&quot;: &quot;EI&quot;, &quot;role&quot;: &quot;Member&quot;, &quot;major&quot;: &quot;Mechanical Engineering&quot;, &quot;year&quot;: &quot;Class of 2029&quot;, &quot;subteam&quot;: &quot;Digital Agriculture/Internet of Things&quot;, &quot;email&quot;: &quot;ei84@cornell.edu&quot;, &quot;hometown&quot;: &quot;&quot;, &quot;involvements&quot;: &quot;&quot;, &quot;interests&quot;: &quot;&quot;, &quot;experience&quot;: &quot;&quot;}">
+      <div class="member-avatar">EI</div>
+      <div class="member-name">Eda Isir</div>
+      <div class="member-role">Member</div>
+      <div class="member-major">Mechanical Engineering<br>Class of 2029</div>
+    </div>
+    <div class="member-card" data-member="{&quot;name&quot;: &quot;Fatima Moizuddin&quot;, &quot;initials&quot;: &quot;FM&quot;, &quot;role&quot;: &quot;Member&quot;, &quot;major&quot;: &quot;Mechanical Engineering&quot;, &quot;year&quot;: &quot;Class of 2028&quot;, &quot;subteam&quot;: &quot;Digital Agriculture/Internet of Things&quot;, &quot;email&quot;: &quot;fm467@cornell.edu&quot;, &quot;hometown&quot;: &quot;&quot;, &quot;involvements&quot;: &quot;&quot;, &quot;interests&quot;: &quot;&quot;, &quot;experience&quot;: &quot;&quot;}">
+      <div class="member-avatar">FM</div>
+      <div class="member-name">Fatima Moizuddin</div>
+      <div class="member-role">Member</div>
+      <div class="member-major">Mechanical Engineering<br>Class of 2028</div>
+    </div>
+    <div class="member-card" data-member="{&quot;name&quot;: &quot;Isabella Guan&quot;, &quot;initials&quot;: &quot;IG&quot;, &quot;role&quot;: &quot;Member&quot;, &quot;major&quot;: &quot;Computer Science&quot;, &quot;year&quot;: &quot;Class of 2027&quot;, &quot;subteam&quot;: &quot;Digital Agriculture/Internet of Things&quot;, &quot;email&quot;: &quot;ig276@cornell.edu&quot;, &quot;hometown&quot;: &quot;&quot;, &quot;involvements&quot;: &quot;&quot;, &quot;interests&quot;: &quot;&quot;, &quot;experience&quot;: &quot;&quot;, &quot;photo&quot;: &quot;../assets/img/members/isabella-guan.webp&quot;}">
+      <div class="member-avatar"><img src="../assets/img/members/isabella-guan.webp" alt="Isabella Guan" loading="lazy"></div>
+      <div class="member-name">Isabella Guan</div>
+      <div class="member-role">Member</div>
+      <div class="member-major">Computer Science<br>Class of 2027</div>
+    </div>
+    <div class="member-card" data-member="{&quot;name&quot;: &quot;Kaden Pedersoli&quot;, &quot;initials&quot;: &quot;KP&quot;, &quot;role&quot;: &quot;Member&quot;, &quot;major&quot;: &quot;Electrical and Computer Engineering&quot;, &quot;year&quot;: &quot;Class of 2029&quot;, &quot;subteam&quot;: &quot;Digital Agriculture/Internet of Things&quot;, &quot;email&quot;: &quot;kp649@cornell.edu&quot;, &quot;hometown&quot;: &quot;&quot;, &quot;involvements&quot;: &quot;&quot;, &quot;interests&quot;: &quot;&quot;, &quot;experience&quot;: &quot;&quot;, &quot;photo&quot;: &quot;../assets/img/members/kaden-pedersoli.webp&quot;}">
+      <div class="member-avatar"><img src="../assets/img/members/kaden-pedersoli.webp" alt="Kaden Pedersoli" loading="lazy"></div>
+      <div class="member-name">Kaden Pedersoli</div>
+      <div class="member-role">Member</div>
+      <div class="member-major">Electrical and Computer Engineering<br>Class of 2029</div>
+    </div>
+    <div class="member-card" data-member="{&quot;name&quot;: &quot;Mahitha Thippireddy&quot;, &quot;initials&quot;: &quot;MT&quot;, &quot;role&quot;: &quot;Member&quot;, &quot;major&quot;: &quot;Computer Science&quot;, &quot;year&quot;: &quot;Class of 2028&quot;, &quot;subteam&quot;: &quot;Digital Agriculture/Internet of Things&quot;, &quot;email&quot;: &quot;mt862@cornell.edu&quot;, &quot;hometown&quot;: &quot;&quot;, &quot;involvements&quot;: &quot;&quot;, &quot;interests&quot;: &quot;&quot;, &quot;experience&quot;: &quot;&quot;}">
+      <div class="member-avatar">MT</div>
+      <div class="member-name">Mahitha Thippireddy</div>
+      <div class="member-role">Member</div>
+      <div class="member-major">Computer Science<br>Class of 2028</div>
+    </div>
+    <div class="member-card" data-member="{&quot;name&quot;: &quot;Urja Saha&quot;, &quot;initials&quot;: &quot;US&quot;, &quot;role&quot;: &quot;Member&quot;, &quot;major&quot;: &quot;Computer Science&quot;, &quot;year&quot;: &quot;Class of 2029&quot;, &quot;subteam&quot;: &quot;Digital Agriculture/Internet of Things&quot;, &quot;email&quot;: &quot;us64@cornell.edu&quot;, &quot;hometown&quot;: &quot;&quot;, &quot;involvements&quot;: &quot;&quot;, &quot;interests&quot;: &quot;&quot;, &quot;experience&quot;: &quot;&quot;}">
+      <div class="member-avatar">US</div>
+      <div class="member-name">Urja Saha</div>
+      <div class="member-role">Member</div>
+      <div class="member-major">Computer Science<br>Class of 2029</div>
+    </div>
+    <div class="member-card" data-member="{&quot;name&quot;: &quot;Yongjin Lee&quot;, &quot;initials&quot;: &quot;YL&quot;, &quot;role&quot;: &quot;Member&quot;, &quot;major&quot;: &quot;Computer Science&quot;, &quot;year&quot;: &quot;Class of 2028&quot;, &quot;subteam&quot;: &quot;Digital Agriculture/Internet of Things&quot;, &quot;email&quot;: &quot;yl2889@cornell.edu&quot;, &quot;hometown&quot;: &quot;&quot;, &quot;involvements&quot;: &quot;&quot;, &quot;interests&quot;: &quot;&quot;, &quot;experience&quot;: &quot;&quot;, &quot;photo&quot;: &quot;../assets/img/members/yongjin-lee.webp&quot;}">
+      <div class="member-avatar"><img src="../assets/img/members/yongjin-lee.webp" alt="Yongjin Lee" loading="lazy"></div>
+      <div class="member-name">Yongjin Lee</div>
+      <div class="member-role">Member</div>
+      <div class="member-major">Computer Science<br>Class of 2028</div>
     </div>
   </div>
 </div></section>
 
-<section class="section" style="background:var(--surface);"><div class="container">
-  <span class="section-label">Our Work</span>
-  <h2 class="section-title">Projects</h2>
-  <div style="margin-top:32px;">
-    <a href="/pages/project-digital-ag.html" class="project-card" style="max-width:760px;margin:0 auto;display:block;text-decoration:none;color:inherit;">
-      <div class="project-card-visual" style="background:linear-gradient(135deg,#0d2a1a,#1a4a2e);">
-        <svg width="80" height="80" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <circle cx="40" cy="40" r="28" stroke="#34d399" stroke-width="2" stroke-dasharray="6 4"/>
-          <circle cx="40" cy="40" r="8" fill="#34d399" opacity="0.8"/>
-          <line x1="40" y1="12" x2="40" y2="20" stroke="#34d399" stroke-width="2"/>
-          <line x1="40" y1="60" x2="40" y2="68" stroke="#34d399" stroke-width="2"/>
-          <line x1="12" y1="40" x2="20" y2="40" stroke="#34d399" stroke-width="2"/>
-          <line x1="60" y1="40" x2="68" y2="40" stroke="#34d399" stroke-width="2"/>
-        </svg>
-      </div>
-          <div class="project-card-body">
-        <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px;">
-          <span class="project-card-tag tag-active">Active</span>
-          <span class="project-card-tag" style="background:rgba(96,165,250,0.15);color:var(--blue);">Digital</span>
-        </div>
-        <h3>Maize Disease Detection System</h3>
-        <p>Developing an integrated UAV/UGV platform with onboard deep learning for early detection of Northern Leaf Blight and other maize diseases. The system lets farmers find and treat diseased plants before the infection spreads through a field.</p>
-        <div style="display:flex;gap:14px;flex-wrap:wrap;margin-top:14px;">
-          <span style="font-size:0.78rem;color:var(--text-muted);display:flex;align-items:center;gap:5px;">Sub-Saharan Africa</span>
-          <span style="font-size:0.78rem;color:var(--text-muted);display:flex;align-items:center;gap:5px;">PyTorch/Computer Vision</span>
-          <span style="font-size:0.78rem;color:var(--text-muted);display:flex;align-items:center;gap:5px;">In Development</span>
-          <span style="font-size:0.78rem;color:var(--primary);font-weight:600;display:flex;align-items:center;gap:5px;">View Details →</span>
-        </div>
+<section class="section"><div class="container">
+  <span class="section-label">Past Project</span>
+  <h2 class="section-title">Check out our past Digital Agriculture project below.</h2>
+  <div class="pgrid" style="margin-top:30px;">
+    <a href="https://ewb-dig-ag.org" class="pcard" target="_blank" rel="noopener" style="grid-column:1 / -1;">
+      <div class="pcard-media"><img src="../assets/img/digag-drone-rover.jpg" alt="Drone and ground rover surveying a maize field" loading="lazy"><span class="pcard-badge">Completed</span></div>
+      <div class="pcard-body">
+        <div class="pcard-k">Digital Agriculture/Internet of Things</div>
+        <h3>Maize Disease Detection</h3>
+        <p>An open-source NDVI drone and autonomous ground rover paired with deep learning models and desktop software to assist farmers in identifying Northern Leaf Blight disease in corn crops.</p>
+        <p class="dmeta" style="margin-top:12px;">ewb-dig-ag.org &#8599;</p>
       </div>
     </a>
   </div>
 </div></section>
 
-<div class="team-subnav">
-      <a href="/pages/projects.html" class="btn btn-outline">← All Projects</a>
-      <a href="/pages/apply.html" class="btn btn-primary">Join the Subteam</a>
-      <a href="/pages/sponsors.html" class="btn btn-outline">Donate →</a>
-    </div>
+<section class="section" style="background:var(--surface);"><div class="container">
+  <span class="section-label">Recruitment</span>
+  <h2 class="section-title">Why Join Us</h2>
+  <div style="max-width:820px;margin-top:24px;">
+    <p style="color:var(--muted);line-height:1.75;margin-bottom:18px;">We're a student engineering team that partners with local and regional organizations to build technology that has impact on the real world, from sustainable packaging design to IoT software to applied machine learning. Our ZWI partnership allows members to work across all angles of a project that actually helps people. We bring all pieces of the puzzle together on one product:</p>
+    <ul style="display:flex;flex-direction:column;gap:12px;color:var(--muted);line-height:1.65;padding-left:18px;margin-bottom:18px;">
+      <li><strong style="color:var(--ink);">Hardware members</strong> get hands-on experience with material selection, mechanical design, and sensor integration for a practical physical product.</li>
+      <li><strong style="color:var(--ink);">Software members</strong> build and ship infrastructure (Django/React) used by an actual nonprofit and local government.</li>
+      <li><strong style="color:var(--ink);">Machine Learning members</strong> take a computer vision model from architecture design through cloud deployment (AWS SageMaker, Docker).</li>
+    </ul>
+    <p style="color:var(--muted);line-height:1.75;">If you're interested in building things that matter for your local community, for sustainability, and for agriculture, we'd love to have you on the team.</p>
+  </div>
+</div></section>
+
+<section class="cta-band">
+  <div class="container">
+    <h2>Want to join the Digital Agriculture/IoT Subteam?</h2>
+    <p>Hardware, software, and machine learning roles open every semester. No prior experience required.</p>
+      <div class="cta-buttons">
+        <a href="/pages/apply.html" class="btn btn-primary">Join the subteam</a>
+        <a href="/pages/projects.html" class="btn btn-outline">All projects</a>
+        <a href="/pages/sponsors.html" class="btn btn-ghost">Support our work</a>
+      </div>
+  </div>
+</section>
 
 <footer class="footer"><div class="container">
   <div class="footer-grid">
@@ -210,12 +298,14 @@
     <div class="footer-col"><h4>Navigate</h4><ul>
       <li><a href="/pages/about.html">About</a></li>
       <li><a href="/pages/members.html">Members</a></li>
-      <li><a href="/pages/projects.html">Projects</a></li><li><a href="/pages/teams.html">Teams</a></li><li><a href="/pages/apply.html">Apply</a></li>
+      <li><a href="/pages/teams.html">Teams</a></li><li><a href="/pages/projects.html">Projects</a></li><li><a href="/pages/apply.html">Apply</a></li>
     </ul></div>
     <div class="footer-col"><h4>Teams</h4><ul>
       <li><a href="/pages/teams-international.html">International</a></li>
       <li><a href="/pages/teams-domestic.html">Domestic</a></li>
-      <li><a href="/pages/teams-digital-agriculture.html">Digital Agriculture</a></li>
+      <li><a href="/pages/teams-digital-agriculture.html">Digital Agriculture/IoT</a></li>
+<li><a href="/pages/project-wardrobe.html">Cornell Wardrobe App</a></li>
+<li><a href="/pages/project-climate-fund.html">Climate Fund App</a></li>
       <li><a href="/pages/teams-software.html">Software</a></li>
       <li><a href="/pages/teams-business.html">Business</a></li>
     </ul></div>
@@ -224,10 +314,12 @@
       <div class="footer-contact-item"><i class="ti ti-map-pin footer-icon" aria-hidden="true"></i><span>Cornell University, Ithaca NY</span></div>
     </div>
   </div>
-  <div class="footer-bottom"><span>© 2025 EWB Cornell.</span></div>
+  <div class="footer-bottom"><span>© 2025 EWB Cornell.</span>
+    <span class="footer-eeo">Engineers Without Borders at Cornell University is a registered student organization of Cornell University. <a href="https://hr.cornell.edu/about/workplace-rights/equal-education-and-employment" target="_blank" rel="noopener">Equal Education and Employment</a></span>
+  </div>
 </div></footer>
 
 <script src="../js/script.js"></script>
-<script src="../js/pages.js?v=23"></script>
+<script src="../js/pages.js?v=43"></script>
 </body>
 </html>

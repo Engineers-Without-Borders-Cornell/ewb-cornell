@@ -170,7 +170,7 @@
       austin: '/pages/project-austin.html',
       pineridge: '/pages/project-pine-ridge.html',
       tanzania: '/pages/project-tanzania.html',
-      digitalag: '/pages/project-digital-ag.html',
+      digitalag: 'https://ewb-dig-ag.org',
       ithaca: '/pages/about.html'
     };
     nodes.forEach(n => {

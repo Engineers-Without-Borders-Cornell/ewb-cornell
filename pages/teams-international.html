@@ -7,9 +7,10 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.6.0/dist/tabler-icons.min.css">
-  <link rel="stylesheet" href="../css/style.css?v=23">
-  <link rel="stylesheet" href="../css/pages.css?v=23">
-  <script>(function(){var t=localStorage.getItem('ewb-theme')||'light';document.documentElement.setAttribute('data-theme',t);document.documentElement.classList.add('js');})();</script>
+  <link rel="stylesheet" href="../css/style.css?v=43">
+  <link rel="stylesheet" href="../css/pages.css?v=43">
+  <link rel="stylesheet" media="print" href="../css/print.css?v=43">
+  <script>document.documentElement.classList.add('js');</script>
 </head>
 <body>
 
@@ -21,13 +22,12 @@
         <ul class="nav-links">
           <li><a href="/pages/about.html">About</a></li>
           <li><a href="/pages/members.html">Members</a></li>
-          <li><a href="/pages/projects.html">Projects</a></li>
           <li><a href="/pages/teams.html" class="active">Teams</a></li>
+          <li><a href="/pages/projects.html">Projects</a></li>
           <li><a href="/pages/gallery.html">Gallery</a></li>
           <li><a href="/pages/sponsors.html">Sponsors</a></li>
           <li><a href="/pages/apply.html" class="nav-cta">Apply Now</a></li>
         </ul>
-        <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle theme"></button>
         <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
       </div>
     </div>
@@ -36,7 +36,7 @@
 <div class="mobile-backdrop" id="mobileBackdrop"></div>
 <nav class="mobile-menu" id="mobileMenu">
   <a href="/pages/about.html">About</a><a href="/pages/members.html">Members</a>
-  <a href="/pages/projects.html">Projects</a><a href="/pages/teams.html">Teams</a>
+  <a href="/pages/teams.html">Teams</a><a href="/pages/projects.html">Projects</a>
   
   <a href="/pages/gallery.html">Gallery</a>
   <a href="/pages/sponsors.html">Sponsors</a>
@@ -48,10 +48,10 @@
     <a href="/pages/teams.html" class="page-hero-back">← Back to Teams</a>
     <div class="page-hero-tag">International Subteam</div>
     <h1>International <em>Subteam</em></h1>
-    <p class="page-hero-sub">Water and sanitation projects in Bolivia and Tanzania</p>
+    <p class="page-hero-sub">Building water and sanitation infrastructure in Barrio San Cristobal, Bolivia. Restroom and septic system built Summer 2026; water piping construction begins Summer 2027.</p>
     <div class="page-hero-stats lg">
       <div class="page-hero-stat">
-        <span class="page-hero-stat-value">10</span>
+        <span class="page-hero-stat-value">8</span>
         <span class="page-hero-stat-label">Members</span>
       </div>
       <div class="page-hero-stat">
@@ -59,8 +59,8 @@
         <span class="page-hero-stat-label">Countries</span>
       </div>
       <div class="page-hero-stat">
-        <span class="page-hero-stat-value">2</span>
-        <span class="page-hero-stat-label">Projects</span>
+        <span class="page-hero-stat-value">250</span>
+        <span class="page-hero-stat-label">Residents served</span>
       </div>
     </div>
   </div>
@@ -73,13 +73,15 @@
       <div class="team-overview">
         <div class="team-overview-desc">
           <h2>Subteam Overview</h2>
-          <p>The international team designs and builds water and sanitation infrastructure with partner communities abroad, working through local organizations that maintain the system afterward.</p>
-          <p>Currently working in rural Bolivia and completed a solar irrigation system in Tanzania.</p>
+                    <p>Our work right now is in <strong>Barrio San Cristobal, Bolivia</strong>, a community of 250 that has experienced inadequate drinking water and sanitation infrastructure since it was founded over ten years ago. We identified the problem on a Spring 2025 assessment trip: the community&#8217;s only drinking water well had been contaminated with coliforms, and unlined latrines were the likely cause.</p>
+          <p>In <strong>Summer 2026</strong> we went back to address this. Over a three-week implementation trip, the team constructed a two-room public restroom with flushing toilets, a septic tank, and a leach field, all designed by our team in AutoCAD and Civil3D. This is the first crucial step in ensuring that waste in San Cristobal is properly managed to protect drinking water resources from the contamination that made the old well unsafe.</p>
+          <p>That trip also surfaced the next problem; talking with residents and the community&#8217;s Water Committee, we learned the 15-year-old pipe network cannot handle the pressure from the new water tower and routinely ruptures, cutting off drinking water for days at a time. We are redesigning the piping system now with plans to return to Bolivia in <strong>Summer 2027</strong> to begin construction.</p>
+          <p>Our previous project, a solar-powered irrigation system for the farming cooperative in Sunuka, Tanzania, was closed in 2024.</p>
         </div>
         <div class="team-overview-box">
           <div class="team-overview-item">
             <span class="team-overview-label">Members</span>
-            <span class="team-overview-value">10</span>
+            <span class="team-overview-value">8</span>
           </div>
           <div class="team-overview-item">
             <span class="team-overview-label">Focus</span>
@@ -90,10 +92,60 @@
             <span class="team-overview-value status-active">Active</span>
           </div>
           <div class="team-overview-item">
-            <span class="team-overview-label">Founded</span>
-            <span class="team-overview-value">2021</span>
+            <span class="team-overview-label">Last Trip</span>
+            <span class="team-overview-value">Summer 2026</span>
+          </div>
+          <div class="team-overview-item">
+            <span class="team-overview-label">Next Trip</span>
+            <span class="team-overview-value status-active">Summer 2027</span>
           </div>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-head">
+        <h2>From the Field</h2>
+      </div>
+      <div class="gallery-grid rv" style="margin-top:26px;">
+        <figure class="gitem">
+          <img src="../assets/img/bolivia-team-pumphouse.webp" alt="The 2026 implementation team with local masons outside the finished restroom" loading="lazy">
+          <figcaption><span class="gc-loc">Barrio San Crist&oacute;bal</span>The implementation team and local masons</figcaption>
+        </figure>
+        <figure class="gitem">
+          <img src="../assets/img/bolivia-brick-laying.webp" alt="Team members and local masons laying brick walls for the public restroom" loading="lazy">
+          <figcaption><span class="gc-loc">Barrio San Crist&oacute;bal</span>Laying the restroom walls</figcaption>
+        </figure>
+        <figure class="gitem">
+          <img src="../assets/img/bolivia-septic-excavation.webp" alt="Crew excavating the deep pit for the septic tank" loading="lazy">
+          <figcaption><span class="gc-loc">Barrio San Crist&oacute;bal</span>Excavating the septic tank pit</figcaption>
+        </figure>
+        <figure class="gitem">
+          <img src="../assets/img/bolivia-survey-level.webp" alt="A team member running levels with a surveying instrument" loading="lazy">
+          <figcaption><span class="gc-loc">Barrio San Crist&oacute;bal</span>Running levels during the survey</figcaption>
+        </figure>
+        <figure class="gitem">
+          <img src="../assets/img/bolivia-concrete-pour.webp" alt="Workers barrowing concrete into the septic tank excavation" loading="lazy">
+          <figcaption><span class="gc-loc">Barrio San Crist&oacute;bal</span>Pouring the septic tank</figcaption>
+        </figure>
+        <figure class="gitem">
+          <img src="../assets/img/bolivia-trench-excavator.webp" alt="A backhoe cutting a trench along the road at the project site" loading="lazy">
+          <figcaption><span class="gc-loc">Barrio San Crist&oacute;bal</span>Machine trenching along the road</figcaption>
+        </figure>
+        <figure class="gitem">
+          <img src="../assets/img/bolivia-trench-crew.webp" alt="Crew digging by hand with the new water tower behind them" loading="lazy">
+          <figcaption><span class="gc-loc">Barrio San Crist&oacute;bal</span>Digging below the new water tower</figcaption>
+        </figure>
+        <figure class="gitem">
+          <img src="../assets/img/bolivia-pipe-install.webp" alt="Team members setting pipe alongside the brick restroom structure" loading="lazy">
+          <figcaption><span class="gc-loc">Barrio San Crist&oacute;bal</span>Setting pipe beside the restroom</figcaption>
+        </figure>
+        <figure class="gitem">
+          <img src="../assets/img/bolivia-team-selfie.webp" alt="EWB Cornell members and community members at the worksite" loading="lazy">
+          <figcaption><span class="gc-loc">Barrio San Crist&oacute;bal</span>Members and residents at the worksite</figcaption>
+        </figure>
       </div>
     </div>
   </section>
@@ -103,77 +155,58 @@
       <div class="section-head">
         <h2>Meet the Subteam</h2>
       </div>
-      <p style="color:var(--text-muted);font-size:0.85rem;margin-bottom:24px;">Click any member to learn more about them.</p>
+      <figure class="team-photo rv">
+        <img src="../assets/img/teams/team-international.webp" alt="The International subteam at Cornell" loading="lazy">
+        <figcaption class="dmeta">The International subteam</figcaption>
+      </figure>
       <div class="members-grid">
-        <div class="member-card" onclick="openMemberModal({name:'E.S.',initials:'ES',role:'International Co-Lead',major:'Chemical Engineering',year:'Class of 2028',hometown:'Boston, MA',involvements:'EWB Cornell International Lead, AIChE, Cornell Design League',interests:'Water treatment, environmental policy, hiking',about:'E.S. leads the Bolivia water project, coordinating with FIEA Bolivia and running the project engineering.',netid:'es999'})">
-          <div class="member-avatar">ES</div>
-          <div class="member-name">E.S.</div>
-          <div class="member-role">International Co-Lead</div>
+        <div class="member-card" data-member="{&quot;name&quot;: &quot;Evelyn Sangree&quot;, &quot;initials&quot;: &quot;ES&quot;, &quot;role&quot;: &quot;International Lead&quot;, &quot;major&quot;: &quot;Chemical Engineering&quot;, &quot;year&quot;: &quot;Class of 2028&quot;, &quot;subteam&quot;: &quot;International&quot;, &quot;email&quot;: &quot;ehs95@cornell.edu&quot;, &quot;hometown&quot;: &quot;&quot;, &quot;involvements&quot;: &quot;&quot;, &quot;interests&quot;: &quot;&quot;, &quot;experience&quot;: &quot;&quot;, &quot;photo&quot;: &quot;../assets/img/members/evelyn-sangree.webp&quot;}">
+          <div class="member-avatar"><img src="../assets/img/members/evelyn-sangree.webp" alt="Evelyn Sangree" loading="lazy"></div>
+          <div class="member-name">Evelyn Sangree</div>
+          <div class="member-role">International Lead</div>
           <div class="member-major">Chemical Engineering<br>Class of 2028</div>
-          <div class="member-linkedin-badge"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>LinkedIn</div>
         </div>
-        <div class="member-card" onclick="openMemberModal({name:'J.R.',initials:'JR',role:'International Co-Lead',major:'Civil Engineering',year:'Class of 2028',hometown:'San Diego, CA',involvements:'EWB Cornell International Lead, ASCE, Tau Beta Pi',interests:'Infrastructure design, community development, soccer',about:'J.R. co-leads the International Subteam\'s Bolivia water sanitation project. He manages structural and civil engineering design and coordinates the Spring 2025 site assessment.',netid:'jr999'})">
-          <div class="member-avatar">JR</div>
-          <div class="member-name">J.R.</div>
-          <div class="member-role">International Co-Lead</div>
+        <div class="member-card" data-member="{&quot;name&quot;: &quot;Jason Ramos Severino&quot;, &quot;initials&quot;: &quot;JS&quot;, &quot;role&quot;: &quot;International Lead&quot;, &quot;major&quot;: &quot;Civil Engineering&quot;, &quot;year&quot;: &quot;Class of 2028&quot;, &quot;subteam&quot;: &quot;International&quot;, &quot;email&quot;: &quot;jar649@cornell.edu&quot;, &quot;hometown&quot;: &quot;&quot;, &quot;involvements&quot;: &quot;&quot;, &quot;interests&quot;: &quot;&quot;, &quot;experience&quot;: &quot;&quot;, &quot;photo&quot;: &quot;../assets/img/members/jason-ramos-severino.webp&quot;}">
+          <div class="member-avatar"><img src="../assets/img/members/jason-ramos-severino.webp" alt="Jason Ramos Severino" loading="lazy"></div>
+          <div class="member-name">Jason Ramos Severino</div>
+          <div class="member-role">International Lead</div>
           <div class="member-major">Civil Engineering<br>Class of 2028</div>
-          <div class="member-linkedin-badge"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>LinkedIn</div>
         </div>
-        <div class="member-card" onclick="openMemberModal({name:'L.K.',initials:'LK',role:'Member',major:'Environmental Engineering',year:'Class of 2026',hometown:'Portland, OR',involvements:'EWB Cornell, Engineers for a Sustainable World, Outdoor Club',interests:'Water quality, sustainable systems, rock climbing',about:'L.K. does the water quality analysis, sanitation system design, and environmental systems modeling for the Bolivia project.',netid:'lk999'})">
-          <div class="member-avatar">LK</div>
-          <div class="member-name">L.K.</div>
-          <div class="member-role">Member</div>
-          <div class="member-major">Environmental Engineering<br>Class of 2026</div>
-          <div class="member-linkedin-badge"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>LinkedIn</div>
+        <div class="member-card" data-member="{&quot;name&quot;: &quot;Medhansh Bhagchandani&quot;, &quot;initials&quot;: &quot;MB&quot;, &quot;role&quot;: &quot;External Communications Officer&quot;, &quot;major&quot;: &quot;Operations Research and Engineering&quot;, &quot;year&quot;: &quot;Class of 2029&quot;, &quot;subteam&quot;: &quot;International&quot;, &quot;email&quot;: &quot;mb2765@cornell.edu&quot;, &quot;hometown&quot;: &quot;&quot;, &quot;involvements&quot;: &quot;&quot;, &quot;interests&quot;: &quot;&quot;, &quot;experience&quot;: &quot;&quot;, &quot;photo&quot;: &quot;../assets/img/members/medhansh-bhagchandani.webp&quot;}">
+          <div class="member-avatar"><img src="../assets/img/members/medhansh-bhagchandani.webp" alt="Medhansh Bhagchandani" loading="lazy"></div>
+          <div class="member-name">Medhansh Bhagchandani</div>
+          <div class="member-role">External Communications Officer</div>
+          <div class="member-major">Operations Research and Engineering<br>Class of 2029</div>
         </div>
-        <div class="member-card" onclick="openMemberModal({name:'S.G.',initials:'SG',role:'Member',major:'Biomedical Engineering',year:'Class of 2027',hometown:'Miami, FL',involvements:'EWB Cornell, Society of Hispanic Engineers, Global Health Alliance',interests:'Global health, water-borne disease prevention, salsa dancing',about:'S.G. does the public health analysis for the Bolivia project, checking the sanitation design against disease prevention. She is fluent in Spanish and runs community communication.',netid:'sg999'})">
-          <div class="member-avatar">SG</div>
-          <div class="member-name">S.G.</div>
-          <div class="member-role">Member</div>
-          <div class="member-major">Biomedical Engineering<br>Class of 2027</div>
-          <div class="member-linkedin-badge"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>LinkedIn</div>
-        </div>
-        <div class="member-card" onclick="openMemberModal({name:'C.J.',initials:'CJ',role:'Member',major:'Environmental Engineering',year:'Class of 2026',hometown:'Chicago, IL',involvements:'EWB Cornell, Sustainable Campus Coalition, Engineers for Sustainability',interests:'Stormwater management, urban ecology, photography',about:'C.J. works on hydraulic modeling and site assessment logistics for the Bolivia project. She participated in the Spring 2025 site assessment trip.',netid:'cj999'})">
-          <div class="member-avatar">CJ</div>
-          <div class="member-name">C.J.</div>
-          <div class="member-role">Member</div>
-          <div class="member-major">Environmental Engineering<br>Class of 2026</div>
-          <div class="member-linkedin-badge"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>LinkedIn</div>
-        </div>
-        <div class="member-card" onclick="openMemberModal({name:'M.B.',initials:'MB',role:'Member',major:'Chemical Engineering',year:'Class of 2029',hometown:'New Delhi, India',involvements:'EWB Cornell International Subteam, Cornell Business Club',interests:'Process engineering, renewable energy, chess',about:'M.B. is a first-year member of the International Subteam working on the Bolivia water sanitation project.',netid:'mb999'})">
-          <div class="member-avatar">MB</div>
-          <div class="member-name">M.B.</div>
-          <div class="member-role">Member</div>
-          <div class="member-major">Chemical Engineering<br>Class of 2029</div>
-          <div class="member-linkedin-badge"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>LinkedIn</div>
-        </div>
-        <div class="member-card" onclick="openMemberModal({name:'M.B.',initials:'MB',role:'Member',major:'Environmental Engineering',year:'Class of 2026',hometown:'Tel Aviv, Israel',involvements:'EWB Cornell, Cornell Israel Alliance, Swim Team',interests:'Wastewater treatment, desalination, competitive swimming',about:'M.B. works on the wastewater management parts of the Bolivia design, and is interested in water scarcity and reuse.',netid:'mb998'})">
-          <div class="member-avatar">MB</div>
-          <div class="member-name">M.B.</div>
-          <div class="member-role">Member</div>
-          <div class="member-major">Environmental Engineering<br>Class of 2026</div>
-          <div class="member-linkedin-badge"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>LinkedIn</div>
-        </div>
-        <div class="member-card" onclick="openMemberModal({name:'E.F.',initials:'EF',role:'Member',major:'Applied & Engineering Physics',year:'Class of 2029',hometown:'Palo Alto, CA',involvements:'EWB Cornell, Cornell Physics Society, Robotics Club',interests:'Applied physics in engineering systems, electromagnetism, guitar',about:'E.F. brings a physics lens to the team\'s infrastructure challenges, contributing to the structural and hydrodynamic analysis components of the Bolivia water system design.',netid:'ef999'})">
-          <div class="member-avatar">EF</div>
-          <div class="member-name">E.F.</div>
-          <div class="member-role">Member</div>
-          <div class="member-major">Applied &amp; Engineering Physics<br>Class of 2029</div>
-          <div class="member-linkedin-badge"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>LinkedIn</div>
-        </div>
-        <div class="member-card" onclick="openMemberModal({name:'A.C.',initials:'AC',role:'Member',major:'Environmental Engineering',year:'Class of 2029',hometown:'Seattle, WA',involvements:'EWB Cornell, Cornell Hiking Club, Environmental Systems Lab',interests:'Environmental remediation, watershed management, trail running',about:'A.C. is a new member of the International Subteam, working on the Bolivia project design reviews.',netid:'ac999'})">
-          <div class="member-avatar">AC</div>
-          <div class="member-name">A.C.</div>
+        <div class="member-card" data-member="{&quot;name&quot;: &quot;Abby Childs&quot;, &quot;initials&quot;: &quot;AC&quot;, &quot;role&quot;: &quot;Member&quot;, &quot;major&quot;: &quot;Environmental Engineering&quot;, &quot;year&quot;: &quot;Class of 2029&quot;, &quot;subteam&quot;: &quot;International&quot;, &quot;email&quot;: &quot;aac265@cornell.edu&quot;, &quot;hometown&quot;: &quot;&quot;, &quot;involvements&quot;: &quot;&quot;, &quot;interests&quot;: &quot;&quot;, &quot;experience&quot;: &quot;&quot;, &quot;photo&quot;: &quot;../assets/img/members/abby-childs.webp&quot;}">
+          <div class="member-avatar"><img src="../assets/img/members/abby-childs.webp" alt="Abby Childs" loading="lazy"></div>
+          <div class="member-name">Abby Childs</div>
           <div class="member-role">Member</div>
           <div class="member-major">Environmental Engineering<br>Class of 2029</div>
-          <div class="member-linkedin-badge"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>LinkedIn</div>
         </div>
-        <div class="member-card" onclick="openMemberModal({name:'A.T.',initials:'AT',role:'Member',major:'Civil Engineering',year:'Class of 2027',hometown:'Atlanta, GA',involvements:'EWB Cornell, ASCE Student Chapter, Civil Engineering Club',interests:'Structural design, transportation infrastructure, basketball',about:'A.T. contributes to the structural and civil engineering components of the Bolivia sanitation infrastructure, with focus on the piping network design and construction specifications.',netid:'at999'})">
-          <div class="member-avatar">AT</div>
-          <div class="member-name">A.T.</div>
+        <div class="member-card" data-member="{&quot;name&quot;: &quot;Ethan Fisher-Dayn&quot;, &quot;initials&quot;: &quot;EF&quot;, &quot;role&quot;: &quot;Member&quot;, &quot;major&quot;: &quot;Earth and Atmospheric Sciences&quot;, &quot;year&quot;: &quot;Class of 2029&quot;, &quot;subteam&quot;: &quot;International&quot;, &quot;email&quot;: &quot;ef472@cornell.edu&quot;, &quot;hometown&quot;: &quot;&quot;, &quot;involvements&quot;: &quot;&quot;, &quot;interests&quot;: &quot;&quot;, &quot;experience&quot;: &quot;&quot;}">
+          <div class="member-avatar">EF</div>
+          <div class="member-name">Ethan Fisher-Dayn</div>
           <div class="member-role">Member</div>
-          <div class="member-major">Civil Engineering<br>Class of 2027</div>
-          <div class="member-linkedin-badge"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>LinkedIn</div>
+          <div class="member-major">Earth and Atmospheric Sciences<br>Class of 2029</div>
+        </div>
+        <div class="member-card" data-member="{&quot;name&quot;: &quot;Kacper Kowalski&quot;, &quot;initials&quot;: &quot;KK&quot;, &quot;role&quot;: &quot;Member&quot;, &quot;major&quot;: &quot;Civil Engineering&quot;, &quot;year&quot;: &quot;Class of 2028&quot;, &quot;subteam&quot;: &quot;International&quot;, &quot;email&quot;: &quot;kmk346@cornell.edu&quot;, &quot;hometown&quot;: &quot;&quot;, &quot;involvements&quot;: &quot;&quot;, &quot;interests&quot;: &quot;&quot;, &quot;experience&quot;: &quot;&quot;, &quot;photo&quot;: &quot;../assets/img/members/kacper-kowalski.webp&quot;}">
+          <div class="member-avatar"><img src="../assets/img/members/kacper-kowalski.webp" alt="Kacper Kowalski" loading="lazy"></div>
+          <div class="member-name">Kacper Kowalski</div>
+          <div class="member-role">Member</div>
+          <div class="member-major">Civil Engineering<br>Class of 2028</div>
+        </div>
+        <div class="member-card" data-member="{&quot;name&quot;: &quot;Lori-Ann Atkinstall&quot;, &quot;initials&quot;: &quot;LA&quot;, &quot;role&quot;: &quot;Member&quot;, &quot;major&quot;: &quot;Mechanical Engineering&quot;, &quot;year&quot;: &quot;Class of 2028&quot;, &quot;subteam&quot;: &quot;International&quot;, &quot;email&quot;: &quot;lpa28@cornell.edu&quot;, &quot;hometown&quot;: &quot;&quot;, &quot;involvements&quot;: &quot;&quot;, &quot;interests&quot;: &quot;&quot;, &quot;experience&quot;: &quot;&quot;}">
+          <div class="member-avatar">LA</div>
+          <div class="member-name">Lori-Ann Atkinstall</div>
+          <div class="member-role">Member</div>
+          <div class="member-major">Mechanical Engineering<br>Class of 2028</div>
+        </div>
+        <div class="member-card" data-member="{&quot;name&quot;: &quot;Sarah Garcia Moreno&quot;, &quot;initials&quot;: &quot;SM&quot;, &quot;role&quot;: &quot;Member&quot;, &quot;major&quot;: &quot;Biomedical Engineering&quot;, &quot;year&quot;: &quot;Class of 2027&quot;, &quot;subteam&quot;: &quot;International&quot;, &quot;email&quot;: &quot;sgg53@cornell.edu&quot;, &quot;hometown&quot;: &quot;&quot;, &quot;involvements&quot;: &quot;&quot;, &quot;interests&quot;: &quot;&quot;, &quot;experience&quot;: &quot;&quot;, &quot;photo&quot;: &quot;../assets/img/members/sarah-garcia-moreno.webp&quot;}">
+          <div class="member-avatar"><img src="../assets/img/members/sarah-garcia-moreno.webp" alt="Sarah Garcia Moreno" loading="lazy"></div>
+          <div class="member-name">Sarah Garcia Moreno</div>
+          <div class="member-role">Member</div>
+          <div class="member-major">Biomedical Engineering<br>Class of 2027</div>
         </div>
       </div>
     </div>
@@ -184,85 +217,36 @@
       <div class="section-head">
         <h2>Active Projects</h2>
       </div>
-      <div class="grid-2">
-        <a href="/pages/project-bolivia.html" class="project-card" style="display:block;text-decoration:none;color:inherit;">
-          <div class="project-card-visual">
-            <svg width="100%" height="100%" viewBox="0 0 400 200" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
-              <rect width="400" height="200" fill="var(--surface)"/>
-              <circle cx="80" cy="80" r="60" fill="var(--blue)" opacity="0.12"/>
-              <circle cx="320" cy="140" r="80" fill="var(--teal)" opacity="0.10"/>
-              <path d="M0 120 Q100 80 200 110 Q300 140 400 100 L400 200 L0 200 Z" fill="var(--blue)" opacity="0.08"/>
-              <path d="M0 140 Q100 110 200 130 Q300 150 400 120 L400 200 L0 200 Z" fill="var(--teal)" opacity="0.10"/>
-              <circle cx="200" cy="90" r="30" fill="none" stroke="var(--blue)" stroke-width="2" opacity="0.3"/>
-              <circle cx="200" cy="90" r="18" fill="none" stroke="var(--blue)" stroke-width="1.5" opacity="0.25"/>
-              <line x1="170" y1="90" x2="230" y2="90" stroke="var(--blue)" stroke-width="1.5" opacity="0.3"/>
-              <line x1="200" y1="60" x2="200" y2="120" stroke="var(--blue)" stroke-width="1.5" opacity="0.3"/>
-            </svg>
-          </div>
-          <div class="project-card-body">
-            <div class="project-card-tags">
-              <span class="tag tag-active">Active</span>
-              <span class="tag tag-international">International</span>
-            </div>
-            <h3>Bolivia Water System</h3>
-            <p>Designing water and sanitation infrastructure for Barrio San Cristóbal, Bolivia, with local engineers who will maintain it.</p>
-            <div class="project-card-meta">
-              <span>Bolivia</span>
-              <span>Civil &amp; Environmental Eng</span>
-              <span style="color:var(--primary);font-weight:600;">View Details →</span>
-            </div>
-          </div>
-        </a>
-        <a href="/pages/project-tanzania.html" class="project-card" style="display:block;text-decoration:none;color:inherit;">
-          <div class="project-card-visual">
-            <svg width="100%" height="100%" viewBox="0 0 400 200" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
-              <rect width="400" height="200" fill="var(--surface)"/>
-              <circle cx="300" cy="60" r="50" fill="var(--orange)" opacity="0.12"/>
-              <circle cx="80" cy="150" r="70" fill="var(--green)" opacity="0.10"/>
-              <path d="M160 60 L200 20 L240 60 L230 60 L230 100 L170 100 L170 60 Z" fill="var(--orange)" opacity="0.18"/>
-              <line x1="200" y1="20" x2="200" y2="5" stroke="var(--orange)" stroke-width="2" opacity="0.35"/>
-              <line x1="200" y1="100" x2="200" y2="140" stroke="var(--text-muted)" stroke-width="2" opacity="0.3"/>
-              <rect x="120" y="140" width="160" height="8" rx="2" fill="var(--text-muted)" opacity="0.2"/>
-              <path d="M0 160 Q100 145 200 155 Q300 165 400 150 L400 200 L0 200 Z" fill="var(--green)" opacity="0.08"/>
-              <circle cx="300" cy="55" r="20" fill="var(--orange)" opacity="0.15"/>
-              <line x1="270" y1="55" x2="330" y2="55" stroke="var(--orange)" stroke-width="1.5" opacity="0.25"/>
-              <line x1="300" y1="25" x2="300" y2="85" stroke="var(--orange)" stroke-width="1.5" opacity="0.25"/>
-            </svg>
-          </div>
-          <div class="project-card-body">
-            <div class="project-card-tags">
-              <span class="tag tag-completed">Completed</span>
-              <span class="tag tag-international">International</span>
-            </div>
-            <h3>Tanzania Solar Irrigation</h3>
-            <p>Delivered a solar-powered irrigation system that enabled year-round farming, completed with the local farming cooperative.</p>
-            <div class="project-card-meta">
-              <span>Tanzania</span>
-              <span>Solar Energy</span>
-              <span style="color:var(--primary);font-weight:600;">View Details →</span>
-            </div>
-          </div>
-        </a>
+      <div style="max-width:820px;margin-top:26px;display:flex;flex-direction:column;gap:34px;">
+        <div>
+          <h3 style="font-size:1.3rem;font-weight:600;margin-bottom:14px;">Bolivia</h3>
+          <p style="color:var(--muted);line-height:1.75;margin-bottom:14px;">The 250-person community of Barrio San Cristobal, Bolivia has struggled with access to safe and reliable drinking water and sanitation services since its establishment over ten years ago.</p>
+          <p style="color:var(--muted);line-height:1.75;margin-bottom:14px;">The need for improved access to water and sanitation services was identified after our Spring 2025 Site Assessment Trip, when we met with 30+ households, to understand the community’s infrastructure priorities. At the time, the community’s main source of drinking water was a well that had been contaminated with coliform and was unsafe to continue drinking. This contamination was likely due to the use of unlined latrines to manage human waste, which allowed pathogens to leach into groundwater. With the help of the local government, community leadership was finalizing plans to construct a new, deeper well and water towers that would increase the quality and reliability of the drinking water. However, there were no plans in place to address the root cause of the contamination – unsustainable waste management practices.</p>
+          <p style="color:var(--muted);line-height:1.75;margin-bottom:14px;">Throughout the course of the year, culminating in a construction Implementation Trip in the summer of 2026, EWB Cornell designed and built a public restroom and attached septic system to ensure that waste is safely managed and does not contaminate this new well. Using software such as AutoCAD and Civil3D, team members designed a two-room restroom with flushing toilets, a septic tank, and a leach field, ultimately traveling to Barrio San Cristobal to successfully build the restroom during a three-week trip.</p>
+          <p style="color:var(--muted);line-height:1.75;margin-bottom:14px;">On this 2026 trip, the team saw the newly installed well and water tower but learned through conversations with residents and the community’s Water Committee that the 15-year-old pipe system connected to the new well has frequently been breaking, causing drinking water loss for multiple days at a time. The old pipes are unable to withstand the increased pressure caused by the new water tower and are unlikely to be able to support the community much longer. In addition to continuing sanitation development, EWB Cornell is now working on redesigning the water piping system to address these issues and will return to Bolivia in the summer of 2027 to begin construction.</p>
+          <figure>
+            <img class="pd-media" src="../assets/img/bolivia-group-pumphouse.webp" alt="Group photo of the team and community partners outside the completed restroom" loading="lazy">
+            <figcaption class="dmeta">The team and community partners after the Summer 2026 build</figcaption>
+          </figure>
+        </div>
+
       </div>
     </div>
   </section>
 
-  <section class="cta-band">
-    <div class="container">
-      <h2>Want to join the International Subteam?</h2>
-      <p>We take engineers and non-engineers interested in international infrastructure work.</p>
-      <a href="/pages/apply.html" class="btn btn-primary">Apply Now</a>
-    </div>
-  </section>
-
-  <div class="team-subnav">
-      <a href="/pages/projects.html" class="btn btn-outline">← All Projects</a>
-      <a href="/pages/apply.html" class="btn btn-primary">Join the Subteam</a>
-      <a href="/pages/sponsors.html" class="btn btn-outline">Donate →</a>
-    </div>
+<section class="cta-band">
+  <div class="container">
+    <h2>Want to join the International Subteam?</h2>
+    <p>We take engineers and non-engineers interested in international infrastructure work.</p>
+      <div class="cta-buttons">
+        <a href="/pages/apply.html" class="btn btn-primary">Join the subteam</a>
+        <a href="/pages/projects.html" class="btn btn-outline">All projects</a>
+        <a href="/pages/sponsors.html" class="btn btn-ghost">Support our work</a>
+      </div>
+  </div>
+</section>
 
 </main>
-
 <footer class="footer">
   <div class="container">
     <div class="footer-grid">
@@ -283,8 +267,8 @@
         <ul>
           <li><a href="/pages/about.html">About</a></li>
           <li><a href="/pages/members.html">Members</a></li>
-          <li><a href="/pages/projects.html">Projects</a></li>
           <li><a href="/pages/teams.html">Teams</a></li>
+          <li><a href="/pages/projects.html">Projects</a></li>
           <li><a href="/pages/apply.html">Apply</a></li>
         </ul>
       </div>
@@ -293,7 +277,9 @@
         <ul>
           <li><a href="/pages/teams-international.html">International</a></li>
           <li><a href="/pages/teams-domestic.html">Domestic</a></li>
-          <li><a href="/pages/teams-digital-agriculture.html">Digital Agriculture</a></li>
+          <li><a href="/pages/teams-digital-agriculture.html">Digital Agriculture/IoT</a></li>
+<li><a href="/pages/project-wardrobe.html">Cornell Wardrobe App</a></li>
+<li><a href="/pages/project-climate-fund.html">Climate Fund App</a></li>
           <li><a href="/pages/teams-software.html">Software</a></li>
           <li><a href="/pages/teams-business.html">Business</a></li>
         </ul>
@@ -304,11 +290,13 @@
         <div class="footer-contact-item"><i class="ti ti-map-pin footer-icon" aria-hidden="true"></i><span>Cornell University, Ithaca NY</span></div>
       </div>
     </div>
-    <div class="footer-bottom"><span>© 2025 EWB Cornell.</span></div>
+    <div class="footer-bottom"><span>© 2025 EWB Cornell.</span>
+      <span class="footer-eeo">Engineers Without Borders at Cornell University is a registered student organization of Cornell University. <a href="https://hr.cornell.edu/about/workplace-rights/equal-education-and-employment" target="_blank" rel="noopener">Equal Education and Employment</a></span>
+    </div>
   </div>
 </footer>
 
 <script src="../js/script.js"></script>
-<script src="../js/pages.js?v=23"></script>
+<script src="../js/pages.js?v=43"></script>
 </body>
 </html>

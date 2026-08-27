@@ -1,0 +1,163 @@
+/* =============================================================
+   EWB CORNELL - PRINT STYLESHEET
+   Loaded with media="print" only, so nothing here affects the
+   screen rendering. Goal: a clean, readable paper/PDF version of
+   any page without touching the on-screen design.
+============================================================= */
+
+@page {
+  size: Letter portrait;
+  margin: 16mm 14mm 18mm;
+}
+
+/* ---- force the light palette, whatever the viewer's theme is ---- */
+:root, [data-theme="dark"], [data-theme="light"] {
+  --bg:            #ffffff !important;
+  --bg-alt:        #ffffff !important;
+  --surface:       #ffffff !important;
+  --surface-hover: #ffffff !important;
+  --ink:           #000000 !important;
+  --muted:         #333333 !important;
+  --dim:           #555555 !important;
+  --border:        #bbbbbb !important;
+  --border-strong: #888888 !important;
+  --accent:        #10428a !important;
+  --accent-ink:    #10428a !important;
+  --accent-solid:  #10428a !important;
+  --accent-soft:   #ffffff !important;
+  --accent-soft-bd:#bbbbbb !important;
+  --shadow-sm: none !important;
+  --shadow-md: none !important;
+  --shadow-lg: none !important;
+}
+
+html, body {
+  background: #fff !important;
+  color: #000 !important;
+  font-size: 10.5pt;
+  line-height: 1.45;
+}
+
+* {
+  background-image: none !important;
+  box-shadow: none !important;
+  text-shadow: none !important;
+  animation: none !important;
+  transition: none !important;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+
+/* ---- chrome and interactive-only furniture ---- */
+.nav, .mobile-menu, .mobile-backdrop, .hamburger,
+.scroll-progress, .rail, .modal-overlay, .lightbox,
+.filterbar, .gfilter, .calc-presets, .page-hero-back,
+.social-links, .sr-only, .skip-link,
+.cta-band, .cta-buttons, .team-subnav,
+.member-linkedin-badge, .footer-bottom-links {
+  display: none !important;
+}
+
+/* Buttons are dead ink on paper; keep only ones that carry an address. */
+.btn { display: none !important; }
+
+/* ---- page furniture: a masthead and a footer rule on every sheet ---- */
+body::before {
+  content: "Engineers Without Borders — Cornell University · ewbcornell.org · ewb@cornell.edu";
+  display: block;
+  font-size: 8.5pt;
+  letter-spacing: .04em;
+  color: #444;
+  border-bottom: 1pt solid #999;
+  padding-bottom: 5pt;
+  margin-bottom: 14pt;
+}
+
+main, .section, .xsection, header.page-hero, .project-detail-hero {
+  padding: 0 !important;
+  margin: 0 0 16pt !important;
+  background: none !important;
+  border: 0 !important;
+  min-height: 0 !important;
+}
+.container { max-width: none !important; width: auto !important; padding: 0 !important; }
+
+/* ---- typography ---- */
+h1 { font-size: 20pt !important; line-height: 1.15 !important; margin: 0 0 6pt !important; }
+h2 { font-size: 14pt !important; line-height: 1.2 !important; margin: 14pt 0 6pt !important; }
+h3 { font-size: 11.5pt !important; margin: 10pt 0 4pt !important; }
+h1 em, h2 em { font-style: normal; }
+h1, h2, h3, h4 { page-break-after: avoid; break-after: avoid; color: #000 !important; }
+p, li { orphans: 3; widows: 3; }
+p { margin: 0 0 7pt; }
+
+.page-hero-sub, .xhero-sub { font-size: 11pt !important; color: #222 !important; }
+.xindex, .section-label, .dmeta, .pcard-k, .exec-office, .member-role, .tk {
+  font-size: 8pt !important; letter-spacing: .1em !important; color: #10428a !important;
+}
+
+/* ---- cards and grids: two columns max, never split across pages ---- */
+.members-grid, .exec-grid, .leads-grid, .tier-cards, .pgrid, .track-grid,
+.grid-2, .grid-3, .grid-4, .statstrip, .steps, .swall-logos, .appgrid, .about-split, .calc {
+  display: grid !important;
+  grid-template-columns: repeat(2, 1fr) !important;
+  gap: 8pt !important;
+  background: none !important;
+  border: 0 !important;
+}
+.members-grid { grid-template-columns: repeat(4, 1fr) !important; }
+
+.member-card, .exec-card, .tcard, .pcard, .track-card, .step, .appcard,
+.impact-card, .slogo-img, .roster-group, .timeline-step, .acc-item, .rtl-row, .proj-item {
+  page-break-inside: avoid; break-inside: avoid;
+  border: 1pt solid #ccc !important;
+  border-radius: 3pt !important;
+  background: #fff !important;
+  padding: 7pt !important;
+}
+.roster-group, .timeline-step, .acc-item, .rtl-row, .proj-item { border: 0 !important; border-bottom: 1pt solid #ddd !important; border-radius: 0 !important; }
+.roster-group { padding: 0 !important; margin-bottom: 12pt !important; }
+
+/* Avatars print as outlined initials rather than solid colour blocks. */
+.member-avatar, .exec-av, .modal-photo {
+  width: 40pt !important; height: 40pt !important;
+  background: #fff !important; color: #000 !important;
+  border: 1pt solid #999 !important;
+  font-size: 10pt !important;
+}
+.member-name, .exec-name { font-size: 9.5pt !important; }
+.member-major, .exec-sub { font-size: 8pt !important; }
+
+/* ---- images ---- */
+img { max-width: 100% !important; height: auto !important; page-break-inside: avoid; break-inside: avoid; }
+.pcard-media, .pd-media, .project-card-visual, .pimg { max-height: 55mm !important; }
+.pcard-media img, .pd-media, .project-card-visual img, .pimg img { max-height: 55mm !important; object-fit: contain !important; }
+.nav-logo-img { display: none !important; }
+.footer-logo-img { height: 34pt !important; }
+
+/* Hide decorative-only media so the print stays compact and legible. */
+.xhero-media, .ops-svg, .gallery-grid, .gitem { display: none !important; }
+
+/* ---- accordions print open ---- */
+.acc-a { max-height: none !important; overflow: visible !important; }
+.acc-q .ico { display: none !important; }
+
+/* ---- reveal classes never hide content on paper ---- */
+.rv, .fade-up { opacity: 1 !important; transform: none !important; }
+.filter-hidden { display: block !important; }
+
+/* ---- show destinations for real links ---- */
+a { color: #000 !important; text-decoration: none !important; }
+main a[href^="http"]::after,
+main a[href^="mailto"]::after { content: " (" attr(href) ")"; font-size: 8pt; color: #555; word-break: break-all; }
+main a[href^="/"]::after { content: " (ewbcornell.org" attr(href) ")"; font-size: 8pt; color: #555; }
+a[href^="#"]::after { content: "" !important; }
+
+/* ---- footer becomes a compact contact block ---- */
+.footer { border-top: 1pt solid #999 !important; padding: 8pt 0 0 !important; margin-top: 14pt !important; background: none !important; page-break-inside: avoid; }
+.footer-grid { display: block !important; }
+.footer-col, .footer-brand { margin-bottom: 6pt; }
+.footer-col ul { display: none !important; }
+.footer-col h4 { display: none !important; }
+.footer-col:last-of-type h4 { display: block !important; }
+.footer-eeo { font-size: 8pt !important; color: #444 !important; }
