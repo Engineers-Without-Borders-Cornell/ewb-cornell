@@ -152,6 +152,8 @@
 @media (hover:hover){ .proj-item:hover { background: var(--bg-alt); } }
 .proj-item .pimg { width: 132px; height: 92px; border-radius: var(--radius); overflow: hidden; background: var(--bg-alt); border: 1px solid var(--border); }
 .proj-item .pimg img { width: 100%; height: 100%; object-fit: cover; }
+.proj-item .pimg.logo-thumb { background: #ffffff; }
+.proj-item .pimg.logo-thumb img { object-fit: contain; padding: 8px; }
 .proj-item .pimg.noimg { display: flex; align-items: center; justify-content: center; font-family: var(--mono); font-size: 9px; letter-spacing: .12em; color: var(--dim); }
 .proj-item .pk { font-family: var(--mono); font-size: 10px; letter-spacing: .1em; text-transform: uppercase; color: var(--accent-ink); }
 .proj-item .pn { font-size: 1.15rem; font-weight: 600; color: var(--ink); margin: 4px 0 5px; letter-spacing: -0.01em; }

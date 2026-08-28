@@ -385,6 +385,21 @@
 .app-shots figcaption { margin-top: 8px; }
 @media (max-width: 520px) { .app-shots { gap: 12px; } .app-shots figure { flex: 1 1 100%; } }
 
+/* Partner logos. A logo is artwork, not a photograph: the cover crop used by
+   .pd-media would cut it, and the green ink needs a light ground to read in
+   dark mode. Show it whole, centred, on its own panel. */
+.partner-logo {
+  display: flex; align-items: center; justify-content: center;
+  background: #ffffff; border: 1px solid var(--border);
+  border-radius: var(--radius-lg); padding: 28px 32px;
+}
+.partner-logo img { width: 100%; max-width: 520px; height: auto; display: block; }
+@media (max-width: 560px) { .partner-logo { padding: 20px; } }
+
+/* Logo used as a card thumbnail: contain, never cover, on the same light ground. */
+.pcard-media.logo-thumb { background: #ffffff; }
+.pcard-media.logo-thumb img { object-fit: contain; padding: 18px; }
+
 /* =============================================================
    SPLIT PAGE HERO - copy left, photograph right (members page)
 ============================================================= */
