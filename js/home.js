@@ -120,7 +120,8 @@
       { y: 2022, loc: 'Cornell University', t: 'Cornell Wardrobe app', d: 'Built an app to optimize the Cornell Wardrobe Project, which provides free, gently used professional attire.' },
       { y: 2023, loc: 'Austin, Texas', t: 'Stormwater reuse', d: 'Began designing stormwater diversion, rainwater harvesting, and solar pumping for the Festival Beach Community Garden.' },
       { y: 2024, loc: 'Finger Lakes, NY', t: 'ReUse partnership', d: 'Started a donation application for Finger Lakes ReUse and a carbon app for the Tompkins Climate Fund.' },
-      { y: 2025, loc: 'Barrio San Cristóbal, Bolivia', t: 'Sanitation initiative', d: 'Visited San Cristóbal and adopted a multi-year sanitation project, now entering its implementation phase.' }
+      { y: 2025, loc: 'Barrio San Cristóbal, Bolivia', t: 'Sanitation initiative', d: 'Visited San Cristóbal and adopted a multi-year sanitation project, now entering its implementation phase.' },
+      { y: 2026, loc: 'Barrio San Cristóbal, Bolivia', t: 'Implementation trip', d: 'Traveled to Barrio San Cristóbal and built the public restroom and attached septic system during a three-week trip, so waste no longer contaminates the new well.' }
     ];
     const elYear = document.getElementById('tlYear');
     const elLoc = document.getElementById('tlLoc');
