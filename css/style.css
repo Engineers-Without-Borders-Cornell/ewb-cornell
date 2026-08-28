@@ -1059,6 +1059,25 @@ html.scroll-locked .rail { right: calc(24px + var(--sbw, 0px)); }
   .nav-logo { transition: opacity .25s var(--ease-out) !important; }
   .menu-open .nav-logo { opacity: 0; pointer-events: none; }
 
+  /* The bar keeps z-index 46 (above the scrim at 40 and the drawer at 45) so
+     the close button stays reachable — but that means anything it paints lands
+     on top of both. Scrolled, its opaque background drew a full-width band
+     across the top: undimmed over the page on the left, a slightly different
+     white from the drawer on the right, so the drawer looked like it started
+     partway down the screen. Stop the bar painting while the menu is open and
+     let the scrim and the drawer run to the top edge behind it. */
+  .menu-open .nav,
+  .menu-open .nav.scrolled {
+    background: transparent;
+    border-bottom-color: transparent;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+  }
+
+  /* Sits at z-index 1000, so it floats over the scrim as a stray blue stub. */
+  .scroll-progress { transition: width .08s linear, opacity .2s ease !important; }
+  .menu-open .scroll-progress { opacity: 0; }
+
   /* keep display:flex/width:max-content so it stays on its own line */
   .page-hero-back { min-height: 44px; }
   .footer-col ul a { display: inline-block; padding: 7px 0; }
