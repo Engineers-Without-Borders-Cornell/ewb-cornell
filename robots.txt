@@ -1,5 +1,4 @@
 User-agent: *
 Allow: /
-Disallow: /pages/
 
 Sitemap: https://ewbcornell.org/sitemap.xml
