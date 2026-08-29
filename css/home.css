@@ -148,7 +148,7 @@
 
 /* secondary project rows */
 .proj-rows { border-top: 1px solid var(--border); margin-top: 40px; }
-.proj-item { display: grid; grid-template-columns: 132px 1fr auto; gap: 28px; align-items: center; padding: 26px 4px; border-bottom: 1px solid var(--border); transition: background .18s; }
+.proj-item { position: relative; display: grid; grid-template-columns: 132px 1fr auto; gap: 28px; align-items: center; padding: 26px 4px; border-bottom: 1px solid var(--border); transition: background .18s; }
 @media (hover:hover){ .proj-item:hover { background: var(--bg-alt); } }
 .proj-item .pimg { width: 132px; height: 92px; border-radius: var(--radius); overflow: hidden; background: var(--bg-alt); border: 1px solid var(--border); }
 .proj-item .pimg img { width: 100%; height: 100%; object-fit: cover; }
@@ -213,7 +213,7 @@
 /* =============================================================
    TEAMS (reuse .team-list look, scoped tweaks)
 ============================================================= */
-.subteam-row { display: grid; grid-template-columns: 30px 200px 1fr; gap: 22px; align-items: center; padding: 24px 4px; border-bottom: 1px solid var(--border); }
+.subteam-row { position: relative; display: grid; grid-template-columns: 30px 200px 1fr; gap: 22px; align-items: center; padding: 24px 4px; border-bottom: 1px solid var(--border); }
 .subteam-row:first-child { border-top: 1px solid var(--border); }
 .subteam-row .si { color: var(--accent-ink); display: flex; }
 .subteam-row .si i { font-size: 22px; }
@@ -277,9 +277,17 @@
 
 /* Homepage project rows and support impact cards are links: keep the text
    colour they had as static blocks, and show they are interactive. */
-a.proj-item { text-decoration: none; color: inherit; }
+.proj-item { text-decoration: none; color: inherit; }
 a.impact-card { text-decoration: none; color: inherit; display: flex; transition: border-color .18s var(--ease-out), background .18s var(--ease-out); }
 @media (hover: hover) {
   a.impact-card:hover { border-color: var(--accent); background: var(--surface-hover); }
-  a.proj-item:hover .pn { color: var(--accent-ink); }
+  .proj-item:hover .pn { color: var(--accent-ink); }
 }
+
+/* Stretched card link. The visible anchor text is just the card's name, but its
+   ::after overlay keeps the entire row clickable, exactly as when the whole card
+   was one <a>. Keeps anchor text short for crawlers and screen readers. */
+.card-link { color: inherit; text-decoration: none; }
+.card-link::after { content: ''; position: absolute; inset: 0; z-index: 1; }
+.card-link:focus-visible { outline: none; }
+.card-link:focus-visible::after { outline: 2px solid var(--accent); outline-offset: -3px; border-radius: var(--radius); }
