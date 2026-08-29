@@ -24,9 +24,9 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.6.0/dist/tabler-icons.min.css">
-  <link rel="stylesheet" href="../css/style.css?v=46">
-  <link rel="stylesheet" href="../css/pages.css?v=46">
-  <link rel="stylesheet" media="print" href="../css/print.css?v=46">
+  <link rel="stylesheet" href="../css/style.css?v=62">
+  <link rel="stylesheet" href="../css/pages.css?v=62">
+  <link rel="stylesheet" media="print" href="../css/print.css?v=62">
   <script>document.documentElement.classList.add('js');</script>
   <link rel="icon" href="/favicon.ico" sizes="any">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
@@ -74,7 +74,7 @@
 <!-- APPLICATIONS -->
 <section class="section">
   <div class="container">
-    <div class="xhead rv" style="margin-bottom:30px;">
+    <div class="xhead rv" style="margin-bottom:24px;">
       <div>
         <p class="xindex">01 / Apply</p>
         <h2>Two applications, both required.</h2>
@@ -135,7 +135,7 @@
 <!-- TIMELINE -->
 <section class="section">
   <div class="container">
-    <div class="xhead rv" style="margin-bottom:30px;">
+    <div class="xhead rv" style="margin-bottom:24px;">
       <div>
         <p class="xindex">03 / Timeline</p>
         <h2>Deadlines depend on your class year.</h2>
@@ -143,42 +143,56 @@
       <p>Upperclassmen apply in September. First-year and transfer students follow the College of Engineering&#8217;s later schedule, which runs through November.</p>
     </div>
 
-    <!-- TRACK: UPPERCLASSMEN -->
-    <div class="rtl-track rv">
+    <!-- SHARED TRUNK: events every applicant attends -->
+    <div class="rtl-shared rv">
       <div class="rtl-head">
-        <h3>Upperclassmen</h3>
-        <span class="rtl-tag">Applications due Sept 3</span>
+        <h3>Everyone</h3>
+        <span class="rtl-tag">Same for all applicants</span>
       </div>
-      <p class="rtl-note">For sophomores and above. Both the EWB team-specific application and the Cornell general project team application must be in by the deadline.</p>
       <div class="rtl">
         <div class="rtl-row">
           <div class="when">Mon, Aug 17</div>
-          <div class="what">Recruiting begins<small>The general application and team applications open when recruiting begins. Teams will not review applications before the due date, and students do not get an advantage by submitting early.</small></div>
+          <div class="what">Recruiting begins<small>Applications open. Teams review only after the deadline, so applying early is no advantage.</small></div>
           <div class="flag">Opens</div>
         </div>
         <div class="rtl-row">
           <div class="when">Tue, Sep 1</div>
-          <div class="what">Project Teams Fest<small>Duffield Atrium, 4 to 6 p.m. Note the revised date. Find our table, see the Bolivia, Austin, Digital Agriculture/IoT, and Software work in person, and talk to the subteam leads.</small></div>
+          <div class="what">Project Teams Fest<small>Duffield Atrium, 4&#8211;6 p.m. Find our table, meet the subteam leads and see the work in person.</small></div>
           <div class="flag">Optional</div>
         </div>
         <div class="rtl-row">
           <div class="when">Tue, Sep 1</div>
-          <div class="what">Joint info session<small>Gates Hall 114, 6:30 p.m. Held together with Cornell Assistive Technologies and Cornell University Biomedical Device (CUBMD). Hear how each team works, what the subteams are building this year, and ask the leads anything before you apply.</small></div>
+          <div class="what">Joint info session<small>Gates Hall 114, 6:30 p.m. Held with Cornell Assistive Technologies and CUBMD.</small></div>
           <div class="flag">Optional</div>
         </div>
+      </div>
+    </div>
+
+    <!-- the trunk splits by class year -->
+    <div class="rtl-fork rv" aria-hidden="true"></div>
+
+    <div class="rtl-tracks">
+    <!-- TRACK: UPPERCLASSMEN -->
+    <div class="rtl-track rv">
+      <div class="rtl-head">
+        <span class="rtl-tag">Applications due Sept 3</span>
+        <h3>Upperclassmen</h3>
+      </div>
+      <p class="rtl-note">Sophomores and above.</p>
+      <div class="rtl">
         <div class="rtl-row key">
           <div class="when">Thu, Sep 3</div>
-          <div class="what">Applications due<small>Both the EWB application and the Cornell general project team application close at 11:59 p.m. Refer to the individual websites for active project teams for application information. Project teams may begin reviewing applications after this date.</small></div>
+          <div class="what">Applications due</div>
           <div class="flag">Deadline</div>
         </div>
         <div class="rtl-row key">
           <div class="when">Wed, Sep 16</div>
-          <div class="what">Uniform first offer date<small>The earliest that project teams can invite new students to join. Applicants must be allowed at least 48 hours to respond.</small></div>
+          <div class="what">Uniform first offer date</div>
           <div class="flag">Decisions</div>
         </div>
         <div class="rtl-row key">
           <div class="when">Fri, Sep 25</div>
-          <div class="what">Project Teams add deadline<small>Due at 5 p.m. All students taking part in project team work for credit must be enrolled by this deadline, and petitions for late adds after this date will not be approved. All new project teams students must enroll in ENGRG 1400: Project Teams Onboarding (1 cr, S/U) during the second 7-week session of the semester. Consult your team leads for guidance.</small></div>
+          <div class="what">Project Teams add deadline</div>
           <div class="flag">Enrollment</div>
         </div>
       </div>
@@ -187,42 +201,28 @@
     <!-- TRACK: FIRST-YEAR + TRANSFER -->
     <div class="rtl-track rv">
       <div class="rtl-head">
-        <h3>First-Year + Transfer Students</h3>
+        <h3>First-Year + Transfer</h3>
         <span class="rtl-tag">Applications due Oct 15</span>
       </div>
-      <p class="rtl-note">Set by the College of Engineering and shared across every Cornell project team. These dates apply to all incoming first-year and transfer students.</p>
+      <p class="rtl-note">Set by the College of Engineering.</p>
       <div class="rtl">
-        <div class="rtl-row">
-          <div class="when">Mon, Aug 17</div>
-          <div class="what">Recruiting begins<small>The general application and team applications open when recruiting begins. Teams will not review applications before the due date, and students do not get an advantage by submitting early.</small></div>
-          <div class="flag">Opens</div>
-        </div>
-        <div class="rtl-row">
-          <div class="when">Tue, Sep 1</div>
-          <div class="what">Project Teams Fest<small>Duffield Atrium, 4 to 6 p.m. Note the revised date.</small></div>
-          <div class="flag">Optional</div>
-        </div>
-        <div class="rtl-row">
-          <div class="when">Tue, Sep 1</div>
-          <div class="what">Joint info session<small>Gates Hall 114, 6:30 p.m. Held together with Cornell Assistive Technologies and Cornell University Biomedical Device (CUBMD). Hear how each team works, what the subteams are building this year, and ask the leads anything before you apply.</small></div>
-          <div class="flag">Optional</div>
-        </div>
         <div class="rtl-row key">
           <div class="when">Thu, Oct 15</div>
-          <div class="what">First-year + transfer applications due<small>Due at 11:59 p.m. Refer to the individual websites for active project teams for application information. Project teams may begin reviewing first-year and transfer applications after this date, and the general application closes to new first-year and transfer students.</small></div>
+          <div class="what">First-year + transfer applications due</div>
           <div class="flag">Deadline</div>
         </div>
         <div class="rtl-row key">
           <div class="when">Mon, Nov 2</div>
-          <div class="what">Uniform first offer date<small>The earliest that project teams can invite new first-year and transfer students to join. Applicants must be allowed at least 48 hours to respond.</small></div>
+          <div class="what">Uniform first offer date</div>
           <div class="flag">Decisions</div>
         </div>
         <div class="rtl-row key">
           <div class="when">Wed, Nov 4</div>
-          <div class="what">Project team onboarding<small>Onboarding may begin after this date. First-year and transfer students will not enroll for credit in fall 2026. They may take part in team activities including mentoring, shadowing, onboarding, and training, for no more than 10 hours per week total. All new project teams students must enroll in ENGRG 1400: Project Teams Onboarding (1 cr, S/U) during the first 7-week session of the spring semester. Consult your team leads for guidance.</small></div>
+          <div class="what">Project team onboarding</div>
           <div class="flag">Onboarding</div>
         </div>
       </div>
+    </div>
     </div>
   </div>
 </section>
@@ -230,7 +230,7 @@
 <!-- FAQ -->
 <section class="section section-alt">
   <div class="container">
-    <div class="xhead rv" style="margin-bottom:30px;">
+    <div class="xhead rv" style="margin-bottom:24px;">
       <div>
         <p class="xindex">04 / Questions</p>
         <h2>Common questions.</h2>
@@ -302,7 +302,7 @@
   </div>
 </footer>
 
-<script src="../js/script.js?v=46"></script>
-<script src="../js/pages.js?v=46"></script>
+<script src="../js/script.js?v=62"></script>
+<script src="../js/pages.js?v=62"></script>
 </body>
 </html>

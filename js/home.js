@@ -149,6 +149,12 @@
       tlTrack.appendChild(b);
     });
     show(events.length - 1);
+    // Bring the selected marker into view inside the rail itself. Setting
+    // scrollLeft (rather than scrollIntoView) keeps the page from jumping on load.
+    const activeBtn = tlTrack.children[events.length - 1];
+    if (activeBtn) {
+      tlTrack.scrollLeft = activeBtn.offsetLeft - tlTrack.clientWidth / 2 + activeBtn.offsetWidth / 2;
+    }
   }
 
   /* ---------- operations map ---------- */

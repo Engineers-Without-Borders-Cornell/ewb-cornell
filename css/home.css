@@ -197,14 +197,37 @@
 /* =============================================================
    TIMELINE
 ============================================================= */
-.tl-track { display: flex; gap: 0; overflow-x: auto; border-bottom: 1px solid var(--border); padding-bottom: 0; margin-bottom: 32px; scrollbar-width: none; }
+/* Timeline axis. Each year cell paints its own segment of the rail at the dot's
+   centre line, so the segments join into one continuous axis that starts at the
+   first marker and ends at the last. Years already travelled read solid; years
+   still ahead read hollow, which is what gives the row its direction. */
+.tl-track { position: relative; display: flex; gap: 0; overflow-x: auto; padding-bottom: 2px; margin-bottom: 36px; scrollbar-width: none; }
 .tl-track::-webkit-scrollbar { display: none; }
-.tl-year { flex: 1 0 auto; min-width: 76px; text-align: center; padding: 14px 6px 16px; font-family: var(--mono); font-size: .9rem; color: var(--dim); cursor: pointer; position: relative; border-bottom: 2px solid transparent; transition: color .18s; }
+
+.tl-year { position: relative; flex: 1 0 auto; min-width: 76px; text-align: center; padding: 32px 6px 2px; font-family: var(--mono); font-size: .9rem; color: var(--muted); cursor: pointer; background: none; border: 0; transition: color .18s; }
+
+/* rail segment: 2px tall, centred on the dot (dot top 10 + half of 10 = 15) */
+.tl-year::before { content: ''; position: absolute; top: 14px; left: 0; right: 0; height: 2px; background: var(--accent); transition: background .18s; }
+.tl-year:first-child::before { left: 50%; }
+.tl-year:last-child::before  { right: 50%; }
+
+.tl-year .dot { position: absolute; top: 10px; left: 50%; width: 10px; height: 10px; border-radius: 50%; background: var(--accent); box-sizing: border-box;
+  transform: translateX(-50%); transition: background .18s, transform .18s, box-shadow .18s, border-color .18s; }
+
+/* everything after the selected year is still ahead: hollow marker, quiet rail */
+.tl-year.active ~ .tl-year::before { background: var(--border-strong); }
+.tl-year.active ~ .tl-year .dot { background: var(--surface); border: 2px solid var(--border-strong); }
+.tl-year.active ~ .tl-year { color: var(--dim); }
+
 .tl-year:hover { color: var(--ink); }
-.tl-year.active { color: var(--accent-ink); border-bottom-color: var(--accent); }
-.tl-year .dot { display: block; width: 7px; height: 7px; border-radius: 50%; background: var(--border-strong); margin: 0 auto 9px; transition: background .18s, transform .18s; }
-.tl-year.active .dot, .tl-year:hover .dot { background: var(--accent); transform: scale(1.3); }
-.tl-detail { display: grid; grid-template-columns: 220px 1fr; gap: 40px; align-items: start; min-height: 150px; }
+.tl-year:hover .dot { transform: translateX(-50%) scale(1.35); }
+.tl-year.active { color: var(--accent-ink); font-weight: 600; }
+.tl-year.active .dot { background: var(--accent); border: 0; transform: translateX(-50%) scale(1.55); box-shadow: 0 0 0 5px var(--accent-soft); }
+.tl-year:focus-visible { outline: none; }
+.tl-year:focus-visible .dot { box-shadow: 0 0 0 3px var(--surface), 0 0 0 5px var(--accent); }
+
+@media (prefers-reduced-motion: reduce) { .tl-year, .tl-year .dot { transition: none; } }
+.tl-detail { position: relative; display: grid; grid-template-columns: 200px 1fr; gap: 40px; align-items: start; min-height: 150px; padding-left: 28px; border-left: 2px solid var(--accent-soft-bd); }
 .tl-detail .yr { font-family: var(--mono); font-size: clamp(3rem, 6vw, 5rem); font-weight: 500; color: var(--accent); line-height: .9; letter-spacing: -0.03em; }
 .tl-detail .body h4 { font-size: 1.4rem; font-weight: 600; color: var(--ink); margin-bottom: 10px; letter-spacing: -0.02em; }
 .tl-detail .body p { color: var(--muted); line-height: 1.7; max-width: 56ch; }

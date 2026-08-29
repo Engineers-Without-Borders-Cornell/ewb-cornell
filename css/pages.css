@@ -217,9 +217,16 @@
 /* Bigger hero stats on subteam pages */
 .page-hero-stats.lg { gap: 44px; }
 .page-hero-stats.lg .page-hero-stat-value,
-.page-hero-stats.lg .page-hero-stat strong { font-family: var(--mono); font-size: 2.4rem; font-weight: 500; line-height: 1; letter-spacing: -0.02em; color: var(--accent-ink); }
+.page-hero-stats.lg .page-hero-stat strong { font-family: var(--mono); font-size: clamp(2.8rem, 4.4vw, 4rem); font-weight: 500; line-height: 1; letter-spacing: -0.03em; color: var(--accent); }
+/* :not() is load-bearing - the value is itself a <span> inside .page-hero-stat,
+   so a bare `span` here outranked the value rule and shrank every number to 14px. */
+/* Some subteams use a phrase where the others show a number. Keep those from
+   swamping the hero - the big numeric treatment is for actual figures. */
+.page-hero-stats.lg .page-hero-stat.is-text .page-hero-stat-value,
+.page-hero-stats.lg .page-hero-stat.is-text strong { font-size: 1.45rem; letter-spacing: -0.01em; align-self: end; }
+
 .page-hero-stats.lg .page-hero-stat-label,
-.page-hero-stats.lg .page-hero-stat span { font-size: var(--fs-sm); color: var(--muted); margin-top: 8px; }
+.page-hero-stats.lg .page-hero-stat span:not(.page-hero-stat-value) { font-size: var(--fs-sm); color: var(--muted); margin-top: 8px; }
 
 /* End buttons: no divider, centered vertically + horizontally in the section */
 .team-subnav { display: flex; flex-direction: row; justify-content: center !important; align-items: center; gap: 14px; flex-wrap: wrap; max-width: var(--maxw); margin: 0 auto; padding: 56px 24px; border-top: none !important; min-height: 34vh; }
@@ -308,21 +315,56 @@
 .deadline-bar .val { font-family: var(--mono); font-size: 1.3rem; font-weight: 500; color: var(--ink); letter-spacing: -0.01em; }
 .deadline-bar .note { color: var(--muted); font-size: .86rem; max-width: 42ch; line-height: 1.5; }
 
-.rtl { border-top: 1px solid var(--border); }
-.rtl-row { display: grid; grid-template-columns: 170px 1fr auto; gap: 22px; align-items: baseline; padding: 20px 4px; border-bottom: 1px solid var(--border); }
-.rtl-row .when { font-family: var(--mono); font-size: .9rem; font-weight: 500; color: var(--accent-ink); letter-spacing: .02em; }
-.rtl-row .what { font-size: 1rem; font-weight: 600; color: var(--ink); }
-.rtl-row .what small { display: block; font-weight: 400; font-size: .85rem; color: var(--muted); margin-top: 4px; line-height: 1.5; }
-.rtl-row .flag { font-family: var(--mono); font-size: 10px; letter-spacing: .1em; text-transform: uppercase; color: var(--dim); }
+/* Recruitment timeline. A rail runs down each track with a marker per
+   milestone; the two class-year tracks sit side by side so the whole
+   season is visible without scrolling. Key dates carry a filled marker. */
+/* The two branches mirror each other about the trunk: the left one runs its
+   rail down its right edge with the text reading back toward the centre, the
+   right one runs its rail down its left edge. That puts both rails a fixed
+   125px either side of the centre line, so the fork is symmetric and centred
+   with no dead half-columns. */
+.rtl-tracks { display: grid; grid-template-columns: 1fr 1fr; gap: 0 240px; align-items: start; }
+
+.rtl-tracks .rtl-track:first-child { text-align: right; }
+.rtl-tracks .rtl-track:first-child .rtl { padding-left: 0; padding-right: 26px; }
+.rtl-tracks .rtl-track:first-child .rtl::before { left: auto; right: 4px; }
+.rtl-tracks .rtl-track:first-child .rtl-row::before { left: auto; right: -26px; }
+/* keep the flag beside its date rather than stranded at the column edge */
+.rtl-tracks .rtl-track:first-child .rtl-row { grid-template-columns: 1fr auto auto; }
+.rtl-tracks .rtl-track:first-child .rtl-row .flag { grid-column: 2; grid-row: 1; justify-self: end; }
+.rtl-tracks .rtl-track:first-child .rtl-row .when { grid-column: 3; grid-row: 1; justify-self: end; }
+.rtl-tracks .rtl-track:first-child .rtl-row .what { grid-column: 1 / -1; }
+.rtl-tracks .rtl-track:last-child .rtl-row { grid-template-columns: auto auto 1fr; }
+.rtl-tracks .rtl-track:last-child .rtl-row .when { grid-column: 1; grid-row: 1; }
+.rtl-tracks .rtl-track:last-child .rtl-row .flag { grid-column: 2; grid-row: 1; justify-self: start; }
+.rtl-tracks .rtl-track:last-child .rtl-row .what { grid-column: 1 / -1; }
+.rtl-tracks .rtl-track:first-child .rtl-head { justify-content: flex-end; }
+
+.rtl { position: relative; padding-left: 26px; }
+.rtl::before { content: ''; position: absolute; left: 4px; top: 6px; bottom: 10px; width: 2px; background: var(--border-strong); border-radius: 1px; }
+
+.rtl-row { position: relative; display: grid; grid-template-columns: 1fr auto; column-gap: 12px; padding: 0 0 15px; border: 0; }
+.rtl-row:last-child { padding-bottom: 0; }
+/* marker, centred on the rail (rail left 4 + half of 2 = 5) */
+.rtl-row::before { content: ''; position: absolute; left: -26px; top: 5px; width: 10px; height: 10px; box-sizing: border-box;
+  border-radius: 50%; background: var(--surface); border: 2px solid var(--border-strong); }
+.rtl-row.key::before { background: var(--accent); border-color: var(--accent); }
+
+.rtl-row .when { grid-column: 1; grid-row: 1; font-family: var(--mono); font-size: .82rem; font-weight: 500; color: var(--accent-ink); letter-spacing: .02em; }
+.rtl-row .flag { grid-column: 2; grid-row: 1; justify-self: end; font-family: var(--mono); font-size: 9.5px; letter-spacing: .1em; text-transform: uppercase; color: var(--dim); }
 .rtl-row.key .flag { color: var(--accent-ink); }
-@media (max-width: 640px) { .rtl-row { grid-template-columns: 1fr; gap: 6px; } .rtl-row .flag { order: -1; } }
+.rtl-row .what { grid-column: 1 / -1; grid-row: 2; margin-top: 2px; font-size: .95rem; font-weight: 600; color: var(--ink); }
+.rtl-row .what small { display: block; font-weight: 400; font-size: .82rem; color: var(--muted); margin-top: 3px; line-height: 1.45; }
+
+@media (max-width: 900px) { .rtl-tracks { grid-template-columns: 1fr; gap: 0; } }
+@media (max-width: 640px) { .rtl-row .flag { font-size: 9px; } }
 
 /* Recruitment timeline: two tracks (upperclassmen vs first-year + transfer) */
 .rtl-head { display: flex; align-items: baseline; gap: 14px; flex-wrap: wrap; margin-bottom: 4px; }
 .rtl-head h3 { font-size: 1.15rem; font-weight: 600; color: var(--ink); letter-spacing: -0.01em; }
 .rtl-head .rtl-tag { font-family: var(--mono); font-size: 11px; letter-spacing: .08em; text-transform: uppercase; color: var(--accent-ink); background: var(--accent-soft); border: 1px solid var(--accent-soft-bd); border-radius: 999px; padding: 4px 12px; }
-.rtl-track + .rtl-track { margin-top: 56px; }
-.rtl-note { color: var(--muted); font-size: .88rem; line-height: 1.6; max-width: 62ch; margin: 8px 0 18px; }
+@media (max-width: 900px) { .rtl-track + .rtl-track { margin-top: 48px; } }
+.rtl-note { color: var(--muted); font-size: .86rem; line-height: 1.55; max-width: 62ch; margin: 6px 0 15px; }
 
 /* Subteam leads reuse the board card, but there are nine of them and they wrap.
    Use real gaps rather than the board grid's 1px-divider trick, so a partly
@@ -431,3 +473,73 @@
 
 .footer-slim { padding: 30px 0 28px; }
 .footer-slim .footer-bottom { border-top: 0; padding-top: 0; }
+
+/* =============================================================
+   BRANCHING RECRUITMENT TIMELINE
+   Three events are identical for every applicant, so they run on one
+   trunk. After the info session the trunk splits by class year: it
+   continues straight into the Upperclassmen rail and peels off to the
+   right into the First-Year + Transfer rail.
+
+   Geometry note: .rtl sets padding-left 26px with its rail at left 4px,
+   width 2px, so every rail centre sits at x = 5px inside its column.
+   .rtl-tracks is 1fr 1fr with a 56px gap, so column two begins at
+   calc(50% + 28px) and its rail centre lands at calc(50% + 33px).
+   The fork's arms are pinned to those two numbers.
+============================================================= */
+.rtl-shared { margin-bottom: 0; }
+.rtl-shared .rtl { padding-left: 0; }
+.rtl-shared .rtl::before { left: calc(50% - 1px); }        /* trunk on the centre line */
+.rtl-shared .rtl-head { justify-content: center; }
+.rtl-shared .rtl-row { grid-template-columns: 1fr 1fr; column-gap: 56px; }
+.rtl-shared .rtl-row::before { left: calc(50% - 5px); }
+.rtl-shared .rtl-row .when { grid-column: 1; grid-row: 1; text-align: right; }
+.rtl-shared .rtl-row .flag { grid-column: 1; grid-row: 2; justify-self: end; margin-top: 3px; }
+.rtl-shared .rtl-row .what { grid-column: 2; grid-row: 1 / span 2; margin-top: 0; }
+.rtl-shared .rtl::before { bottom: 0; }              /* run the trunk into the fork */
+.rtl-shared .rtl-row:last-child { padding-bottom: 8px; }
+.rtl-shared .rtl-row .what small { max-width: 44ch; }
+
+/* Symmetric fork. Column one's rail sits at x = 5px and column two's at
+   calc(50% + 33px), so their midpoint - where the trunk comes down - is
+   calc(25% + 19px). Each arm travels the same distance outwards. */
+.rtl-fork { position: relative; height: 36px; }
+.rtl-fork::before,
+.rtl-fork::after { content: ''; position: absolute; top: 0; bottom: 0; }
+/* left arm: out to column one's centre line (25% - 14px) */
+.rtl-fork::before {
+  left: calc(50% - 126px); right: calc(50% - 1px);
+  border-left: 2px solid var(--border-strong);
+  border-top: 2px solid var(--border-strong);
+  border-top-left-radius: 16px;
+}
+/* right arm: out to column two's centre line (75% + 14px) */
+.rtl-fork::after {
+  left: calc(50% - 1px); right: calc(50% - 126px);
+  border-right: 2px solid var(--border-strong);
+  border-top: 2px solid var(--border-strong);
+  border-top-right-radius: 16px;
+}
+
+/* stacked layout: no branch to draw, just carry the trunk down */
+@media (max-width: 900px) {
+  .rtl-shared { margin-left: 0; max-width: none; }
+  .rtl-fork { height: 26px; }
+  .rtl-fork::after { display: none; }
+  .rtl-tracks .rtl-track:first-child { text-align: left; }
+  .rtl-tracks .rtl-track:first-child .rtl { padding-left: 26px; padding-right: 0; }
+  .rtl-tracks .rtl-track:first-child .rtl::before { left: 4px; right: auto; }
+  .rtl-tracks .rtl-track:first-child .rtl-row::before { left: -26px; right: auto; }
+  .rtl-tracks .rtl-track:first-child .rtl-row .when { grid-column: 1; justify-self: start; }
+  .rtl-tracks .rtl-track:first-child .rtl-row .flag { grid-column: 2; justify-self: end; }
+  .rtl-tracks .rtl-track:first-child .rtl-head { justify-content: flex-start; }
+  .rtl-shared .rtl { padding-left: 26px; }
+  .rtl-shared .rtl::before { left: 4px; }
+  .rtl-shared .rtl-head { justify-content: flex-start; }
+  .rtl-shared .rtl-row { grid-template-columns: 1fr auto; }
+  .rtl-shared .rtl-row::before { left: -26px; }
+  .rtl-shared .rtl-row .when { grid-column: 1; grid-row: 1; text-align: left; }
+  .rtl-shared .rtl-row .flag { grid-column: 2; grid-row: 1; justify-self: end; margin-top: 0; }
+  .rtl-shared .rtl-row .what { grid-column: 1 / -1; grid-row: 2; }
+  .rtl-fork::before { left: 4px; right: auto; width: 2px; border: 0; background: var(--border-strong); border-radius: 0; }
+}
