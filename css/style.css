@@ -277,10 +277,13 @@ p { text-wrap: pretty; }
   transition: background 0.3s ease, border-color 0.3s ease !important;
 }
 .nav.scrolled {
-  background: color-mix(in oklab, var(--bg) 88%, transparent);
+  /* Was a translucent bar over a 14px backdrop-filter. On phones the page
+     content ghosted straight through it while scrolling - and it still did at
+     97% opacity, because the artefact is the backdrop-filter compositing, not
+     the alpha. An opaque bar hides the blur anyway, so the filter is gone and
+     the background is solid. */
+  background: var(--bg);
   border-bottom-color: var(--border);
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
 }
 .nav-inner { display: flex; align-items: center; justify-content: space-between; width: 100%; gap: 16px; }
 

@@ -370,9 +370,11 @@
    Use real gaps rather than the board grid's 1px-divider trick, so a partly
    filled last row does not leave a coloured empty cell. */
 .leads-grid {
-  grid-template-columns: repeat(auto-fill, minmax(236px, 1fr));
+  grid-template-columns: repeat(5, 1fr);
   gap: 14px; background: transparent; border: 0; border-radius: 0; overflow: visible;
 }
+@media (max-width: 1100px) { .leads-grid { grid-template-columns: repeat(3, 1fr); } }
+@media (max-width: 720px)  { .leads-grid { grid-template-columns: repeat(2, 1fr); } }
 .leads-grid .exec-card { border: 1px solid var(--border); border-radius: var(--radius-lg); }
 .leads-grid .exec-av { background: var(--accent-solid); }
 .leads-grid .exec-card:nth-child(3n+2) .exec-av { background: oklch(48% 0.09 245); }
@@ -533,6 +535,23 @@
   .rtl-tracks .rtl-track:first-child .rtl-row .when { grid-column: 1; justify-self: start; }
   .rtl-tracks .rtl-track:first-child .rtl-row .flag { grid-column: 2; justify-self: end; }
   .rtl-tracks .rtl-track:first-child .rtl-head { justify-content: flex-start; }
+  /* the desktop mirror puts the tag before the heading; put it back after */
+  .rtl-tracks .rtl-track:first-child .rtl-head h3 { order: -1; }
+
+  /* One unbroken rail. On phones the fork is meaningless, so the trunk simply
+     runs on through each branch's heading and note into its rows, with a solid
+     node marking where each class year picks up. */
+  .rtl-tracks { grid-template-columns: 1fr; gap: 0; }
+  .rtl-track { position: relative; padding-left: 26px; }
+  .rtl-track::before { content: ''; position: absolute; left: 4px; top: 0; bottom: 0; width: 2px; background: var(--border-strong); }
+  .rtl-track::after { content: ''; position: absolute; left: 0; top: 5px; width: 10px; height: 10px; border-radius: 50%; background: var(--accent); }
+  .rtl-track + .rtl-track { margin-top: 0; padding-top: 34px; }
+  .rtl-track + .rtl-track::after { top: 39px; }
+  .rtl-track .rtl { padding-left: 0 !important; padding-right: 0; }
+  .rtl-track .rtl::before { display: none; }
+  .rtl-track .rtl-row::before { left: -26px; right: auto; }
+  .rtl-track .rtl-head, .rtl-track .rtl-note, .rtl-track .rtl-alert { position: relative; }
+
   .rtl-shared .rtl { padding-left: 26px; }
   .rtl-shared .rtl::before { left: 4px; }
   .rtl-shared .rtl-head { justify-content: flex-start; }
@@ -543,3 +562,25 @@
   .rtl-shared .rtl-row .what { grid-column: 1 / -1; grid-row: 2; }
   .rtl-fork::before { left: 4px; right: auto; width: 2px; border: 0; background: var(--border-strong); border-radius: 0; }
 }
+
+/* two cohort applications side by side inside one app card */
+.app-links { display: flex; flex-wrap: wrap; gap: 10px; }
+.app-links .btn { flex: 1 1 auto; justify-content: center; }
+
+/* recruitment notice on a timeline branch */
+.rtl-alert {
+  font-size: .84rem; line-height: 1.5; color: var(--ink);
+  background: var(--accent-soft); border: 1px solid var(--accent-soft-bd);
+  border-radius: var(--radius); padding: 9px 13px; margin: 0 0 15px;
+}
+
+/* "Project Horizon" - forward-looking work, lifted out of the surrounding
+   body copy so it reads as a callout rather than another paragraph. */
+.track-card .note.horizon {
+  margin-top: 16px; padding: 14px 16px; border-top: 0;
+  background: var(--accent-soft); border: 1px solid var(--accent-soft-bd);
+  border-left: 3px solid var(--accent); border-radius: var(--radius);
+  color: var(--ink);
+}
+.track-card .note.horizon strong { color: var(--accent-ink); display: block; margin-bottom: 5px;
+  font-family: var(--mono); font-size: .78rem; letter-spacing: .06em; text-transform: uppercase; }
