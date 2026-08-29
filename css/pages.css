@@ -415,3 +415,19 @@
   .hero-split { grid-template-columns: 1fr; gap: 28px; }
   .hero-photo { order: 2; }
 }
+
+/* =============================================================
+   404 SITEMAP + SLIM FOOTER
+   The 404 body carries the full link directory, so its footer is
+   reduced to the legal bar rather than repeating those links.
+============================================================= */
+.sitemap-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 48px; }
+.sitemap-grid h4 { font-family: var(--mono); font-size: var(--fs-xs); font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--dim); margin-bottom: 16px; }
+.sitemap-grid li { margin-bottom: 9px; }
+.sitemap-grid a { font-size: var(--fs-sm); color: var(--muted); transition: color 0.18s ease; }
+.sitemap-grid a:hover { color: var(--accent-ink); }
+@media (max-width: 900px) { .sitemap-grid { grid-template-columns: repeat(2, 1fr); gap: 32px; } }
+@media (max-width: 520px) { .sitemap-grid { grid-template-columns: 1fr; gap: 28px; } }
+
+.footer-slim { padding: 30px 0 28px; }
+.footer-slim .footer-bottom { border-top: 0; padding-top: 0; }
