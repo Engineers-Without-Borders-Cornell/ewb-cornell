@@ -215,7 +215,11 @@
    SUBTEAM PAGE TWEAKS (June 2026 request)
 ============================================================= */
 /* Bigger hero stats on subteam pages */
-.page-hero-stats.lg { gap: 44px; }
+.page-hero-stats.lg { gap: 44px; align-items: stretch; }
+/* Cells vary in height because a phrase value is far shorter than a numeral.
+   Pushing each cell's content to the bottom lines every label up on one row
+   and drops the phrase onto the numbers' baseline. */
+.page-hero-stats.lg .page-hero-stat { display: flex; flex-direction: column; justify-content: flex-end; }
 .page-hero-stats.lg .page-hero-stat-value,
 .page-hero-stats.lg .page-hero-stat strong { font-family: var(--mono); font-size: clamp(2.8rem, 4.4vw, 4rem); font-weight: 500; line-height: 1; letter-spacing: -0.03em; color: var(--accent); }
 /* :not() is load-bearing - the value is itself a <span> inside .page-hero-stat,
@@ -223,7 +227,7 @@
 /* Some subteams use a phrase where the others show a number. Keep those from
    swamping the hero - the big numeric treatment is for actual figures. */
 .page-hero-stats.lg .page-hero-stat.is-text .page-hero-stat-value,
-.page-hero-stats.lg .page-hero-stat.is-text strong { font-size: 1.45rem; letter-spacing: -0.01em; align-self: end; }
+.page-hero-stats.lg .page-hero-stat.is-text strong { font-size: 1.45rem; letter-spacing: -0.01em; }
 
 .page-hero-stats.lg .page-hero-stat-label,
 .page-hero-stats.lg .page-hero-stat span:not(.page-hero-stat-value) { font-size: var(--fs-sm); color: var(--muted); margin-top: 8px; }
