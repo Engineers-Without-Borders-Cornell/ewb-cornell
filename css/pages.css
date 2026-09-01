@@ -261,13 +261,34 @@
 ============================================================= */
 /* Separators are drawn by each card, not by a coloured grid background, so a
    row that does not divide evenly leaves blank space rather than a stray tile. */
-.exec-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 1px; background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-lg); overflow: hidden; }
+.exec-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-lg); overflow: hidden; }
 .exec-card { background: var(--surface); padding: 24px 22px 26px; cursor: pointer; transition: background .18s var(--ease-out); text-align: center; box-shadow: 1px 0 0 var(--border), 0 1px 0 var(--border); }
 @media (hover: hover) { .exec-card:hover { background: var(--surface-hover); } }
 .exec-office { font-family: var(--mono); font-size: 13px; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; color: var(--accent-ink); line-height: 1.4; min-height: 2.8em; text-align: center; }
-/* The board's five offices have the longest titles ("External Communications
-   Officer"), so reserve three lines there to hold the photo baseline. */
-.exec-grid:not(.leads-grid) .exec-office { min-height: 4.2em; }
+/* Every card on this page opens a profile pop-up, so say so once at the top
+   rather than decorating each card with an affordance. */
+.roster-hint {
+  display: flex; width: fit-content; align-items: center; gap: 9px;
+  margin: 26px auto 22px;
+  padding: 8px 14px; border: 1px solid var(--border); border-radius: var(--radius);
+  background: var(--surface);
+  font-family: var(--mono); font-size: var(--fs-xs); letter-spacing: .03em; color: var(--muted);
+}
+.roster-hint i { font-size: 16px; color: var(--accent-ink); }
+/* Centred above a full-width roster grid, but flush left in the members hero,
+   where it sits in a left-aligned column under the heading and stats. */
+.hero-split-text .roster-hint { margin-inline: 0; }
+@media (max-width: 560px) { .roster-hint { font-size: 11px; padding: 7px 11px; gap: 7px; } }
+
+/* Six cards over two rows of three. Cap the grid so each photo stays
+   portrait-sized instead of stretching to a third of the page width. */
+.exec-grid:not(.leads-grid) { max-width: 760px; margin-inline: auto; }
+@media (max-width: 720px) { .exec-grid:not(.leads-grid) { max-width: none; } }
+/* Office titles wrap to different line counts, so the reserved space matches
+   the measured worst case and every photo in a row keeps one baseline. The two
+   lines above cover both grids until the board's columns narrow below ~780px,
+   where "External Communications Officer" needs a third. */
+@media (max-width: 780px) { .exec-grid:not(.leads-grid) .exec-office { min-height: 4.2em; } }
 /* Photo well on top, name underneath: keeps every card's photo on the same
    baseline no matter how many lines the office title wraps to. */
 .exec-id { display: flex; flex-direction: column; align-items: stretch; gap: 12px; margin-top: 18px; }
@@ -285,9 +306,9 @@
 .exec-card:nth-child(3) .exec-av { background: oklch(46% 0.1 150); }
 .exec-card:nth-child(4) .exec-av { background: oklch(45% 0.08 290); }
 .exec-card:nth-child(5) .exec-av { background: oklch(44% 0.09 210); }
-.exec-name { font-size: var(--fs-sm); font-weight: 700; color: var(--ink); }
+.exec-name { font-size: var(--fs-base); font-weight: 700; color: var(--ink); line-height: 1.35; }
 .exec-sub { font-family: var(--mono); font-size: 10px; letter-spacing: .06em; text-transform: uppercase; color: var(--dim); margin-top: 4px; }
-@media (max-width: 1100px) { .exec-grid { grid-template-columns: repeat(3, 1fr); } .exec-office { min-height: 3.9em; } }
+@media (max-width: 1100px) { .exec-grid { grid-template-columns: repeat(3, 1fr); } }
 @media (max-width: 720px)  { .exec-grid { grid-template-columns: repeat(2, 1fr); } .exec-card { padding: 18px 15px 20px; } }
 @media (max-width: 380px)  { .exec-office { font-size: 11px; letter-spacing: .04em; } .exec-card { padding: 14px 12px 16px; } }
 
@@ -382,7 +403,10 @@
 }
 @media (max-width: 1100px) { .leads-grid { grid-template-columns: repeat(3, 1fr); } }
 @media (max-width: 720px)  { .leads-grid { grid-template-columns: repeat(2, 1fr); } }
-.leads-grid .exec-card { border: 1px solid var(--border); border-radius: var(--radius-lg); }
+/* Tighter padding than the board's cards, so the ten leads still fit five to a
+   row while their photos take more of each card. */
+.leads-grid .exec-card { border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 20px 14px 22px; }
+@media (max-width: 720px) { .leads-grid .exec-card { padding: 18px 12px 20px; } }
 .leads-grid .exec-av { background: var(--accent-solid); }
 .leads-grid .exec-card:nth-child(3n+2) .exec-av { background: oklch(48% 0.09 245); }
 .leads-grid .exec-card:nth-child(3n+3) .exec-av { background: oklch(46% 0.1 150); }

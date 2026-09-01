@@ -282,6 +282,43 @@ window.handleApply = function(e) {
 // =============================================
 // MEMBER MODAL
 // =============================================
+// Roster profiles come from the member intake form, so most people fill in only
+// some of it. Every field below is optional: a blank one is left out of the
+// pop-up entirely rather than rendered as an empty row.
+const LINKEDIN_ICON = '<svg width="14" height="14" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>';
+
+// [key, label, fullWidth] in the order the intake form asks for them.
+const MODAL_FIELDS = [
+  ['major',        'Major',                     false],
+  ['year',         'Graduation Year',           false],
+  ['subteam',      'Subteam',                   false],
+  ['hometown',     'Hometown',                  false],
+  ['involvements', 'Other Campus Involvements', true],
+  ['experience',   'Professional Experience',   true],
+  ['interests',    'Interests',                 true]
+];
+
+function memberEscape(str) {
+  return String(str).replace(/[&<>"']/g, c =>
+    ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[c]);
+}
+
+// A form answer of "N/A" means the same as leaving it blank.
+function memberValue(v) {
+  const s = (v == null ? '' : String(v)).trim();
+  return /^(n\/?a|none|nil)\.?$/i.test(s) ? '' : s;
+}
+
+function memberEmail(data) {
+  return memberValue(data.email) || (memberValue(data.netid) ? data.netid + '@cornell.edu' : '');
+}
+
+function memberLinkedin(data) {
+  let url = memberValue(data.linkedin);
+  if (!url) return '';
+  return /^https?:\/\//i.test(url) ? url : 'https://' + url.replace(/^\/+/, '');
+}
+
 (function initMemberModal() {
   // Create overlay once per page
   const overlay = document.createElement('div');
@@ -296,40 +333,14 @@ window.handleApply = function(e) {
           <h2 id="modalName"></h2>
           <div class="modal-role" id="modalRole"></div>
           <a class="modal-linkedin" id="modalLinkedin" href="#" target="_blank" rel="noopener" style="display:none;">
-            <svg width="14" height="14" fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
-            LinkedIn
+            ${LINKEDIN_ICON} LinkedIn
           </a>
         </div>
       </div>
-      <div class="modal-body">
-        <div class="modal-field">
-          <label>Major</label>
-          <p id="modalMajor"></p>
-        </div>
-        <div class="modal-field">
-          <label>Year</label>
-          <p id="modalYear"></p>
-        </div>
-        <div class="modal-field">
-          <label>Hometown</label>
-          <p id="modalHometown"></p>
-        </div>
-        <div class="modal-field">
-          <label>Campus Involvements</label>
-          <p id="modalInvolvements"></p>
-        </div>
-        <div class="modal-field modal-about">
-          <label>Interests</label>
-          <p id="modalInterests"></p>
-        </div>
-        <div class="modal-field modal-about">
-          <label>Professional Experience</label>
-          <p id="modalExperience"></p>
-        </div>
-      </div>
+      <div class="modal-body" id="modalBody"></div>
       <div class="modal-footer" id="modalReach">
-        <span>📬</span> Reach out at
-        <a id="modalNetid" href="#"></a>
+        <span>&#128236;</span> Reach out at
+        <a id="modalEmail" href="#"></a>
       </div>
     </div>`;
   document.body.appendChild(overlay);
@@ -343,21 +354,26 @@ window.openMemberModal = function(data) {
   const overlay = document.getElementById('memberModal');
   if (!overlay) return;
 
-  document.getElementById('modalName').textContent  = data.name  || '';
-  document.getElementById('modalRole').textContent  = data.role  || '';
-  document.getElementById('modalMajor').textContent = data.major || '';
-  document.getElementById('modalYear').textContent  = data.year  || '';
-  // Fields with no roster data stay blank on purpose. Do not reintroduce
-  // placeholder defaults here.
-  document.getElementById('modalHometown').textContent     = data.hometown     || '';
-  document.getElementById('modalInvolvements').textContent = data.involvements || '';
-  document.getElementById('modalInterests').textContent    = data.interests    || '';
-  document.getElementById('modalExperience').textContent   = data.experience   || '';
+  document.getElementById('modalName').textContent = memberValue(data.name);
+  const roleEl = document.getElementById('modalRole');
+  roleEl.textContent = memberValue(data.role);
+  roleEl.style.display = roleEl.textContent ? '' : 'none';
+
+  // Only the fields this person actually filled in get a row.
+  document.getElementById('modalBody').innerHTML = MODAL_FIELDS.reduce((out, [key, label, wide]) => {
+    const val = memberValue(data[key]);
+    if (!val) return out;
+    return out + `<div class="modal-field${wide ? ' modal-about' : ''}">
+          <label>${memberEscape(label)}</label>
+          <p>${memberEscape(val)}</p>
+        </div>`;
+  }, '');
 
   // Photo
   const photoEl = document.getElementById('modalPhoto');
   if (data.photo) {
-    photoEl.innerHTML = `<img src="${data.photo}" alt="${data.name}">`;
+    photoEl.style.background = '';
+    photoEl.innerHTML = `<img src="${memberEscape(data.photo)}" alt="${memberEscape(data.name || '')}">`;
   } else {
     const colors = [
       ['#1d4ed8','#0ea5e9'],['#0369a1','#38bdf8'],
@@ -365,25 +381,26 @@ window.openMemberModal = function(data) {
       ['#0f766e','#2dd4bf']
     ];
     const idx = (data.name || '').charCodeAt(0) % colors.length;
+    photoEl.innerHTML = '';
     photoEl.style.background = `linear-gradient(135deg, ${colors[idx][0]}, ${colors[idx][1]})`;
-    photoEl.textContent = data.initials || (data.name||'?')[0];
+    photoEl.textContent = data.initials || (data.name || '?')[0];
   }
 
   // LinkedIn
   const li = document.getElementById('modalLinkedin');
-  if (li) {
-    if (data.linkedin) { li.href = data.linkedin; li.style.display = ''; }
-    else { li.style.display = 'none'; }
-  }
+  const liUrl = memberLinkedin(data);
+  if (liUrl) { li.href = liUrl; li.style.display = ''; }
+  else { li.style.display = 'none'; }
 
-  // NetID email
-  const reach  = document.getElementById('modalReach');
-  const netidEl = document.getElementById('modalNetid');
-  if (netidEl && data.netid) {
-    netidEl.href = `mailto:${data.netid}@cornell.edu`;
-    netidEl.textContent = `${data.netid}@cornell.edu`;
-    if (reach) reach.style.display = '';
-  } else if (reach) {
+  // Email
+  const reach = document.getElementById('modalReach');
+  const emailEl = document.getElementById('modalEmail');
+  const email = memberEmail(data);
+  if (email) {
+    emailEl.href = 'mailto:' + email;
+    emailEl.textContent = email;
+    reach.style.display = '';
+  } else {
     reach.style.display = 'none';
   }
 
@@ -391,24 +408,36 @@ window.openMemberModal = function(data) {
   lockScroll();
 };
 
-// Roster cards carry their profile in a data-member attribute. The pop-up is
-// temporarily switched off: set MEMBER_MODAL_ENABLED to true to make the cards
-// clickable again. Nothing else needs to change.
-const MEMBER_MODAL_ENABLED = false;
-
+// Roster cards carry their profile in a data-member attribute: clicking one
+// opens the pop-up, and a LinkedIn badge sits at the bottom of the card as a
+// separate link out.
 document.addEventListener('DOMContentLoaded', function initMemberCards() {
-  document.querySelectorAll('.member-card[data-member]').forEach(card => {
-    if (!MEMBER_MODAL_ENABLED) return;
+  document.querySelectorAll('.member-card[data-member], .exec-card[data-member]').forEach(card => {
+    let data;
+    try { data = JSON.parse(card.dataset.member); } catch (e) { return; }
+
     card.classList.add('is-clickable');
     card.setAttribute('role', 'button');
     card.setAttribute('tabindex', '0');
-    const open = () => {
-      try { window.openMemberModal(JSON.parse(card.dataset.member)); } catch (e) {}
-    };
+    const open = () => window.openMemberModal(data);
     card.addEventListener('click', open);
     card.addEventListener('keydown', e => {
       if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); open(); }
     });
+
+    const url = memberLinkedin(data);
+    if (!url) return;
+    const badge = document.createElement('a');
+    badge.className = 'member-linkedin-badge';
+    badge.href = url;
+    badge.target = '_blank';
+    badge.rel = 'noopener';
+    badge.innerHTML = LINKEDIN_ICON + '<span>LinkedIn</span>';
+    badge.setAttribute('aria-label', 'LinkedIn profile for ' + (data.name || 'this member'));
+    // The card itself is a button, so the badge must not bubble up to it.
+    badge.addEventListener('click', e => e.stopPropagation());
+    badge.addEventListener('keydown', e => e.stopPropagation());
+    card.appendChild(badge);
   });
 });
 
