@@ -621,6 +621,30 @@
   border-radius: var(--radius); padding: 9px 13px; margin: 0 0 15px;
 }
 
+/* Named contacts, sat with the application buttons they relate to so an
+   applicant with a question does not have to hunt for the chapter address. */
+.apply-contact {
+  margin-top: 16px; padding: 12px 14px;
+  background: var(--accent-soft); border: 1px solid var(--accent-soft-bd);
+  border-left: 3px solid var(--accent); border-radius: var(--radius);
+  font-size: .84rem; line-height: 1.6;
+}
+.apply-contact .k {
+  display: block; margin-bottom: 4px;
+  font-family: var(--mono); font-size: .72rem; letter-spacing: .06em;
+  text-transform: uppercase; color: var(--accent-ink);
+}
+.apply-contact .k i { margin-right: 6px; }
+.apply-contact a {
+  display: block; color: var(--ink); word-break: break-word;
+  text-decoration: underline; text-underline-offset: 2px;
+  text-decoration-color: var(--accent-soft-bd);
+  transition: color .16s ease, text-decoration-color .16s ease;
+}
+@media (hover: hover) {
+  .apply-contact a:hover { color: var(--accent-ink); text-decoration-color: var(--accent); }
+}
+
 /* "Project Horizon" - forward-looking work, lifted out of the surrounding
    body copy so it reads as a callout rather than another paragraph. */
 .track-card .note.horizon {
