@@ -63,7 +63,7 @@ html, body {
 
 /* ---- page furniture: a masthead and a footer rule on every sheet ---- */
 body::before {
-  content: "Engineers Without Borders — Cornell University · ewbcornell.org · ewb@cornell.edu";
+  content: "Engineers Without Borders, Cornell University · ewbcornell.org · ewb@cornell.edu";
   display: block;
   font-size: 8.5pt;
   letter-spacing: .04em;
