@@ -18,6 +18,85 @@
     rvEls.forEach(e => o.observe(e));
   }
 
+  /* ---- recruiting timeline ----
+     Draws each rail and staggers its rows in on scroll, and pins a "next up"
+     marker on the soonest event still ahead so it never needs hand-editing. */
+  const rails = document.querySelectorAll('.rtl');
+  if (rails.length) {
+    // .rtl-anim is what arms the hidden start state, so it is set here rather
+    // than in the markup: no pages.js, no hiding.
+    rails.forEach(r => r.classList.add('rtl-anim'));
+    if (reduce) { rails.forEach(r => r.classList.add('rtl-in')); }
+    else {
+      // The two forked tracks sit side by side and cross the viewport edge at
+      // the same moment, so left/right would otherwise fire in whatever order
+      // the observer happened to report. Stagger by column position instead,
+      // so the timeline always reads left column first, then right.
+      const columnDelay = (rail) => {
+        const track = rail.closest('.rtl-track');
+        if (!track) return 0;
+        const peers = Array.from(track.parentNode.querySelectorAll('.rtl-track'));
+        return peers.indexOf(track) * 420;
+      };
+      const to = new IntersectionObserver((es) => es.forEach(e => {
+        if (!e.isIntersecting) return;
+        const rail = e.target;
+        to.unobserve(rail);
+        const wait = columnDelay(rail);
+        if (wait) setTimeout(() => rail.classList.add('rtl-in'), wait);
+        else rail.classList.add('rtl-in');
+      }), { threshold: 0.15, rootMargin: '0px 0px -8% 0px' });
+      rails.forEach(r => to.observe(r));
+    }
+
+    // Compare dates only, so an event stays "next up" for the whole of its day.
+    // Re-run on a timer and whenever the tab is looked at again, so a page left
+    // open overnight rolls the marker forward on its own.
+    const dated = Array.from(document.querySelectorAll('.rtl-row[data-date]'));
+    let markedDay = null;
+
+    function markNext() {
+      const today = new Date(); today.setHours(0, 0, 0, 0);
+      const todayTime = today.getTime();
+      if (todayTime === markedDay) return;   // same day, nothing to redraw
+      markedDay = todayTime;
+
+      // Two passes: find the soonest date still ahead, then mark every row on
+      // it. Separate tracks can share a date (an info session and an offer
+      // date both landing today), and picking one by DOM order would be
+      // arbitrary.
+      let nextTime = Infinity;
+      const times = dated.map(row => {
+        const p = row.getAttribute('data-date').split('-').map(Number);
+        const when = new Date(p[0], p[1] - 1, p[2]).getTime();
+        row.classList.toggle('is-past', when < todayTime);
+        if (when >= todayTime && when < nextTime) nextTime = when;
+        return when;
+      });
+
+      document.querySelectorAll('.rtl-row.is-next').forEach(r => r.classList.remove('is-next'));
+      document.querySelectorAll('.rtl-next-tag').forEach(t => t.remove());
+      if (nextTime === Infinity) return;
+
+      const label = nextTime === todayTime ? 'Today' : 'Next up';
+      dated.forEach((row, i) => {
+        if (times[i] !== nextTime) return;
+        row.classList.add('is-next');
+        const when = row.querySelector('.when');
+        if (!when) return;
+        const tag = document.createElement('span');
+        tag.className = 'rtl-next-tag';
+        tag.textContent = label;
+        when.appendChild(tag);
+      });
+    }
+
+    markNext();
+    setInterval(markNext, 60000);
+    document.addEventListener('visibilitychange', () => { if (!document.hidden) markNext(); });
+    window.addEventListener('focus', markNext);
+  }
+
   /* ---- counters ---- */
   function countUp(el) {
     const target = parseInt(el.getAttribute('data-count'), 10) || 0;
