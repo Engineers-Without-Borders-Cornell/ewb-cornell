@@ -326,8 +326,10 @@ function memberLinkedin(data) {
   overlay.id = 'memberModal';
   overlay.innerHTML = `
     <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="modalName">
-      <button class="modal-close" onclick="closeMemberModal()" aria-label="Close">&times;</button>
       <div class="modal-header">
+        <!-- Lives in the sticky header, not the scrolling card, so a long
+             profile can't scroll the close button out of view on a phone. -->
+        <button class="modal-close" onclick="closeMemberModal()" aria-label="Close">&times;</button>
         <div class="modal-photo" id="modalPhoto"></div>
         <div class="modal-info">
           <h2 id="modalName"></h2>

@@ -19,56 +19,81 @@
   }
 
   /* ---- recruiting timeline ----
-     Draws each rail and staggers its rows in on scroll, and pins a "next up"
-     marker on the soonest event still ahead so it never needs hand-editing. */
+     Draws each rail and staggers its rows in on scroll, pins a "next up"
+     marker on the soonest event still ahead, and lays a progress line over
+     each rail up to "now". All of it re-runs on a timer, so the page keeps
+     itself current while it is open. */
   const rails = document.querySelectorAll('.rtl');
   if (rails.length) {
+    const phoneMQ = window.matchMedia('(max-width: 900px)');
+    const tracks = Array.from(document.querySelectorAll('.rtl-track'));
+    const fork = document.querySelector('.rtl-fork');
+    const sharedRail = document.querySelector('.rtl-shared .rtl');
+
     // .rtl-anim is what arms the hidden start state, so it is set here rather
-    // than in the markup: no pages.js, no hiding.
-    rails.forEach(r => r.classList.add('rtl-anim'));
-    if (reduce) { rails.forEach(r => r.classList.add('rtl-in')); }
+    // than in the markup: no pages.js, no hiding. On phones the stacked rail
+    // is drawn by the track and fork, so they are armed too.
+    const armed = [...rails, ...tracks, ...(fork ? [fork] : [])];
+    armed.forEach(el => el.classList.add('rtl-anim'));
+
+    const reveal = (rail) => {
+      rail.classList.add('rtl-in');
+      const track = rail.closest('.rtl-track');
+      if (track) track.classList.add('rtl-in');
+      if (rail === sharedRail && fork) fork.classList.add('rtl-in');
+    };
+
+    if (reduce) { rails.forEach(reveal); }
     else {
-      // The two forked tracks sit side by side and cross the viewport edge at
-      // the same moment, so left/right would otherwise fire in whatever order
-      // the observer happened to report. Stagger by column position instead,
-      // so the timeline always reads left column first, then right.
-      const columnDelay = (rail) => {
-        const track = rail.closest('.rtl-track');
-        if (!track) return 0;
-        const peers = Array.from(track.parentNode.querySelectorAll('.rtl-track'));
-        return peers.indexOf(track) * 420;
+      const observe = (targets, onEnter) => {
+        const to = new IntersectionObserver((es) => es.forEach(e => {
+          if (!e.isIntersecting) return;
+          to.unobserve(e.target);
+          onEnter(e.target);
+        }), { threshold: 0.15, rootMargin: '0px 0px -8% 0px' });
+        targets.forEach(t => to.observe(t));
       };
-      const to = new IntersectionObserver((es) => es.forEach(e => {
-        if (!e.isIntersecting) return;
-        const rail = e.target;
-        to.unobserve(rail);
-        const wait = columnDelay(rail);
-        if (wait) setTimeout(() => rail.classList.add('rtl-in'), wait);
-        else rail.classList.add('rtl-in');
-      }), { threshold: 0.15, rootMargin: '0px 0px -8% 0px' });
-      rails.forEach(r => to.observe(r));
+      const trackRail = (t) => t.querySelector('.rtl');
+
+      // The shared trunk reveals on its own.
+      if (sharedRail) observe([sharedRail], reveal);
+
+      const pair = document.querySelector('.rtl-tracks');
+      if (phoneMQ.matches || !pair) {
+        // Stacked on a phone: each class year appears as it is reached.
+        observe(tracks, t => reveal(trackRail(t)));
+      } else {
+        // Side by side: the two columns start at different heights (the left
+        // one carries the recruiting notice), so observing them separately
+        // let the right column fire first. Watch the pair as one unit and
+        // bring in the whole left column, then the whole right one.
+        observe([pair], () => tracks.forEach((t, i) => {
+          setTimeout(() => reveal(trackRail(t)), i * 650);
+        }));
+      }
     }
 
-    // Compare dates only, so an event stays "next up" for the whole of its day.
-    // Re-run on a timer and whenever the tab is looked at again, so a page left
-    // open overnight rolls the marker forward on its own.
+    const dayStart = (t) => { const d = new Date(t); d.setHours(0, 0, 0, 0); return d.getTime(); };
+    const rowTime = (row) => {
+      const p = row.getAttribute('data-date').split('-').map(Number);
+      return new Date(p[0], p[1] - 1, p[2]).getTime();
+    };
     const dated = Array.from(document.querySelectorAll('.rtl-row[data-date]'));
-    let markedDay = null;
+    const DAY = 86400000;
 
+    // Compare dates only, so an event stays "next up" for the whole of its day.
+    let markedDay = null;
     function markNext() {
-      const today = new Date(); today.setHours(0, 0, 0, 0);
-      const todayTime = today.getTime();
+      const todayTime = dayStart(Date.now());
       if (todayTime === markedDay) return;   // same day, nothing to redraw
       markedDay = todayTime;
 
       // Two passes: find the soonest date still ahead, then mark every row on
-      // it. Separate tracks can share a date (an info session and an offer
-      // date both landing today), and picking one by DOM order would be
-      // arbitrary.
+      // it. Separate tracks can share a date, and picking one by DOM order
+      // would be arbitrary.
       let nextTime = Infinity;
       const times = dated.map(row => {
-        const p = row.getAttribute('data-date').split('-').map(Number);
-        const when = new Date(p[0], p[1] - 1, p[2]).getTime();
+        const when = rowTime(row);
         row.classList.toggle('is-past', when < todayTime);
         if (when >= todayTime && when < nextTime) nextTime = when;
         return when;
@@ -78,7 +103,8 @@
       document.querySelectorAll('.rtl-next-tag').forEach(t => t.remove());
       if (nextTime === Infinity) return;
 
-      const label = nextTime === todayTime ? 'Today' : 'Next up';
+      const days = Math.round((nextTime - todayTime) / DAY);
+      const label = days === 0 ? 'Today' : days === 1 ? 'Tomorrow' : 'In ' + days + ' days';
       dated.forEach((row, i) => {
         if (times[i] !== nextTime) return;
         row.classList.add('is-next');
@@ -91,10 +117,88 @@
       });
     }
 
-    markNext();
-    setInterval(markNext, 60000);
-    document.addEventListener('visibilitychange', () => { if (!document.hidden) markNext(); });
-    window.addEventListener('focus', markNext);
+    // Path ahead. Blue marks the road still to travel: in each rail it runs
+    // from the most recent event that has passed (or the rail's start, if
+    // none has) through every event still to come. Finished stretches stay
+    // grey. The trunk and each branch arm light only when they lead on to
+    // something upcoming. An event counts as upcoming for the whole of its day.
+    const px = (v) => parseFloat(v) || 0;
+    function paintProgress() {
+      const today = dayStart(Date.now());
+      const phone = phoneMQ.matches;
+      const isAhead = (row) => rowTime(row) >= today;
+
+      const trackAhead = tracks.map(t => Array.from(t.querySelectorAll('.rtl-row[data-date]')).some(isAhead));
+      const trunkAhead = sharedRail && Array.from(sharedRail.querySelectorAll('.rtl-row[data-date]')).some(isAhead);
+
+      const segments = [];
+      if (sharedRail) segments.push({ host: sharedRail, rowsIn: sharedRail, node: false, trunk: true });
+      tracks.forEach((t, i) => {
+        const rail = t.querySelector('.rtl');
+        if (rail) segments.push({ host: phone ? t : rail, rowsIn: rail, node: phone, ahead: trackAhead[i] });
+      });
+
+      segments.forEach(seg => {
+        const host = seg.host;
+        const line = getComputedStyle(host, '::before');
+        let fill = host.querySelector(':scope > .rtl-fill');
+        if (!fill) {
+          fill = document.createElement('div');
+          fill.className = 'rtl-fill';
+          fill.setAttribute('aria-hidden', 'true');
+          host.insertBefore(fill, host.firstChild);
+        }
+        const hostBox = host.getBoundingClientRect();
+        if (line.display === 'none' || line.content === 'none' || !hostBox.height) {
+          fill.style.height = '0px';
+          return;
+        }
+
+        const railTop = px(line.top);
+        const railBottom = host.clientHeight - px(line.bottom);
+        const origin = seg.node ? px(getComputedStyle(host, '::after').top) + 5 : railTop;
+        const marks = Array.from(seg.rowsIn.querySelectorAll('.rtl-row[data-date]')).map(row => ({
+          ahead: isAhead(row),
+          y: row.getBoundingClientRect().top - hostBox.top + px(getComputedStyle(row, '::before').top) + 5
+        }));
+        const past = marks.filter(m => !m.ahead);
+        const from = past.length ? past[past.length - 1].y : origin;
+
+        let to = from;
+        if (seg.trunk) {
+          // the trunk runs on into both branches, so it stays lit to its foot
+          // while anything anywhere is still to come
+          if (trunkAhead || trackAhead.some(Boolean)) to = railBottom;
+        } else if (seg.ahead && marks.length) {
+          to = marks[marks.length - 1].y;
+        }
+
+        fill.style.left = px(line.left) + 'px';
+        fill.style.top = from + 'px';
+        fill.style.height = Math.max(0, to - from) + 'px';
+      });
+
+      if (fork) {
+        fork.classList.toggle('lit-left', !!trackAhead[0]);
+        fork.classList.toggle('lit-right', !!trackAhead[1]);
+        fork.classList.toggle('lit-any', trackAhead.some(Boolean));
+      }
+    }
+
+    function tick() { markNext(); paintProgress(); }
+    tick();
+    setInterval(tick, 60000);
+    document.addEventListener('visibilitychange', () => { if (!document.hidden) tick(); });
+    window.addEventListener('focus', tick);
+    // layout moves the markers: re-measure on resize, rotation and font load
+    const wrap = sharedRail && sharedRail.closest('.container');
+    if (wrap && 'ResizeObserver' in window) {
+      let raf = 0;
+      new ResizeObserver(() => { cancelAnimationFrame(raf); raf = requestAnimationFrame(paintProgress); }).observe(wrap);
+    }
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(paintProgress);
+    // markNext changes row heights (the next-up card), so measure after it
+    phoneMQ.addEventListener && phoneMQ.addEventListener('change', () => { markedDay = null; tick(); });
   }
 
   /* ---- counters ---- */

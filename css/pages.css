@@ -699,6 +699,94 @@
   .rtl-fork::before { left: 4px; right: auto; width: 2px; border: 0; background: var(--border-strong); border-radius: 0; }
 }
 
+/* ---- path ahead + phone polish ----
+   .rtl-fill is an accent-coloured line laid over each rail by pages.js. It
+   runs from the most recent event that has passed through every event still
+   to come, so blue always means "still ahead". Recomputed every minute; it
+   only exists when the script runs, otherwise the rail is plain. */
+.rtl-fill {
+  position: absolute; width: 2px; border-radius: 1px; background: var(--accent);
+  pointer-events: none; transform: scaleY(0); transform-origin: top;
+  transition: transform .9s .3s var(--ease-out), height .6s var(--ease-out);
+}
+.rtl-in > .rtl-fill { transform: scaleY(1); }
+/* a branch arm lights only when its column still has something ahead */
+.rtl-fork::before, .rtl-fork::after { transition: border-color .4s .6s ease, background .4s .6s ease; }
+.rtl-fork.lit-left::before  { border-color: var(--accent); }
+.rtl-fork.lit-right::after  { border-color: var(--accent); }
+
+/* each forked column arrives as a whole (heading, note, notice and rows),
+   left first; pages.js adds the classes, so without it nothing is hidden */
+.rtl-track.rtl-anim > .rtl-head,
+.rtl-track.rtl-anim > .rtl-note,
+.rtl-track.rtl-anim > .rtl-alert {
+  opacity: 0; transform: translateY(10px);
+  transition: opacity .5s var(--ease-out), transform .5s var(--ease-out);
+}
+.rtl-track.rtl-anim.rtl-in > .rtl-head,
+.rtl-track.rtl-anim.rtl-in > .rtl-note,
+.rtl-track.rtl-anim.rtl-in > .rtl-alert { opacity: 1; transform: none; }
+.rtl-track.rtl-anim.rtl-in > .rtl-note  { transition-delay: .06s; }
+.rtl-track.rtl-anim.rtl-in > .rtl-alert { transition-delay: .12s; }
+/* the column's rows follow its heading rather than racing it */
+.rtl-track .rtl.rtl-anim.rtl-in .rtl-row:nth-child(1),
+.rtl-track .rtl.rtl-anim.rtl-in .rtl-row:nth-child(1)::before { transition-delay: .22s; }
+.rtl-track .rtl.rtl-anim.rtl-in .rtl-row:nth-child(2),
+.rtl-track .rtl.rtl-anim.rtl-in .rtl-row:nth-child(2)::before { transition-delay: .34s; }
+.rtl-track .rtl.rtl-anim.rtl-in .rtl-row:nth-child(3),
+.rtl-track .rtl.rtl-anim.rtl-in .rtl-row:nth-child(3)::before { transition-delay: .46s; }
+.rtl-track .rtl.rtl-anim.rtl-in .rtl-row:nth-child(4),
+.rtl-track .rtl.rtl-anim.rtl-in .rtl-row:nth-child(4)::before { transition-delay: .58s; }
+@media (prefers-reduced-motion: reduce) {
+  .rtl-track.rtl-anim > .rtl-head, .rtl-track.rtl-anim > .rtl-note, .rtl-track.rtl-anim > .rtl-alert {
+    opacity: 1; transform: none; transition: none;
+  }
+}
+
+@media (max-width: 900px) {
+  /* the desktop right-hand column put the flag beside the date; on a phone
+     every section should read the same: date left, flag right */
+  .rtl-tracks .rtl-track:last-child .rtl-row { grid-template-columns: 1fr auto; }
+  .rtl-tracks .rtl-track:last-child .rtl-row .when { grid-column: 1; }
+  .rtl-tracks .rtl-track:last-child .rtl-row .flag { grid-column: 2; justify-self: end; }
+
+  /* the pulse ring inherited desktop offsets (centre line / mirrored column).
+     :nth-child(n) matches every track but carries the same weight as the
+     desktop :first-child rules, so these later rules win on a phone. */
+  .rtl-shared .rtl-row.is-next::after,
+  .rtl-tracks .rtl-track:nth-child(n) .rtl-row.is-next::after { left: -26px; right: auto; }
+
+  /* lift the next event into a soft card so it is findable at a glance */
+  .rtl-row.is-next {
+    background: var(--accent-soft); border: 1px solid var(--accent-soft-bd);
+    border-radius: 10px; padding: 10px 12px 12px; margin: 2px -12px 13px;
+  }
+  /* the card shifts the row 12px left and 10px down (plus its 1px border),
+     so pull the dot and ring back onto the rail */
+  .rtl-shared .rtl-row.is-next::before,
+  .rtl-shared .rtl-row.is-next::after,
+  .rtl-tracks .rtl-track:nth-child(n) .rtl-row.is-next::before,
+  .rtl-tracks .rtl-track:nth-child(n) .rtl-row.is-next::after { left: -15px; right: auto; top: 14px; }
+  .rtl-row.is-next .what small { color: var(--ink); opacity: .78; }
+
+  /* stacked: the single connector leads on to whichever class year is ahead */
+  .rtl-fork.lit-any::before { background: var(--accent); }
+
+  /* the stacked rail and its section nodes draw in like the desktop rails */
+  .rtl-track.rtl-anim::before { transform: scaleY(0); transform-origin: top; transition: transform 1s var(--ease-out); }
+  .rtl-track.rtl-anim.rtl-in::before { transform: scaleY(1); }
+  .rtl-track.rtl-anim::after { transform: scale(0); transition: transform .42s .1s cubic-bezier(.34,1.56,.64,1); }
+  .rtl-track.rtl-anim.rtl-in::after { transform: scale(1); }
+  .rtl-fork.rtl-anim::before { transform: scaleY(0); transform-origin: top; transition: transform .35s var(--ease-out); }
+  .rtl-fork.rtl-anim.rtl-in::before { transform: scaleY(1); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .rtl-fill, .rtl-track.rtl-anim::before, .rtl-track.rtl-anim::after, .rtl-fork.rtl-anim::before {
+    transform: none !important; transition: none !important;
+  }
+}
+
 /* two cohort applications side by side inside one app card */
 .app-links { display: flex; flex-wrap: wrap; gap: 10px; }
 .app-links .btn { flex: 1 1 auto; justify-content: center; }
