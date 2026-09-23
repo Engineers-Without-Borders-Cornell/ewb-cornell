@@ -36,11 +36,44 @@
     const armed = [...rails, ...tracks, ...(fork ? [fork] : [])];
     armed.forEach(el => el.classList.add('rtl-anim'));
 
+    // One continuous top-to-bottom sweep: the rail draws at a steady speed and
+    // each row is timed to the moment the line reaches its own dot, so rows
+    // always arrive in the order they appear on screen however many there are.
+    // One continuous top-to-bottom sweep. The line travels at a fixed speed
+    // rather than a fixed duration, so a short column and a long one draw at
+    // the same visual pace, and each row is timed to the moment the line
+    // reaches its own dot. Works for any number of rows.
+    const SPEED = 460, LEAD = 0.1, MIN = 0.3, MAX = 1.9, FADE = 0.34;
+    const pxv = (v) => parseFloat(v) || 0;
+    const timeSweep = (rail) => {
+      const track = rail.closest('.rtl-track');
+      const host = (phoneMQ.matches && track) ? track : rail;
+      const line = getComputedStyle(host, '::before');
+      const box = host.getBoundingClientRect();
+      const top = pxv(line.top);
+      const span = Math.max(1, host.clientHeight - pxv(line.bottom) - top);
+      const dur = Math.min(MAX, Math.max(MIN, span / SPEED));
+      const pace = dur / span;                    // seconds per pixel travelled
+      host.style.setProperty('--sweep', dur.toFixed(3) + 's');
+      host.style.setProperty('--sweep-start', LEAD + 's');
+      let last = LEAD;
+      rail.querySelectorAll('.rtl-row').forEach(row => {
+        const y = row.getBoundingClientRect().top - box.top + pxv(getComputedStyle(row, '::before').top) + 5;
+        const at = LEAD + Math.max(0, Math.min(span, y - top)) * pace;
+        row.style.setProperty('--in', at.toFixed(3) + 's');
+        last = Math.max(last, at);
+      });
+      host.style.setProperty('--fill-start', (LEAD + dur + 0.15).toFixed(3) + 's');
+      return last + FADE;   // when this column has finished settling
+    };
+
     const reveal = (rail) => {
+      const span = timeSweep(rail);
       rail.classList.add('rtl-in');
       const track = rail.closest('.rtl-track');
       if (track) track.classList.add('rtl-in');
       if (rail === sharedRail && fork) fork.classList.add('rtl-in');
+      return span;
     };
 
     if (reduce) { rails.forEach(reveal); }
@@ -67,9 +100,17 @@
         // one carries the recruiting notice), so observing them separately
         // let the right column fire first. Watch the pair as one unit and
         // bring in the whole left column, then the whole right one.
-        observe([pair], () => tracks.forEach((t, i) => {
-          setTimeout(() => reveal(trackRail(t)), i * 650);
-        }));
+        // One column at a time: Upperclassmen sweeps top to bottom, a short
+        // beat, then First-Year + Transfer does the same.
+        const BEAT = 280;
+        observe([pair], () => {
+          let at = 0;
+          tracks.forEach((t, i) => {
+            const rail = trackRail(t);
+            if (i === 0) { at = reveal(rail) * 1000 + BEAT; }
+            else { setTimeout(() => reveal(rail), at); }
+          });
+        });
       }
     }
 
@@ -146,7 +187,10 @@
           fill = document.createElement('div');
           fill.className = 'rtl-fill';
           fill.setAttribute('aria-hidden', 'true');
-          host.insertBefore(fill, host.firstChild);
+          // appended last so it never shifts the rows' :nth-child numbering,
+          // which the reveal stagger counts on; .rtl-row's z-index keeps the
+          // event dots painted above it
+          host.appendChild(fill);
         }
         const hostBox = host.getBoundingClientRect();
         if (line.display === 'none' || line.content === 'none' || !hostBox.height) {

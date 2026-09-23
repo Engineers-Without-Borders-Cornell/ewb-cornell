@@ -109,19 +109,19 @@
   const tlTrack = document.getElementById('tlTrack');
   if (tlTrack) {
     const events = [
-      { y: 2009, loc: 'Ithaca, New York', t: 'The Cornell chapter is founded', d: 'A group of students start the Cornell University chapter of Engineers Without Borders, beginning a tradition of community-driven engineering.' },
-      { y: 2011, loc: 'Calcha, Bolivia', t: 'International origins', d: 'Built a walking bridge to improve the safety and productivity of local agricultural fields, and optimized water management systems for cleaner, more reliable fresh water.' },
-      { y: 2014, loc: 'Binghamton, New York', t: 'Going domestic: EPOD', d: 'Partnered with Every1sHome to design an inexpensive, portable shelter for the homeless population of Binghamton.' },
-      { y: 2016, loc: 'Erie, Pennsylvania', t: 'Aquaponics challenge', d: 'Designed an aquaponics greenhouse facility and affordable, sustainable refrigeration equipment for Erie.' },
-      { y: 2017, loc: 'Sunuka, Tanzania', t: 'Solar irrigation', d: 'Implemented an irrigation system to address food and economic insecurity for a farming community.' },
-      { y: 2019, loc: 'Sub-Saharan Africa', t: 'Digital agriculture begins', d: 'Launched a machine-learning drone and rover system to detect Northern Leaf Blight in maize before it can spread.' },
-      { y: 2020, loc: 'Pine Ridge, South Dakota', t: 'Sustainable housing', d: 'Partnered with First Families Now to design a cost-effective, permanent Sustainable Housing Unit for the reservation.' },
-      { y: 2021, loc: 'Tompkins County, NY', t: 'Sustainable software', d: 'Developed a carbon-offset management tool in partnership with Sustainable Tompkins.' },
-      { y: 2022, loc: 'Cornell University', t: 'Cornell Wardrobe app', d: 'Built an app to optimize the Cornell Wardrobe Project, which provides free, gently used professional attire.' },
-      { y: 2023, loc: 'Austin, Texas', t: 'Stormwater reuse', d: 'Began designing stormwater diversion, rainwater harvesting, and solar pumping for the Festival Beach Community Garden.' },
-      { y: 2024, loc: 'Finger Lakes, NY', t: 'ReUse partnership', d: 'Started a donation application for Finger Lakes ReUse and a carbon app for the Tompkins Climate Fund.' },
-      { y: 2025, loc: 'Barrio San Cristóbal, Bolivia', t: 'Sanitation initiative', d: 'Visited San Cristóbal and adopted a multi-year sanitation project, now entering its implementation phase.' },
-      { y: 2026, loc: 'Barrio San Cristóbal, Bolivia', t: 'Implementation trip', d: 'Traveled to Barrio San Cristóbal and built the public restroom and attached septic system during a three-week trip, so waste no longer contaminates the new well.' }
+      { y: 2009, loc: 'Ithaca, New York', t: 'The Cornell Chapter Is Founded', d: 'A group of students start the Cornell University chapter of Engineers Without Borders, beginning a tradition of community-driven engineering.' },
+      { y: 2011, loc: 'Calcha, Bolivia', t: 'International Origins', d: 'Built a walking bridge to improve the safety and productivity of local agricultural fields, and optimized water management systems for cleaner, more reliable fresh water.' },
+      { y: 2014, loc: 'Binghamton, New York', t: 'Going Domestic: EPOD', d: 'Partnered with Every1sHome to design an inexpensive, portable shelter for the homeless population of Binghamton.' },
+      { y: 2016, loc: 'Erie, Pennsylvania', t: 'Aquaponics Challenge', d: 'Designed an aquaponics greenhouse facility and affordable, sustainable refrigeration equipment for Erie.' },
+      { y: 2017, loc: 'Sunuka, Tanzania', t: 'Solar Irrigation', d: 'Implemented an irrigation system to address food and economic insecurity for a farming community.' },
+      { y: 2019, loc: 'Sub-Saharan Africa', t: 'Digital Agriculture Begins', d: 'Launched a machine-learning drone and rover system to detect Northern Leaf Blight in maize before it can spread.' },
+      { y: 2020, loc: 'Pine Ridge, South Dakota', t: 'Sustainable Housing', d: 'Partnered with First Families Now to design a cost-effective, permanent Sustainable Housing Unit for the reservation.' },
+      { y: 2021, loc: 'Tompkins County, NY', t: 'Sustainable Software', d: 'Developed a carbon-offset management tool in partnership with Sustainable Tompkins.' },
+      { y: 2022, loc: 'Cornell University', t: 'Cornell Wardrobe App', d: 'Built an app to optimize the Cornell Wardrobe Project, which provides free, gently used professional attire.' },
+      { y: 2023, loc: 'Austin, Texas', t: 'Stormwater Reuse', d: 'Began designing stormwater diversion, rainwater harvesting, and solar pumping for the Festival Beach Community Garden.' },
+      { y: 2024, loc: 'Finger Lakes, NY', t: 'ReUse Partnership', d: 'Started a donation application for Finger Lakes ReUse and a carbon app for the Tompkins Climate Fund.' },
+      { y: 2025, loc: 'Barrio San Cristóbal, Bolivia', t: 'Sanitation Initiative', d: 'Visited San Cristóbal and adopted a multi-year sanitation project, now entering its implementation phase.' },
+      { y: 2026, loc: 'Barrio San Cristóbal, Bolivia', t: 'Implementation Trip', d: 'Traveled to Barrio San Cristóbal and built the public restroom and attached septic system during a three-week trip, so waste no longer contaminates the new well.' }
     ];
     const elYear = document.getElementById('tlYear');
     const elLoc = document.getElementById('tlLoc');
