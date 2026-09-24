@@ -332,7 +332,9 @@
     gitems.forEach(g => {
       const img = g.querySelector('img');
       if (!img) return;
-      g.addEventListener('click', () => { lbImg.src = img.currentSrc || img.src; lbImg.alt = img.alt || ''; lb.classList.add('open'); });
+      // src is always the full-size original; the tile itself may be showing
+      // a smaller copy picked from srcset, so currentSrc would open that
+      g.addEventListener('click', () => { lbImg.src = img.src; lbImg.alt = img.alt || ''; lb.classList.add('open'); });
     });
   }
 
