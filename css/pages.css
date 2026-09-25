@@ -95,6 +95,10 @@
 .step .sn { font-family: var(--mono); font-size: 11px; letter-spacing: .1em; color: var(--accent-ink); }
 .step h3 { font-size: 1rem; font-weight: 600; margin: 12px 0 8px; }
 .step p { color: var(--muted); font-size: .86rem; line-height: 1.55; }
+/* three across (recruitment toolkit tips); declared before the breakpoints so
+   they still fold it to two columns, then one */
+.steps-3 { grid-template-columns: repeat(3, 1fr); }
+.kit-h { font-family: var(--mono); font-size: 11px; font-weight: 500; letter-spacing: .14em; text-transform: uppercase; color: var(--dim); margin: 44px 0 14px; }
 @media (max-width: 900px){ .steps { grid-template-columns: 1fr 1fr; } }
 @media (max-width: 560px){ .steps { grid-template-columns: 1fr; } }
 
@@ -457,6 +461,9 @@
 .rtl-row.is-past .when,
 .rtl-row.is-past .what { opacity: .62; }
 .rtl-row.is-past::before { background: var(--surface); border-color: var(--border-strong); }
+/* every event still to come gets a filled blue dot; pages.js swaps it for the
+   hollow one above the day after the event */
+.rtl-row.is-ahead::before { background: var(--accent); border-color: var(--accent); }
 
 .rtl-next-tag {
   display: inline-block; margin-left: 8px; vertical-align: middle;
@@ -727,8 +734,9 @@
 .rtl-track.rtl-anim.rtl-in > .rtl-alert { opacity: 1; transform: none; }
 .rtl-track.rtl-anim.rtl-in > .rtl-note  { transition-delay: .06s; }
 .rtl-track.rtl-anim.rtl-in > .rtl-alert { transition-delay: .12s; }
-/* the progress line only lights once its column has finished drawing */
-.rtl-track .rtl-fill, .rtl-shared .rtl-fill { transition: transform .45s var(--ease-out) var(--fill-start, .85s), height .6s var(--ease-out); }
+/* the progress line draws down with its column's grey line, at the same
+   linear pace; pages.js times --fill-start/--fill-dur to the sweep */
+.rtl-track .rtl-fill, .rtl-shared .rtl-fill { transition: transform var(--fill-dur, .45s) linear var(--fill-start, .85s), height .6s var(--ease-out); }
 @media (prefers-reduced-motion: reduce) {
   .rtl-track.rtl-anim > .rtl-head, .rtl-track.rtl-anim > .rtl-note, .rtl-track.rtl-anim > .rtl-alert {
     opacity: 1; transform: none; transition: none;

@@ -63,7 +63,13 @@
         row.style.setProperty('--in', at.toFixed(3) + 's');
         last = Math.max(last, at);
       });
-      host.style.setProperty('--fill-start', (LEAD + dur + 0.15).toFixed(3) + 's');
+      // The blue "still ahead" line rides the same sweep: it starts growing
+      // when the grey line reaches the fill's top and keeps pace with it, so
+      // both draw down together instead of blue following afterwards.
+      const fill = host.querySelector(':scope > .rtl-fill');
+      const fTop = fill ? pxv(fill.style.top) : 0, fLen = fill ? pxv(fill.style.height) : 0;
+      host.style.setProperty('--fill-start', (LEAD + Math.max(0, fTop - top) * pace).toFixed(3) + 's');
+      host.style.setProperty('--fill-dur', Math.max(0.05, fLen * pace).toFixed(3) + 's');
       return last + FADE;   // when this column has finished settling
     };
 
@@ -136,6 +142,7 @@
       const times = dated.map(row => {
         const when = rowTime(row);
         row.classList.toggle('is-past', when < todayTime);
+        row.classList.toggle('is-ahead', when >= todayTime);   // blue dot until the day is over
         if (when >= todayTime && when < nextTime) nextTime = when;
         return when;
       });
