@@ -360,6 +360,13 @@
 .hero-notice i { color: var(--accent-ink); font-size: 17px; line-height: 1.5; flex-shrink: 0; }
 .hero-notice strong { color: var(--accent-ink); }
 
+/* Site-wide "applications closed" strip, directly under the hero. */
+.closed-banner { background: var(--accent-soft); border-top: 1px solid var(--accent-soft-bd); border-bottom: 1px solid var(--accent-soft-bd); padding: 16px 0; }
+.closed-banner .container { display: flex; align-items: center; gap: 12px; }
+.closed-banner i { color: var(--accent-ink); font-size: 22px; flex-shrink: 0; }
+.closed-banner p { margin: 0; color: var(--ink); font-size: .95rem; line-height: 1.55; }
+.closed-banner strong, .closed-banner a { color: var(--accent-ink); font-weight: 600; }
+
 /* A retired application link: same footprint as the button it replaces, but
    plainly inert so nobody tries to submit to a closed round. */
 .btn-closed {
