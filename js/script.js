@@ -453,3 +453,26 @@ window.closeMemberModal = function() {
 document.addEventListener('keydown', e => {
   if (e.key === 'Escape') window.closeMemberModal();
 });
+
+// Crowdfunding banner: counts down to the campaign close (Dec 5, 2026, 12:00 AM EST = 05:00 UTC).
+document.addEventListener('DOMContentLoaded', function initCampaign() {
+  const end = Date.UTC(2026, 11, 5, 5, 0, 0);
+  // Gift links point at the campaign until it closes, then go back to the Cornell gift fund.
+  if (Date.now() >= end) {
+    document.querySelectorAll('a[data-after-href]').forEach(a => {
+      a.href = a.dataset.afterHref;
+      if (a.dataset.afterText) a.textContent = a.dataset.afterText;
+    });
+  }
+  document.querySelectorAll('[data-campaign]').forEach(box => {
+    const num = box.querySelector('[data-campaign-num]');
+    const unit = box.querySelector('[data-campaign-unit]');
+    const ms = end - Date.now();
+    if (ms <= 0) { box.hidden = true; return; }
+    const days = Math.floor(ms / 864e5);
+    let n = days, label = days === 1 ? 'day left' : 'days left';
+    if (days < 1) { n = Math.max(1, Math.floor(ms / 36e5)); label = n === 1 ? 'hour left' : 'hours left'; }
+    num.textContent = n;
+    unit.textContent = label;
+  });
+});

@@ -1121,3 +1121,20 @@ html.scroll-locked .rail { right: calc(24px + var(--sbw, 0px)); }
   .fchip { min-height: 40px; display: inline-flex; align-items: center; }
   .gc-loc + br { display: none; }
 }
+
+/* Crowdfunding campaign banner (home + sponsors) */
+.campaign { padding: 28px 0; background: var(--bg); }
+.campaign-inner { display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: 28px; padding: 26px 30px; background: var(--accent-soft); border: 1.5px solid var(--accent-soft-bd); border-left: 6px solid var(--accent); border-radius: var(--radius); }
+.campaign-count { display: flex; flex-direction: column; align-items: flex-start; min-width: 112px; }
+.campaign-count strong { font-family: var(--mono); font-weight: 500; font-size: clamp(3rem, 6vw, 4.4rem); line-height: .9; letter-spacing: -0.04em; color: var(--accent-ink); }
+.campaign-count span { font-family: var(--mono); font-size: 11px; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); margin-top: 8px; }
+.campaign-kicker { font-family: var(--mono); font-size: 11px; letter-spacing: .16em; text-transform: uppercase; color: var(--accent-ink); margin-bottom: 8px; }
+.campaign-copy h2 { font-size: clamp(1.25rem, 2.4vw, 1.7rem); font-weight: 600; letter-spacing: -0.02em; margin-bottom: 6px; color: var(--ink); }
+.campaign-copy p { color: var(--muted); line-height: 1.6; max-width: 62ch; }
+.campaign-copy .campaign-kicker { color: var(--accent-ink); max-width: none; line-height: 1.2; }
+@media (max-width: 760px) {
+  .campaign-inner { grid-template-columns: 1fr; gap: 18px; padding: 22px 20px; }
+  .campaign-count { flex-direction: row; align-items: baseline; gap: 12px; }
+  .campaign-count span { margin-top: 0; }
+  .campaign-inner .btn { justify-self: stretch; text-align: center; justify-content: center; }
+}
