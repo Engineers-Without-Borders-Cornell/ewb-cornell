@@ -384,11 +384,14 @@
   const cards = [...document.querySelectorAll('.tier-pick')];
   let current = -2;
   const esc = t => t.replace(/[&<>]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;'}[c]));
-  const fmt = v => '$' + v.toLocaleString('en-US') + (v >= 3000 ? '+' : '');
+  const fmt = v => v.toLocaleString('en-US');
+  const CAMPAIGN = 'https://crowdfunding.cornell.edu/project/50934';
+  const campaignOpen = Date.now() < Date.UTC(2026, 11, 5, 5, 0, 0);
   const tierFor = v => { let i = -1; tiers.forEach((t, j) => { if (v >= t.min) i = j; }); return i; };
   function render(v) {
     const i = tierFor(v);
-    amt.textContent = i >= 0 && v < 3000 ? fmt(v) : fmt(v);
+    if (document.activeElement !== amt) amt.value = fmt(v);
+    amt.style.width = Math.max(3, amt.value.length + 1) + 'ch';
     nameEl.textContent = i >= 0 ? tiers[i].n : 'Supporter';
     below.hidden = i >= 0;
     brand.hidden = i < 3;
@@ -407,12 +410,18 @@
       if (i >= 0) h += '<li class="new"><i class="ti ti-check"></i><span>Personalized thank-you letter and exclusive impact report<em>all sponsors</em></span></li>';
       list.innerHTML = h;
       cta.textContent = i >= 0 ? 'Sponsor at ' + tiers[i].n : 'Give any amount';
-      cta.href = i >= 0
-        ? 'mailto:ewb@cornell.edu?subject=' + encodeURIComponent('EWB Cornell ' + tiers[i].n + ' sponsorship')
-        : '#give';
+      cta.href = campaignOpen ? CAMPAIGN : cta.dataset.afterHref;
     }
   }
   slider.addEventListener('input', () => render(+slider.value));
+  amt.addEventListener('input', () => {
+    const v = Math.min(999999, parseInt(amt.value.replace(/\D/g, ''), 10) || 0);
+    amt.value = v ? fmt(v) : '';
+    slider.value = Math.min(v, 3000);
+    render(v);
+  });
+  amt.addEventListener('focus', () => amt.select());
+  amt.addEventListener('blur', () => { amt.value = fmt(Math.min(999999, parseInt(amt.value.replace(/\D/g, ''), 10) || 0)); render(+amt.value.replace(/\D/g, '')); });
   cards.forEach(c => {
     const pick = () => {
       const t = tiers.find(x => x.k === c.dataset.tier);

@@ -855,6 +855,10 @@
 .tier-tool-head { display: flex; justify-content: space-between; align-items: flex-end; gap: 20px; flex-wrap: wrap; margin-bottom: 18px; }
 .tier-tool-q { color: var(--muted); font-size: .95rem; }
 .tier-amt { text-align: right; }
+.tier-amt-field { display: inline-flex !important; align-items: baseline; justify-content: flex-end; gap: 2px; border-bottom: 2px dashed var(--border-strong); transition: border-color .15s; }
+.tier-amt-field:focus-within { border-bottom-color: var(--accent); border-bottom-style: solid; }
+.tier-amt-field b { font-weight: 500; }
+.tier-amt-field input { width: 6.5ch; min-width: 0; border: 0; background: transparent; color: inherit; font: inherit; letter-spacing: inherit; text-align: left; padding: 0; outline: none; }
 .tier-amt span { display: block; font-family: var(--mono); font-size: 2.2rem; font-weight: 500; color: var(--ink); letter-spacing: -.03em; line-height: 1; }
 .tier-amt small { font-family: var(--mono); font-size: 11px; letter-spacing: .14em; text-transform: uppercase; color: var(--accent-ink); }
 #tierSlider { width: 100%; accent-color: var(--accent); height: 28px; cursor: pointer; }

@@ -25,7 +25,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.6.0/dist/tabler-icons.min.css">
   <link rel="stylesheet" href="../css/style.css?v=118">
-  <link rel="stylesheet" href="../css/pages.css?v=119">
+  <link rel="stylesheet" href="../css/pages.css?v=120">
   <link rel="stylesheet" media="print" href="../css/print.css?v=118">
   <script>document.documentElement.classList.add('js');</script>
   <link rel="icon" href="/favicon.ico" sizes="any">
@@ -249,9 +249,9 @@
       <div class="tier-tool-head">
         <div>
           <p class="xindex" style="margin-bottom:6px;display:flex;">Build your package</p>
-          <label for="tierSlider" class="tier-tool-q">Pick a level or drag to a gift amount</label>
+          <label for="tierAmt" class="tier-tool-q">Pick a level, type an amount, or drag the slider</label>
         </div>
-        <div class="tier-amt" aria-live="polite"><span id="tierAmt">$1,000</span><small id="tierName">Silver</small></div>
+        <div class="tier-amt" aria-live="polite"><span class="tier-amt-field"><b>$</b><input type="text" id="tierAmt" inputmode="numeric" value="1,000" maxlength="9" autocomplete="off" aria-label="Sponsorship amount in dollars"></span><small id="tierName">Silver</small></div>
       </div>
       <input type="range" id="tierSlider" min="0" max="3000" step="100" value="1000" aria-label="Sponsorship amount in dollars">
       <div class="tier-ticks" aria-hidden="true"><span style="left:0">$0</span><span style="left:16.67%">$500</span><span style="left:33.33%">$1,000</span><span style="left:50%">$1,500</span><span style="left:83.33%">$2,500+</span></div>
@@ -263,7 +263,7 @@
         <p class="tier-brand-out" id="tierBrandOut">[Company Name] Water Collection System</p>
       </div>
       <div class="tier-actions">
-        <a class="btn btn-primary" id="tierCta" href="mailto:ewb@cornell.edu">Sponsor at Silver</a>
+        <a class="btn btn-primary" id="tierCta" href="https://crowdfunding.cornell.edu/project/50934" data-after-href="https://tinyurl.com/ewb-cornell/" target="_blank" rel="noopener">Sponsor at Silver</a>
         <a class="btn btn-outline" href="#give">Other ways to give</a>
       </div>
     </div>
@@ -397,6 +397,6 @@
 </footer>
 
 <script src="../js/script.js?v=119"></script>
-<script src="../js/pages.js?v=119"></script>
+<script src="../js/pages.js?v=120"></script>
 </body>
 </html>
