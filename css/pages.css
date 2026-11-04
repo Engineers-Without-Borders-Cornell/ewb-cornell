@@ -879,3 +879,73 @@
 .tier-actions { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 22px; }
 @media (max-width: 700px){ .tier-list { grid-template-columns: 1fr; } .tier-tool { padding: 20px; } .tier-amt { text-align: left; } }
 @media (prefers-reduced-motion: reduce){ .tier-list li { animation: none; } }
+
+/* Sponsorship tier logos: always sparkle, shine on hover (logo art cropped from the 2025-26 package) */
+.tier-cards-4 .tcard { display: grid; grid-template-columns: 72px 1fr; column-gap: 26px; align-content: start; }
+.tier-cards-4 .tcard > :not(.tier-logo) { grid-column: 2; }
+.tier-logo { grid-column: 1; grid-row: 1 / span 4; align-self: start; position: relative; width: 72px; aspect-ratio: 200 / 598;
+  --fy: 40%; --d: 0s; --shine: rgba(255,255,255,.9);
+  animation: tlFloat 6s ease-in-out var(--d) infinite; }
+.tier-logo img { display: block; width: 100%; height: 100%; transition: filter .3s var(--ease-out); }
+.tier-bronze .tier-logo   { --fy: 39.3%; --d: 0s;    --glow: rgba(205,127,72,.38); --spark: #C8743C; }
+.tier-silver .tier-logo   { --fy: 42.8%; --d: .35s;  --glow: rgba(140,146,156,.3);  --spark: #8A9099; }
+.tier-gold .tier-logo     { --fy: 40.8%; --d: .7s;   --glow: rgba(226,182,60,.4);   --spark: #D9A21E; --shine: rgba(255,247,214,.95); }
+.tier-platinum .tier-logo { --fy: 38.8%; --d: 1.05s; --glow: rgba(143,170,200,.4);  --spark: #7D98BA; }
+
+/* Always on: sparkles (white core, tier-coloured tips so they read on the logo and on the card) */
+.tl-spark { position: absolute; width: 14px; height: 14px; pointer-events: none; opacity: 0;
+  background: radial-gradient(circle, #fff 0 24%, var(--spark) 68%);
+  clip-path: polygon(50% 0, 64% 36%, 100% 50%, 64% 64%, 50% 100%, 36% 64%, 0 50%, 36% 36%);
+  transform: translate(-50%,-50%) scale(0); animation: tlTwinkle 3.4s ease-in-out infinite; }
+.tl-s1 { left: 55%; top: 21%; animation-duration: 3.2s; animation-delay: calc(var(--d) + .4s); }
+.tl-s2 { left: 82%; top: 86%; animation-duration: 3.9s; animation-delay: calc(var(--d) + 1.6s); width: 11px; height: 11px; }
+.tl-s3 { left: 60%; top: 50%; animation-duration: 4.6s; animation-delay: calc(var(--d) + 2.5s); width: 10px; height: 10px; }
+.tl-s4 { left: 20%; top: 30%; animation-duration: 3.6s; animation-delay: calc(var(--d) + 1s);  width: 12px; height: 12px; background: var(--spark); }
+
+/* Hover / keyboard focus only: light sweep (clipped to the logo silhouette), lens flare, glow */
+.tl-sheen { position: absolute; inset: 0; overflow: hidden; pointer-events: none;
+  -webkit-mask-size: 100% 100%; mask-size: 100% 100%; -webkit-mask-repeat: no-repeat; mask-repeat: no-repeat; }
+.tier-bronze .tl-sheen   { -webkit-mask-image: url(../assets/img/tiers/bronze.webp);   mask-image: url(../assets/img/tiers/bronze.webp); }
+.tier-silver .tl-sheen   { -webkit-mask-image: url(../assets/img/tiers/silver.webp);   mask-image: url(../assets/img/tiers/silver.webp); }
+.tier-gold .tl-sheen     { -webkit-mask-image: url(../assets/img/tiers/gold.webp);     mask-image: url(../assets/img/tiers/gold.webp); }
+.tier-platinum .tl-sheen { -webkit-mask-image: url(../assets/img/tiers/platinum.webp); mask-image: url(../assets/img/tiers/platinum.webp); }
+.tl-sheen::before { content: ''; position: absolute; left: -60%; top: 0; width: 220%; height: 30%;
+  background: linear-gradient(to bottom, transparent 0%, rgba(255,255,255,0) 22%, var(--shine) 50%, rgba(255,255,255,0) 78%, transparent 100%);
+  transform: translateY(-170%) rotate(-28deg); }
+.tier-platinum .tl-sheen::before { background: linear-gradient(to bottom, transparent 0%, rgba(255,205,235,.55) 30%, rgba(255,255,255,.95) 50%, rgba(180,232,255,.6) 70%, transparent 100%); }
+.tl-flare { position: absolute; left: 97%; top: var(--fy); width: 78%; aspect-ratio: 1; pointer-events: none; opacity: 0;
+  border-radius: 50%; background: radial-gradient(circle, #fff 0 9%, rgba(255,255,255,.75) 18%, rgba(255,255,255,0) 62%);
+  transform: translate(-50%,-50%) scale(.8); transition: opacity .35s var(--ease-out);
+  animation: tlFlare 2.6s ease-in-out infinite; }
+.tl-flare::before, .tl-flare::after { content: ''; position: absolute; left: 50%; top: 50%; border-radius: 2px;
+  background: linear-gradient(90deg, rgba(255,255,255,0), #fff 50%, rgba(255,255,255,0)); }
+.tl-flare::before { width: 260%; height: 2px; transform: translate(-50%,-50%); }
+.tl-flare::after  { width: 2px; height: 170%; transform: translate(-50%,-50%);
+  background: linear-gradient(180deg, rgba(255,255,255,0), #fff 50%, rgba(255,255,255,0)); }
+.tier-pick:hover .tl-sheen::before, .tier-pick:focus-visible .tl-sheen::before { animation: tlSheen 1.9s cubic-bezier(.45,.05,.35,1) infinite; }
+.tier-pick:hover .tl-flare, .tier-pick:focus-visible .tl-flare { opacity: 1; }
+.tier-pick:hover .tier-logo img, .tier-pick:focus-visible .tier-logo img { filter: drop-shadow(0 4px 9px var(--glow)); }
+
+/* paused while scrolled out of view (js/pages.js) */
+.tier-logo.tl-off, .tier-logo.tl-off *, .tier-logo.tl-off *::before { animation-play-state: paused; }
+
+@keyframes tlFloat { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-4px); } }
+@keyframes tlSheen { 0% { transform: translateY(-170%) rotate(-28deg); } 55%,100% { transform: translateY(430%) rotate(-28deg); } }
+@keyframes tlFlare {
+  0%,100% { transform: translate(-50%,-50%) scale(.72) rotate(0deg); }
+  50%     { transform: translate(-50%,-50%) scale(1.12) rotate(14deg); } }
+@keyframes tlTwinkle {
+  0%,45%,100% { opacity: 0; transform: translate(-50%,-50%) scale(0) rotate(0deg); }
+  60%,74%     { opacity: 1; transform: translate(-50%,-50%) scale(1) rotate(45deg); }
+  90%         { opacity: 0; transform: translate(-50%,-50%) scale(.2) rotate(90deg); } }
+
+@media (max-width: 520px){
+  .tier-cards-4 .tcard { grid-template-columns: 48px 1fr; column-gap: 18px; }
+  .tier-logo { width: 48px; }
+}
+@media (prefers-reduced-motion: reduce){
+  .tier-logo, .tl-flare, .tl-spark,
+  .tier-pick:hover .tl-sheen::before, .tier-pick:focus-visible .tl-sheen::before { animation: none; }
+  .tl-sheen, .tl-spark { display: none; }
+  .tl-flare { transform: translate(-50%,-50%) scale(.9); }
+}

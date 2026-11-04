@@ -437,3 +437,11 @@
   });
   render(+slider.value);
 })();
+
+/* Tier logos: pause the shine animation while off-screen */
+(function initTierLogos(){
+  const logos = document.querySelectorAll('.tier-logo');
+  if (!logos.length || !('IntersectionObserver' in window)) return;
+  const io = new IntersectionObserver(es => es.forEach(e => e.target.classList.toggle('tl-off', !e.isIntersecting)));
+  logos.forEach(l => io.observe(l));
+})();
