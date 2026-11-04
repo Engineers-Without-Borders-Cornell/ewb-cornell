@@ -366,3 +366,65 @@
     });
   });
 })();
+
+/* Sponsorship tier explorer */
+(function initTierTool(){
+  const tool = document.getElementById('tierTool'); if (!tool) return;
+  const tiers = [
+    { k:'bronze',   n:'Bronze',   min:500,  items:['Your logo on the EWB-Cornell website','Thank you on our team\u2019s Instagram page'] },
+    { k:'silver',   n:'Silver',   min:1000, items:['An exclusive feature in our team newsletter','A LinkedIn thank-you post'] },
+    { k:'gold',     n:'Gold',     min:1500, items:['Logo on official uniform apparel and promotional banner','Guest speaking and recruitment opportunities'] },
+    { k:'platinum', n:'Platinum', min:2500, items:['Co-branded educational content & promotional materials','Naming rights for project feature and final deliverable'] }
+  ];
+  const slider = document.getElementById('tierSlider'), amt = document.getElementById('tierAmt'),
+        nameEl = document.getElementById('tierName'), list = document.getElementById('tierList'),
+        below = document.getElementById('tierBelow'), cta = document.getElementById('tierCta'),
+        brand = document.getElementById('tierBrand'), co = document.getElementById('tierCo'),
+        out = document.getElementById('tierBrandOut');
+  const cards = [...document.querySelectorAll('.tier-pick')];
+  let current = -2;
+  const esc = t => t.replace(/[&<>]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;'}[c]));
+  const fmt = v => '$' + v.toLocaleString('en-US') + (v >= 3000 ? '+' : '');
+  const tierFor = v => { let i = -1; tiers.forEach((t, j) => { if (v >= t.min) i = j; }); return i; };
+  function render(v) {
+    const i = tierFor(v);
+    amt.textContent = i >= 0 && v < 3000 ? fmt(v) : fmt(v);
+    nameEl.textContent = i >= 0 ? tiers[i].n : 'Supporter';
+    below.hidden = i >= 0;
+    brand.hidden = i < 3;
+    cards.forEach((c, j) => {
+      c.classList.toggle('sel', j === i);
+      c.classList.toggle('incl', j < i);
+      c.setAttribute('aria-pressed', j === i ? 'true' : 'false');
+    });
+    if (i !== current) {
+      current = i;
+      let h = '';
+      for (let j = i; j >= 0; j--) tiers[j].items.forEach(it => {
+        h += '<li class="' + (j === i ? 'new' : 'inh') + '"><i class="ti ti-check"></i><span>' + esc(it) +
+             '<em>' + (j === i ? tiers[j].n : 'from ' + tiers[j].n) + '</em></span></li>';
+      });
+      if (i >= 0) h += '<li class="new"><i class="ti ti-check"></i><span>Personalized thank-you letter and exclusive impact report<em>all sponsors</em></span></li>';
+      list.innerHTML = h;
+      cta.textContent = i >= 0 ? 'Sponsor at ' + tiers[i].n : 'Give any amount';
+      cta.href = i >= 0
+        ? 'mailto:ewb@cornell.edu?subject=' + encodeURIComponent('EWB Cornell ' + tiers[i].n + ' sponsorship')
+        : '#give';
+    }
+  }
+  slider.addEventListener('input', () => render(+slider.value));
+  cards.forEach(c => {
+    const pick = () => {
+      const t = tiers.find(x => x.k === c.dataset.tier);
+      slider.value = t.min; render(t.min);
+      tool.scrollIntoView({ behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth', block: 'nearest' });
+    };
+    c.addEventListener('click', pick);
+    c.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); pick(); } });
+  });
+  co.addEventListener('input', () => {
+    const name = co.value.trim();
+    out.textContent = (name || '[Company Name]') + ' Water Collection System';
+  });
+  render(+slider.value);
+})();

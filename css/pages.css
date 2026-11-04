@@ -131,7 +131,12 @@
 .tcard ul { margin: 10px 0 22px; display: flex; flex-direction: column; gap: 9px; flex: 1; }
 .tcard li { display: flex; gap: 9px; font-size: .88rem; color: var(--muted); line-height: 1.45; }
 .tcard li i { color: var(--accent-ink); flex-shrink: 0; margin-top: 2px; }
-@media (max-width: 900px){ .tier-cards { grid-template-columns: 1fr; } }
+.tier-cards-4 { grid-template-columns: repeat(2, 1fr); }
+.tier-bronze { border-top: 3px solid #B87333; }
+.tier-silver { border-top: 3px solid #9AA0A6; }
+.tier-gold { border-top: 3px solid #D4A72C; }
+.tier-platinum { border-top: 3px solid #8FA3B8; }
+@media (max-width: 900px){ .tier-cards, .tier-cards-4 { grid-template-columns: 1fr; } }
 
 /* calculator (mirrors home.css) */
 .calc { display: grid; grid-template-columns: 1fr 1fr; gap: 44px; align-items: start; }
@@ -839,3 +844,34 @@
 }
 .track-card .note.horizon strong { color: var(--accent-ink); display: block; margin-bottom: 5px;
   font-family: var(--mono); font-size: .78rem; letter-spacing: .06em; text-transform: uppercase; }
+
+/* Sponsorship tier explorer */
+.tier-pick { cursor: pointer; position: relative; }
+.tier-pick:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+.tier-pick.sel { border-color: var(--accent); box-shadow: 0 0 0 1px var(--accent), var(--shadow-md); transform: translateY(-4px); }
+.tier-pick.sel::after { content: '\2713'; position: absolute; top: 14px; right: 16px; width: 22px; height: 22px; border-radius: 50%; background: var(--accent); color: #fff; font-size: 13px; display: grid; place-items: center; }
+.tier-pick.incl { border-color: var(--accent-soft-bd); background: var(--accent-soft); }
+.tier-tool { margin-top: 28px; padding: 28px; border: 1px solid var(--border); background: var(--surface); border-radius: var(--radius-lg); }
+.tier-tool-head { display: flex; justify-content: space-between; align-items: flex-end; gap: 20px; flex-wrap: wrap; margin-bottom: 18px; }
+.tier-tool-q { color: var(--muted); font-size: .95rem; }
+.tier-amt { text-align: right; }
+.tier-amt span { display: block; font-family: var(--mono); font-size: 2.2rem; font-weight: 500; color: var(--ink); letter-spacing: -.03em; line-height: 1; }
+.tier-amt small { font-family: var(--mono); font-size: 11px; letter-spacing: .14em; text-transform: uppercase; color: var(--accent-ink); }
+#tierSlider { width: 100%; accent-color: var(--accent); height: 28px; cursor: pointer; }
+.tier-ticks { position: relative; height: 14px; margin: 0 8px; font-family: var(--mono); font-size: 10px; color: var(--muted); letter-spacing: .06em; margin-top: 2px; }
+.tier-ticks span { position: absolute; transform: translateX(-50%); } .tier-ticks span:first-child { transform: none; }
+.tier-below { margin-top: 14px; color: var(--muted); font-size: .9rem; }
+.tier-list { margin: 20px 0 0; padding: 0; list-style: none; display: grid; grid-template-columns: 1fr 1fr; gap: 10px 24px; }
+.tier-list li { display: flex; gap: 10px; align-items: flex-start; font-size: .92rem; color: var(--ink); line-height: 1.45; animation: tierIn .35s var(--ease-out) both; }
+.tier-list li i { color: var(--accent-ink); margin-top: 2px; flex-shrink: 0; }
+.tier-list li em { font-style: normal; font-family: var(--mono); font-size: 9.5px; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); border: 1px solid var(--border); border-radius: 999px; padding: 1px 7px; margin-left: 6px; white-space: nowrap; }
+.tier-list li.new em { color: var(--accent-ink); border-color: var(--accent-soft-bd); background: var(--accent-soft); }
+.tier-list li.inh { color: var(--muted); }
+@keyframes tierIn { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
+.tier-brand { margin-top: 20px; padding: 16px 18px; border: 1px dashed var(--accent-soft-bd); border-radius: var(--radius); background: var(--accent-soft); }
+.tier-brand label { display: block; font-family: var(--mono); font-size: 10.5px; letter-spacing: .12em; text-transform: uppercase; color: var(--accent-ink); margin-bottom: 8px; }
+.tier-brand input { width: 100%; max-width: 360px; padding: 9px 12px; border: 1px solid var(--border-strong); border-radius: 8px; background: var(--surface); color: var(--ink); font: inherit; }
+.tier-brand-out { margin-top: 10px; font-weight: 600; color: var(--ink); }
+.tier-actions { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 22px; }
+@media (max-width: 700px){ .tier-list { grid-template-columns: 1fr; } .tier-tool { padding: 20px; } .tier-amt { text-align: left; } }
+@media (prefers-reduced-motion: reduce){ .tier-list li { animation: none; } }

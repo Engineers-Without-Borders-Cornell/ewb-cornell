@@ -25,7 +25,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.6.0/dist/tabler-icons.min.css">
   <link rel="stylesheet" href="../css/style.css?v=118">
-  <link rel="stylesheet" href="../css/pages.css?v=118">
+  <link rel="stylesheet" href="../css/pages.css?v=119">
   <link rel="stylesheet" media="print" href="../css/print.css?v=118">
   <script>document.documentElement.classList.add('js');</script>
   <link rel="icon" href="/favicon.ico" sizes="any">
@@ -192,12 +192,92 @@
   </div>
 </section>
 
-<!-- HOW TO GIVE -->
-<section class="section" id="give">
+<!-- SPONSORSHIP BENEFITS -->
+<section class="section" id="benefits">
   <div class="container">
     <div class="xhead rv">
       <div>
-        <p class="xindex">03 / How To Give</p>
+        <p class="xindex">03 / Sponsorship Benefits</p>
+        <h2>Partnership opportunities.</h2>
+      </div>
+      <p>We offer a range of sponsorship levels to recognize and thank our partners.</p>
+    </div>
+
+    <div class="tier-cards tier-cards-4">
+      <article class="tcard tier-bronze tier-pick rv" data-tier="bronze" role="button" tabindex="0" aria-pressed="false">
+        <div class="badge">Bronze</div>
+        <div class="amt">$500</div>
+        <div class="nm">Bronze</div>
+        <ul>
+          <li><i class="ti ti-check"></i>Your logo on the EWB-Cornell website.</li>
+          <li><i class="ti ti-check"></i>Thank you on our team&#8217;s Instagram page.</li>
+        </ul>
+      </article>
+      <article class="tcard tier-silver tier-pick rv rv-d1" data-tier="silver" role="button" tabindex="0" aria-pressed="false">
+        <div class="badge">Silver</div>
+        <div class="amt">$1,000</div>
+        <div class="nm">Silver</div>
+        <ul>
+          <li><i class="ti ti-check"></i>Bronze benefits.</li>
+          <li><i class="ti ti-check"></i>An exclusive feature in our team newsletter.</li>
+          <li><i class="ti ti-check"></i>A LinkedIn thank you post.</li>
+        </ul>
+      </article>
+      <article class="tcard tier-gold tier-pick rv" data-tier="gold" role="button" tabindex="0" aria-pressed="false">
+        <div class="badge">Gold</div>
+        <div class="amt">$1,500</div>
+        <div class="nm">Gold</div>
+        <ul>
+          <li><i class="ti ti-check"></i>Silver benefits.</li>
+          <li><i class="ti ti-check"></i>Logo on official uniform apparel and promotional banner.</li>
+          <li><i class="ti ti-check"></i>Guest speaking and recruitment opportunities.</li>
+        </ul>
+      </article>
+      <article class="tcard tier-platinum tier-pick rv rv-d1" data-tier="platinum" role="button" tabindex="0" aria-pressed="false">
+        <div class="badge">Platinum</div>
+        <div class="amt">$2,500<span>+</span></div>
+        <div class="nm">Platinum</div>
+        <ul>
+          <li><i class="ti ti-check"></i>Gold benefits.</li>
+          <li><i class="ti ti-check"></i>Co-branded educational content &amp; promotional materials.</li>
+          <li><i class="ti ti-check"></i>Naming rights for project feature and final deliverable (e.g., &#8220;[Company Name] Water Collection System&#8221;).</li>
+        </ul>
+      </article>
+    </div>
+
+    <div class="tier-tool rv" id="tierTool">
+      <div class="tier-tool-head">
+        <div>
+          <p class="xindex" style="margin-bottom:6px;display:flex;">Build your package</p>
+          <label for="tierSlider" class="tier-tool-q">Pick a level or drag to a gift amount</label>
+        </div>
+        <div class="tier-amt" aria-live="polite"><span id="tierAmt">$1,000</span><small id="tierName">Silver</small></div>
+      </div>
+      <input type="range" id="tierSlider" min="0" max="3000" step="100" value="1000" aria-label="Sponsorship amount in dollars">
+      <div class="tier-ticks" aria-hidden="true"><span style="left:0">$0</span><span style="left:16.67%">$500</span><span style="left:33.33%">$1,000</span><span style="left:50%">$1,500</span><span style="left:83.33%">$2,500+</span></div>
+      <p class="tier-below" id="tierBelow" hidden>Gifts of any size fund our projects. Sponsor recognition begins at $500.</p>
+      <ul class="tier-list" id="tierList"></ul>
+      <div class="tier-brand" id="tierBrand" hidden>
+        <label for="tierCo">Preview your naming rights</label>
+        <input type="text" id="tierCo" placeholder="Your company name" maxlength="40" autocomplete="organization">
+        <p class="tier-brand-out" id="tierBrandOut">[Company Name] Water Collection System</p>
+      </div>
+      <div class="tier-actions">
+        <a class="btn btn-primary" id="tierCta" href="mailto:ewb@cornell.edu">Sponsor at Silver</a>
+        <a class="btn btn-outline" href="#give">Other ways to give</a>
+      </div>
+    </div>
+
+    <p class="dmeta rv" style="margin-top:28px;">All sponsors also receive a personalized thank-you letter and an exclusive impact report following the completion of the project.</p>
+  </div>
+</section>
+
+<!-- HOW TO GIVE -->
+<section class="section section-alt" id="give">
+  <div class="container">
+    <div class="xhead rv">
+      <div>
+        <p class="xindex">04 / How To Give</p>
         <h2>Ways to support the chapter.</h2>
       </div>
       <p>Donations are tax-deductible. Need a charitable receipt or an invoice? Email the chapter and we will sort it out.</p>
@@ -240,11 +320,11 @@
 </section>
 
 <!-- SUPPORTERS -->
-<section class="section section-alt">
+<section class="section">
   <div class="container">
     <div class="xhead rv" style="margin-bottom:32px;">
       <div>
-        <p class="xindex">04 / Our Supporters</p>
+        <p class="xindex">05 / Our Supporters</p>
         <h2>Our sponsors.</h2>
       </div>
       <a href="mailto:ewb@cornell.edu" class="btn btn-ghost">Become a partner</a>
@@ -316,7 +396,7 @@
   </div>
 </footer>
 
-<script src="../js/script.js?v=118"></script>
-<script src="../js/pages.js?v=118"></script>
+<script src="../js/script.js?v=119"></script>
+<script src="../js/pages.js?v=119"></script>
 </body>
 </html>
