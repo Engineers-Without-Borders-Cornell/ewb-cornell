@@ -333,7 +333,12 @@
     lb.innerHTML = '<button class="lightbox-close" aria-label="Close">&times;</button><img alt="">';
     document.body.appendChild(lb);
     const lbImg = lb.querySelector('img');
-    const close = () => { lb.classList.remove('open'); };
+    // The lightbox <img> is reused between photos. If it stays visible while the
+    // next file loads, the PREVIOUS photo flashes first. Keep it hidden (no
+    // 'ready' class) until the new one has loaded, and drop the old src on close.
+    const close = () => { lb.classList.remove('open', 'ready'); };
+    lbImg.addEventListener('load', () => { if (lbImg.getAttribute('src')) lb.classList.add('ready'); });
+    lbImg.addEventListener('error', () => lb.classList.add('ready'));
     lb.addEventListener('click', e => { if (e.target === lb || e.target.classList.contains('lightbox-close')) close(); });
     document.addEventListener('keydown', e => { if (e.key === 'Escape') close(); });
     gitems.forEach(g => {
@@ -341,7 +346,15 @@
       if (!img) return;
       // src is always the full-size original; the tile itself may be showing
       // a smaller copy picked from srcset, so currentSrc would open that
-      g.addEventListener('click', () => { lbImg.src = img.src; lbImg.alt = img.alt || ''; lb.classList.add('open'); });
+      g.addEventListener('click', () => {
+        lb.classList.remove('ready');
+        lbImg.removeAttribute('src');
+        lbImg.alt = img.alt || '';
+        lbImg.src = img.src;
+        lb.classList.add('open');
+        // already-cached files can be complete before the load event is seen
+        if (lbImg.complete && lbImg.naturalWidth) lb.classList.add('ready');
+      });
     });
   }
 

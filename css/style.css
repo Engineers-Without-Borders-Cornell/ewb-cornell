@@ -869,7 +869,8 @@ p { text-wrap: pretty; }
 .gallery-placeholder-icon { font-size: 1.8rem; opacity: 0.5; }
 .lightbox { position: fixed; inset: 0; background: oklch(15% 0.01 258 / 0.94); z-index: var(--z-lightbox); display: flex; align-items: center; justify-content: center; opacity: 0; pointer-events: none; transition: opacity 0.25s ease !important; }
 .lightbox.open { opacity: 1; pointer-events: all; }
-.lightbox img { max-width: 90vw; max-height: 85vh; border-radius: var(--radius-lg); }
+.lightbox img { max-width: 90vw; max-height: 85vh; border-radius: var(--radius-lg); opacity: 0; transition: opacity 0.2s ease; }
+.lightbox.ready img { opacity: 1; }
 .lightbox-close { position: absolute; top: 20px; right: 24px; color: #fff; font-size: 1.6rem; background: oklch(100% 0 0 / 0.1); border-radius: var(--radius); width: 42px; height: 42px; display: flex; align-items: center; justify-content: center; }
 @media (max-width: 768px) { .gallery-grid { columns: 2; } }
 @media (max-width: 480px) { .gallery-grid { columns: 1; } }
