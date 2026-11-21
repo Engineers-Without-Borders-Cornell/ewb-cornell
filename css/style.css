@@ -1139,3 +1139,11 @@ html.scroll-locked .rail { right: calc(24px + var(--sbw, 0px)); }
   .campaign-count span { margin-top: 0; }
   .campaign-inner .btn { justify-self: stretch; text-align: center; justify-content: center; }
 }
+
+/* Chapter logo | EWB-USA logo */
+.nav-brand { display: flex; align-items: center; gap: 14px; flex-shrink: 0; }
+.nav-brand-divider { width: 1px; align-self: stretch; margin: 14px 0; background: currentColor; opacity: .3; color: var(--ink); }
+.nav-partner { display: flex; }
+.nav-partner-img { height: 54px; }
+@media (max-width: 768px) { .nav-brand { gap: 10px; } .nav-partner-img { height: 40px; } .nav-brand-divider { margin: 10px 0; } }
+.menu-open .nav-brand-divider, .menu-open .nav-partner { opacity: 0; pointer-events: none; }

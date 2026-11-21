@@ -37,6 +37,7 @@
 .nav:not(.scrolled) .nav-logo-mark { background: #fff; color: var(--accent-solid); }
 /* White logo over the dark photographic hero (light mode); dark mode already white */
 .nav:not(.scrolled) .nav-logo-img { filter: brightness(0) saturate(100%) invert(1); }
+.nav:not(.scrolled) .nav-brand-divider { color: #fff; }
 
 /* =============================================================
    HERO (full-bleed photographic)
