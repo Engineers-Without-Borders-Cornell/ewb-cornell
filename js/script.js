@@ -477,40 +477,113 @@ document.addEventListener('DOMContentLoaded', function initCampaign() {
   });
 });
 
-// Crowdfunding pop-up: shown on every page load while the campaign is open
-// (closes Dec 5, 2026, 12:00 AM EST = 05:00 UTC), then never again.
+// =============================================
+// Crowdfunding: top banner (every page, live countdown) and a welcome
+// pop-up (homepage only). Both disappear for good once the campaign closes
+// (Dec 5, 2026, 12:00 AM EST = 05:00 UTC).
+// =============================================
+const CF_URL = 'https://crowdfunding.cornell.edu/project/50934';
+const CF_END = Date.UTC(2026, 11, 5, 5, 0, 0);
+const cfPad = n => String(n).padStart(2, '0');
+
+document.addEventListener('DOMContentLoaded', function initCampaignBar() {
+  if (Date.now() >= CF_END) return;
+  let dismissed = false;
+  try { dismissed = sessionStorage.getItem('ewb-cf-bar') === 'closed'; } catch (e) {}
+  if (dismissed) return;
+
+  const bar = document.createElement('div');
+  bar.className = 'cf-bar';
+  bar.setAttribute('role', 'region');
+  bar.setAttribute('aria-label', 'Crowdfunding campaign');
+  bar.innerHTML =
+    '<div class="cf-bar-inner">' +
+      '<span class="cf-bar-live"><span class="dot" aria-hidden="true"></span>Live</span>' +
+      '<span class="cf-bar-msg"><strong>Our crowdfunding campaign is live.</strong><span class="cf-bar-long"> Every gift builds water, sanitation and housing projects.</span></span>' +
+      '<span class="cf-bar-clock" aria-label="Time left in the campaign">' +
+        '<span><b data-u="d">0</b>d</span><span><b data-u="h">00</b>h</span><span><b data-u="m">00</b>m</span><span><b data-u="s">00</b>s</span>' +
+      '</span>' +
+      '<a class="cf-bar-btn" href="' + CF_URL + '" target="_blank" rel="noopener">Give Now</a>' +
+      '<button class="cf-bar-x" type="button" aria-label="Hide crowdfunding banner">&times;</button>' +
+    '</div>';
+  document.body.prepend(bar);
+  const units = {};
+  bar.querySelectorAll('[data-u]').forEach(b => { units[b.dataset.u] = b; });
+
+  function tick() {
+    const ms = CF_END - Date.now();
+    if (ms <= 0) { hide(); return; }
+    const t = Math.floor(ms / 1000);
+    units.d.textContent = Math.floor(t / 86400);
+    units.h.textContent = cfPad(Math.floor(t / 3600) % 24);
+    units.m.textContent = cfPad(Math.floor(t / 60) % 60);
+    units.s.textContent = cfPad(t % 60);
+  }
+  let timer = null;
+  function hide() {
+    clearInterval(timer);
+    document.documentElement.classList.remove('has-cf-bar');
+    bar.classList.add('closing');
+    setTimeout(() => bar.remove(), 400);
+  }
+  tick();
+  timer = setInterval(tick, 1000);
+  requestAnimationFrame(() => document.documentElement.classList.add('has-cf-bar'));
+  bar.querySelector('.cf-bar-x').addEventListener('click', () => {
+    try { sessionStorage.setItem('ewb-cf-bar', 'closed'); } catch (e) {}
+    hide();
+  });
+});
+
 document.addEventListener('DOMContentLoaded', function initCampaignPopup() {
-  const URL = 'https://crowdfunding.cornell.edu/project/50934';
-  const ms = Date.UTC(2026, 11, 5, 5, 0, 0) - Date.now();
+  // homepage only
+  if (!document.querySelector('.xhero')) return;
+  const ms = CF_END - Date.now();
   if (ms <= 0) return;
   const days = Math.floor(ms / 864e5);
   const left = days >= 1 ? days + (days === 1 ? ' day' : ' days') + ' left'
                          : Math.max(1, Math.floor(ms / 36e5)) + ' hours left';
-  const onSponsors = location.pathname.replace(/\/+$/, '') === '/sponsors';
+  const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const photos = [
+    ['campaign-1', 'San Cristóbal residents and EWB Cornell members in front of the restroom they built together'],
+    ['campaign-2', 'An EWB Cornell member hugging a young girl outside the new restroom'],
+    ['campaign-3', 'A member lifting a child to add a handprint to the restroom wall'],
+    ['campaign-4', 'The restroom wall covered in handprints, with BOLIVIA painted above the Bolivian flag']
+  ];
 
   const wrap = document.createElement('div');
   wrap.className = 'cf-pop';
   wrap.innerHTML =
     '<div class="cf-pop-card" role="dialog" aria-modal="true" aria-labelledby="cfPopH" aria-describedby="cfPopP" tabindex="-1">' +
-      '<button class="cf-pop-x" type="button" aria-label="Close">&times;</button>' +
-      '<p class="cf-pop-kicker"><span class="dot" aria-hidden="true"></span>Cornell Crowdfunding &middot; ' + left + '</p>' +
-      '<h2 id="cfPopH">Our crowdfunding campaign is live.</h2>' +
-      '<p id="cfPopP">Help fund water and sanitation in Bolivia and the rest of EWB Cornell&#8217;s projects. The campaign closes December 5.</p>' +
-      '<div class="cf-pop-actions">' +
-        '<a class="btn btn-primary" href="' + URL + '" target="_blank" rel="noopener">Donate now</a>' +
-        (onSponsors ? '<button class="btn btn-outline cf-pop-later" type="button">Maybe later</button>'
-                    : '<a class="btn btn-outline" href="/sponsors/">See our sponsors</a>') +
+      '<div class="cf-pop-media">' +
+        photos.map((p, i) => '<img src="/assets/img/campaign/' + p[0] + '.webp?v=2" alt="' + (i ? '' : p[1]) + '"' +
+          (i ? ' aria-hidden="true"' : '') + ' class="' + (i ? '' : 'on') + '" decoding="async">').join('') +
+        '<div class="cf-pop-dots" aria-hidden="true">' + photos.map((_, i) => '<span class="' + (i ? '' : 'on') + '"></span>').join('') + '</div>' +
+      '</div>' +
+      '<div class="cf-pop-body">' +
+        '<button class="cf-pop-x" type="button" aria-label="Close">&times;</button>' +
+        '<p class="cf-pop-kicker"><span class="dot" aria-hidden="true"></span>Fall 2026 Crowdfunding</p>' +
+        '<h2 id="cfPopH">Help us fund humanitarian engineering worldwide.</h2>' +
+        '<p id="cfPopP" class="cf-pop-sub">From Cornell to Austin to Bolivia!</p>' +
+        '<div class="cf-pop-rule" aria-hidden="true"><span></span></div>' +
+        '<p class="cf-pop-meta"><strong>' + left + '</strong> &middot; closes December 5 &middot; every gift is tax-deductible</p>' +
+        '<div class="cf-pop-actions">' +
+          '<a class="cf-btn cf-btn-primary" href="' + CF_URL + '" target="_blank" rel="noopener">Donate Now :)</a>' +
+          '<a class="cf-btn cf-btn-ghost" href="/sponsors/">Check out our Sponsors Page</a>' +
+        '</div>' +
       '</div>' +
     '</div>';
 
-  let lastFocus = null;
+  let lastFocus = null, slideTimer = null;
   function close() {
     if (!wrap.classList.contains('open')) return;
+    clearInterval(slideTimer);
     wrap.classList.remove('open');
+    wrap.classList.add('closing');
     document.removeEventListener('keydown', onKey);
     unlockScroll();
-    setTimeout(() => wrap.remove(), 250);
-    if (lastFocus && lastFocus.focus) lastFocus.focus();
+    setTimeout(() => wrap.remove(), reduce ? 0 : 420);
+    if (lastFocus && lastFocus.focus) lastFocus.focus({ preventScroll: true });
   }
   function onKey(e) {
     if (e.key === 'Escape') return close();
@@ -521,18 +594,35 @@ document.addEventListener('DOMContentLoaded', function initCampaignPopup() {
     else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
   }
   wrap.addEventListener('click', e => {
-    if (e.target === wrap || e.target.closest('.cf-pop-x, .cf-pop-later')) close();
+    if (e.target === wrap || e.target.closest('.cf-pop-x')) close();
   });
-  wrap.querySelector('a.btn-primary').addEventListener('click', () => setTimeout(close, 0));
+  wrap.querySelector('.cf-btn-primary').addEventListener('click', () => setTimeout(close, 0));
 
-  setTimeout(() => {
+  function open() {
     document.body.appendChild(wrap);
     lastFocus = document.activeElement;
     lockScroll();
     document.addEventListener('keydown', onKey);
-    requestAnimationFrame(() => {
+    // two frames so the starting styles are painted before the transition runs
+    requestAnimationFrame(() => requestAnimationFrame(() => {
       wrap.classList.add('open');
       wrap.querySelector('.cf-pop-card').focus({ preventScroll: true });
-    });
-  }, 700);
+    }));
+    if (!reduce) {
+      const imgs = wrap.querySelectorAll('.cf-pop-media img'), dots = wrap.querySelectorAll('.cf-pop-dots span');
+      let i = 0;
+      slideTimer = setInterval(() => {
+        imgs[i].classList.remove('on'); dots[i].classList.remove('on');
+        i = (i + 1) % imgs.length;
+        imgs[i].classList.add('on'); dots[i].classList.add('on');
+      }, 4200);
+    }
+  }
+  // wait for the first photo so the card never opens on an empty panel
+  const first = new Image();
+  let opened = false;
+  const go = () => { if (!opened) { opened = true; setTimeout(open, 600); } };
+  first.onload = first.onerror = go;
+  first.src = '/assets/img/campaign/campaign-1.webp?v=2';
+  setTimeout(go, 2500);
 });
