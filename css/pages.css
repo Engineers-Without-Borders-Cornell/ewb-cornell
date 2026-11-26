@@ -949,3 +949,7 @@
   .tl-sheen, .tl-spark { display: none; }
   .tl-flare { transform: translate(-50%,-50%) scale(.9); }
 }
+
+/* Unit costs by project: four cards, 2 x 2 */
+.unit-cards { grid-template-columns: repeat(2, 1fr); }
+@media (max-width: 900px) { .unit-cards { grid-template-columns: 1fr; } }

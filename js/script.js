@@ -457,12 +457,12 @@ document.addEventListener('keydown', e => {
 // Crowdfunding banner: counts down to the campaign close (Dec 5, 2026, 12:00 AM EST = 05:00 UTC).
 document.addEventListener('DOMContentLoaded', function initCampaign() {
   const end = Date.UTC(2026, 11, 5, 5, 0, 0);
-  // Gift links point at the campaign until it closes, then go back to the Cornell gift fund.
+  // Gift links point at the campaign until it closes, then go back to the Cornell gift fund
+  // (link and label).
   if (Date.now() >= end) {
-    document.querySelectorAll('a[data-after-href]').forEach(a => {
-      a.href = a.dataset.afterHref;
-      if (a.dataset.afterText) a.textContent = a.dataset.afterText;
-    });
+    document.querySelectorAll('a[data-after-href]').forEach(a => { a.href = a.dataset.afterHref; });
+    // Labels renamed for the campaign go back to their original wording.
+    document.querySelectorAll('[data-after-text]').forEach(el => { el.textContent = el.dataset.afterText; });
   }
   document.querySelectorAll('[data-campaign]').forEach(box => {
     const num = box.querySelector('[data-campaign-num]');
@@ -475,4 +475,64 @@ document.addEventListener('DOMContentLoaded', function initCampaign() {
     num.textContent = n;
     unit.textContent = label;
   });
+});
+
+// Crowdfunding pop-up: shown on every page load while the campaign is open
+// (closes Dec 5, 2026, 12:00 AM EST = 05:00 UTC), then never again.
+document.addEventListener('DOMContentLoaded', function initCampaignPopup() {
+  const URL = 'https://crowdfunding.cornell.edu/project/50934';
+  const ms = Date.UTC(2026, 11, 5, 5, 0, 0) - Date.now();
+  if (ms <= 0) return;
+  const days = Math.floor(ms / 864e5);
+  const left = days >= 1 ? days + (days === 1 ? ' day' : ' days') + ' left'
+                         : Math.max(1, Math.floor(ms / 36e5)) + ' hours left';
+  const onSponsors = location.pathname.replace(/\/+$/, '') === '/sponsors';
+
+  const wrap = document.createElement('div');
+  wrap.className = 'cf-pop';
+  wrap.innerHTML =
+    '<div class="cf-pop-card" role="dialog" aria-modal="true" aria-labelledby="cfPopH" aria-describedby="cfPopP" tabindex="-1">' +
+      '<button class="cf-pop-x" type="button" aria-label="Close">&times;</button>' +
+      '<p class="cf-pop-kicker"><span class="dot" aria-hidden="true"></span>Cornell Crowdfunding &middot; ' + left + '</p>' +
+      '<h2 id="cfPopH">Our crowdfunding campaign is live.</h2>' +
+      '<p id="cfPopP">Help fund water and sanitation in Bolivia and the rest of EWB Cornell&#8217;s projects. The campaign closes December 5.</p>' +
+      '<div class="cf-pop-actions">' +
+        '<a class="btn btn-primary" href="' + URL + '" target="_blank" rel="noopener">Donate now</a>' +
+        (onSponsors ? '<button class="btn btn-outline cf-pop-later" type="button">Maybe later</button>'
+                    : '<a class="btn btn-outline" href="/sponsors/">See our sponsors</a>') +
+      '</div>' +
+    '</div>';
+
+  let lastFocus = null;
+  function close() {
+    if (!wrap.classList.contains('open')) return;
+    wrap.classList.remove('open');
+    document.removeEventListener('keydown', onKey);
+    unlockScroll();
+    setTimeout(() => wrap.remove(), 250);
+    if (lastFocus && lastFocus.focus) lastFocus.focus();
+  }
+  function onKey(e) {
+    if (e.key === 'Escape') return close();
+    if (e.key !== 'Tab') return;
+    const f = wrap.querySelectorAll('a, button');
+    const first = f[0], last = f[f.length - 1];
+    if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+    else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+  }
+  wrap.addEventListener('click', e => {
+    if (e.target === wrap || e.target.closest('.cf-pop-x, .cf-pop-later')) close();
+  });
+  wrap.querySelector('a.btn-primary').addEventListener('click', () => setTimeout(close, 0));
+
+  setTimeout(() => {
+    document.body.appendChild(wrap);
+    lastFocus = document.activeElement;
+    lockScroll();
+    document.addEventListener('keydown', onKey);
+    requestAnimationFrame(() => {
+      wrap.classList.add('open');
+      wrap.querySelector('.cf-pop-card').focus({ preventScroll: true });
+    });
+  }, 700);
 });

@@ -311,7 +311,7 @@
     const presets = Array.from(document.querySelectorAll('.calc-preset'));
     function render() {
       const amt = Math.max(0, parseInt(calcInput.value, 10) || 0);
-      if (elPipe) elPipe.textContent = fmt(Math.floor(amt / 100));
+      if (elPipe) elPipe.textContent = fmt(Math.floor(amt / 10));   // $100 = 10 m of water piping
       if (elSolar) elSolar.textContent = fmt(Math.floor(amt / 150));
       if (elTool) elTool.textContent = fmt(Math.floor(amt / 500));
       const pct = Math.min((amt / 50000) * 100, 100);

@@ -1147,3 +1147,18 @@ html.scroll-locked .rail { right: calc(24px + var(--sbw, 0px)); }
 .nav-partner-img { height: 54px; }
 @media (max-width: 768px) { .nav-brand { gap: 10px; } .nav-partner-img { height: 40px; } .nav-brand-divider { margin: 10px 0; } }
 .menu-open .nav-brand-divider, .menu-open .nav-partner { opacity: 0; pointer-events: none; }
+
+/* Crowdfunding pop-up (js/script.js initCampaignPopup) */
+.cf-pop { position: fixed; inset: 0; z-index: 2000; display: flex; align-items: center; justify-content: center; padding: 16px; background: rgba(10, 20, 35, .55); opacity: 0; transition: opacity .25s ease; }
+.cf-pop.open { opacity: 1; }
+.cf-pop-card { position: relative; width: 100%; max-width: 460px; padding: 32px 30px 28px; background: var(--surface); color: var(--ink); border: 1px solid var(--border); border-top: 6px solid var(--accent); border-radius: var(--radius-lg); box-shadow: var(--shadow-lg); transform: translateY(12px) scale(.98); transition: transform .3s cubic-bezier(.2,.8,.2,1); outline: none; }
+.cf-pop.open .cf-pop-card { transform: none; }
+.cf-pop-x { position: absolute; top: 10px; right: 12px; width: 36px; height: 36px; border: 0; border-radius: 50%; background: transparent; color: var(--muted); font-size: 26px; line-height: 1; cursor: pointer; }
+.cf-pop-x:hover { background: var(--accent-soft); color: var(--ink); }
+.cf-pop-kicker { display: flex; align-items: center; gap: 8px; margin: 0 0 12px; font-family: var(--mono); font-size: 11px; letter-spacing: .12em; text-transform: uppercase; color: var(--accent-ink); }
+.cf-pop-kicker .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--accent); box-shadow: 0 0 0 4px var(--accent-soft); }
+.cf-pop-card h2 { margin: 0 0 10px; font-size: clamp(1.4rem, 4vw, 1.75rem); font-weight: 600; letter-spacing: -0.02em; line-height: 1.15; color: var(--ink); }
+.cf-pop-card p#cfPopP { margin: 0 0 22px; color: var(--muted); line-height: 1.6; }
+.cf-pop-actions { display: flex; flex-wrap: wrap; gap: 10px; }
+@media (max-width: 480px) { .cf-pop-card { padding: 28px 20px 22px; } .cf-pop-actions .btn { flex: 1 1 100%; justify-content: center; text-align: center; } }
+@media (prefers-reduced-motion: reduce) { .cf-pop, .cf-pop-card { transition: none; } }
