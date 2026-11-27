@@ -615,7 +615,7 @@ document.addEventListener('DOMContentLoaded', function initCampaignPopup() {
         imgs[i].classList.remove('on'); dots[i].classList.remove('on');
         i = (i + 1) % imgs.length;
         imgs[i].classList.add('on'); dots[i].classList.add('on');
-      }, 4200);
+      }, 2800);
     }
   }
   // wait for the first photo so the card never opens on an empty panel

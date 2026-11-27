@@ -314,7 +314,7 @@
       if (elPipe) elPipe.textContent = fmt(Math.floor(amt / 10));   // $100 = 10 m of water piping
       if (elSolar) elSolar.textContent = fmt(Math.floor(amt / 150));
       if (elTool) elTool.textContent = fmt(Math.floor(amt / 500));
-      const pct = Math.min((amt / 50000) * 100, 100);
+      const pct = Math.min((amt / 80000) * 100, 100);
       if (elFill) elFill.style.width = pct + '%';
       if (elPct) elPct.textContent = (pct < 1 && amt > 0 ? pct.toFixed(1) : Math.round(pct)) + '%';
       if (elSummary) elSummary.textContent = '$' + fmt(amt) + ' puts to work:';

@@ -94,7 +94,7 @@
       elPipe.textContent = fmt(Math.floor(amt / 100));
       elSolar.textContent = fmt(Math.floor(amt / 150));
       elTool.textContent = fmt(Math.floor(amt / 500));
-      const pct = Math.min((amt / 50000) * 100, 100);
+      const pct = Math.min((amt / 80000) * 100, 100);
       elFill.style.width = pct + '%';
       elPct.textContent = (pct < 1 && amt > 0 ? pct.toFixed(1) : Math.round(pct)) + '%';
       elSummary.textContent = '$' + fmt(amt) + ' puts to work:';

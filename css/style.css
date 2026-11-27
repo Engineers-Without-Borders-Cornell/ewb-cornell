@@ -1194,7 +1194,7 @@ html.has-cf-bar.menu-open .nav { top: 0; }
 .cf-pop.open .cf-pop-card { opacity: 1; transform: none; }
 .cf-pop.closing .cf-pop-card { transition-duration: .3s; transform: translateY(12px) scale(.98); }
 .cf-pop-media { position: relative; min-height: 420px; background: #13243F; overflow: hidden; }
-.cf-pop-media img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0; transform: scale(1.08); transition: opacity 1.2s ease, transform 6s linear; }
+.cf-pop-media img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0; transform: scale(1.08); transition: opacity .9s ease, transform 4s linear; }
 .cf-pop-media img.on { opacity: 1; transform: scale(1); }
 .cf-pop-media::after { content: ''; position: absolute; inset: 0; background: linear-gradient(90deg, rgba(11,26,51,0) 60%, rgba(11,26,51,.55)); pointer-events: none; }
 .cf-pop-dots { position: absolute; left: 18px; bottom: 16px; z-index: 1; display: flex; gap: 6px; }
